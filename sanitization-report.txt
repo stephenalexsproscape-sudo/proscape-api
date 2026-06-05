@@ -1,0 +1,1408 @@
+[INFO] Customer "Hsieh, Dennis" is missing email.
+[INFO] Customer "Powers, Karen & Gary" is missing email.
+[INFO] Customer "Yarnell, Mike" is missing email.
+[INFO] Customer "Skiles, Dan" is missing email.
+[INFO] Customer "Harford, Kathy" is missing email.
+[INFO] Customer "Marriott - Residence Inn" is missing email.
+[INFO] Customer "Marriott - Courtyard by Marriott" is missing email.
+[INFO] Customer "Kitlas, Andrew" is missing email.
+[INFO] Customer "Barbella, John" is missing email.
+[INFO] Customer "Parkway Plaza" is missing email.
+[INFO] Customer "Sheehan, John & Collen" is missing email.
+[INFO] Customer "Ward, Rebecca" is missing email.
+[INFO] Customer "Blanco, Carlos" is missing email.
+[INFO] Customer "The Station at State College" is missing email.
+[INFO] Customer "The Station at State College:Snow T&M" is missing email.
+[INFO] Customer "The Station at State College:2026 Monthly Maintenance" is missing email.
+[INFO] Customer "The Yards at Old State" is missing email.
+[INFO] Customer "The Yards at Old State:Snow T&M" is missing email.
+[INFO] Customer "The Yards at Old State:Miscellaneous" is missing email.
+[INFO] Customer "The Yards at Old State:2026 Monthly Maintenance" is missing email.
+[INFO] Customer "Viglione, Angela" is missing email.
+[INFO] Customer "Tudek Park (Ferguson Twnshp)" is missing email.
+[CRITICAL] Customer "PSU - Jeffrey Fields Project" (Contact #23) has NO email OR phone.
+[CRITICAL] Customer "Rockie" (Contact #24) has NO email OR phone.
+[INFO] Customer "Brachbill, Steven" is missing email.
+[INFO] Customer "Fleming. Jim" is missing email.
+[INFO] Customer "Viviano, Anthony" is missing email.
+[INFO] Customer "DST Investments" is missing email.
+[CRITICAL] Customer "DST Investments:612 Benjamin Court" (Contact #29) has NO email OR phone.
+[CRITICAL] Customer "DST Investments:3626 Whitehall" (Contact #30) has NO email OR phone.
+[INFO] Customer "Ewing, Paul" is missing email.
+[INFO] Customer "Allen, David & Keriann" is missing email.
+[INFO] Customer "Grey, Jim" is missing email.
+[INFO] Customer "Ramage, Megan & Thomas" is missing email.
+[CRITICAL] Customer "Duck, Bryce (Former EE)" (Contact #35) has NO email OR phone.
+[INFO] Customer "Holiday Inn" is missing email.
+[INFO] Customer "Gornick, Alex" is missing email.
+[CRITICAL] Customer "Kranich, Ashley" (Contact #38) has NO email OR phone.
+[INFO] Customer "Anderson, Nancy" is missing email.
+[INFO] Customer "Smith, Stephen & Michelle" is missing email.
+[CRITICAL] Customer "Martin, Brook" (Contact #41) has NO email OR phone.
+[INFO] Customer "Armburger, Jay & Letitia" is missing email.
+[INFO] Customer "Stiller, Sam" is missing email.
+[CRITICAL] Customer "Kimble, Jeff" (Contact #44) has NO email OR phone.
+[INFO] Customer "Hendricks, Rodney-c" is missing email.
+[INFO] Customer "Helms, Lisa" is missing email.
+[CRITICAL] Customer "Bellefonte Little League-c" (Contact #47) has NO email OR phone.
+[INFO] Customer "Folen, Rob" is missing email.
+[INFO] Customer "Petryczenko, Mike" is missing email.
+[INFO] Customer "HC Hood Co" is missing email.
+[INFO] Customer "Macelwee, Carene" is missing email.
+[INFO] Customer "Rockey, Steven" is missing email.
+[INFO] Customer "Welch, Leanne" is missing email.
+[INFO] Customer "Milewski, Tom & Donna" is missing email.
+[INFO] Customer "Rishel, Roxanne" is missing email.
+[INFO] Customer "Caracappa, Phyllis" is missing email.
+[INFO] Customer "Westmoreland Electric" is missing email.
+[INFO] Customer "Kreidler, Ann & Ronald" is missing email.
+[INFO] Customer "Township - Harris" is missing email.
+[INFO] Customer "Dorney, Megan" is missing email.
+[INFO] Customer "Porter Brothers" is missing email.
+[CRITICAL] Customer "Clarabelle, Lynn" (Contact #62) has NO email OR phone.
+[INFO] Customer "The Heights" is missing email.
+[CRITICAL] Customer "Township - College" (Contact #64) has NO email OR phone.
+[INFO] Customer "Wert, Janice & John" is missing email.
+[INFO] Customer "Bartley, Jon" is missing email.
+[INFO] Customer "Caliber Collision" is missing email.
+[INFO] Customer "Caliber Collision:Snow" is missing email.
+[INFO] Customer "Wing, Scott & Kara" is missing email.
+[INFO] Customer "Houser, Willis" is missing email.
+[CRITICAL] Customer "Poorman, Donna" (Contact #71) has NO email OR phone.
+[CRITICAL] Customer "Morris Mgmt (Best Buy)" (Contact #72) has NO email OR phone.
+[INFO] Customer "Ruff, Dickie" is missing email.
+[INFO] Customer "Spangler, Carol" is missing email.
+[CRITICAL] Customer "Pellicciotta_Lisa" (Contact #75) has NO email OR phone.
+[INFO] Customer "Irons, Janet" is missing email.
+[INFO] Customer "Flohr, Travis" is missing email.
+[CRITICAL] Customer "Khan, Azizur" (Contact #78) has NO email OR phone.
+[INFO] Customer "Food Bank, SC" is missing email.
+[INFO] Customer "Caskey, Chris & Cherrie" is missing email.
+[CRITICAL] Customer "Benett, Les" (Contact #81) has NO email OR phone.
+[INFO] Customer "Kipp, Phyllis & Richard" is missing email.
+[CRITICAL] Customer "Keat, Marilyn" (Contact #83) has NO email OR phone.
+[INFO] Customer "Homecoming Ridge COA" is missing email.
+[INFO] Customer "Dunn, Mary Polly & James" is missing email.
+[CRITICAL] Customer "Kingdom Hall Jehovah Witness" (Contact #86) has NO email OR phone.
+[INFO] Customer "Bryson, Gwendolyn" is missing email.
+[INFO] Customer "Englert, Butch" is missing email.
+[INFO] Customer "Lorenz, Luke & Dawn" is missing email.
+[INFO] Customer "Heverly, Rebecca" is missing email.
+[INFO] Customer "Haight, Molly" is missing email.
+[INFO] Customer "Irani, Hannah" is missing email.
+[INFO] Customer "Centre County Historical Society-C" is missing email.
+[INFO] Customer "Centre County Historical Society-C:Landscpae Job" is missing email.
+[INFO] Customer "Centre County Historical Society-C:Hardscape Job" is missing email.
+[INFO] Customer "Reed, Judy & William" is missing email.
+[INFO] Customer "Dorey, Lee" is missing email.
+[CRITICAL] Customer "Martin, Karen & Jeffrey" (Contact #98) has NO email OR phone.
+[INFO] Customer "Galcoci, Nancy" is missing email.
+[INFO] Customer "Patterson, Paul" is missing email.
+[INFO] Customer "Whitaker, Jane" is missing email.
+[INFO] Customer "Salada, Ian" is missing email.
+[INFO] Customer "Stoffels, Shelley" is missing email.
+[INFO] Customer "Swab, Lorraine & Jeffrey" is missing email.
+[INFO] Customer "Wendle, Ethan" is missing email.
+[INFO] Customer "Stillwagon, Jeff & Sandy" is missing email.
+[INFO] Customer "Hawk, Phil" is missing email.
+[INFO] Customer "Brungo, Maura" is missing email.
+[INFO] Customer "Dreibelbis, Doran" is missing email.
+[INFO] Customer "Drezner, Naomi" is missing email.
+[INFO] Customer "Baker, Paul" is missing email.
+[INFO] Customer "Torsell, Bernie" is missing email.
+[INFO] Customer "Lyons, Heather" is missing email.
+[INFO] Customer "Gordon, Davann" is missing email.
+[CRITICAL] Customer "Shvenke, Alex" (Contact #115) has NO email OR phone.
+[INFO] Customer "Lundberg, Michael" is missing email.
+[INFO] Customer "Firth, Karen" is missing email.
+[INFO] Customer "Ali, Jared" is missing email.
+[INFO] Customer "Batcho, Dan" is missing email.
+[INFO] Customer "Wilson, Dorothy" is missing email.
+[INFO] Customer "Manno, Sharon & Kenneth" is missing email.
+[CRITICAL] Customer "Holderman, Jake" (Contact #122) has NO email OR phone.
+[INFO] Customer "Moore, Michael" is missing email.
+[CRITICAL] Customer "Potter Twnshp Athletic" (Contact #124) has NO email OR phone.
+[INFO] Customer "Goldstine, Marian" is missing email.
+[INFO] Customer "Kearns, Shawn" is missing email.
+[INFO] Customer "Warneka, Lynn" is missing email.
+[CRITICAL] Customer "Kameda, Mechiko/Henry, Marc" (Contact #128) has NO email OR phone.
+[INFO] Customer "Brzycki, Henry & Elaine" is missing email.
+[INFO] Customer "Fisher, Kala" is missing email.
+[CRITICAL] Customer "Vlajic, Nick" (Contact #131) has NO email OR phone.
+[CRITICAL] Customer "Payne, Tyler" (Contact #132) has NO email OR phone.
+[CRITICAL] Customer "Winterrowd, Pat & Gary" (Contact #133) has NO email OR phone.
+[INFO] Customer "Portelli, John" is missing email.
+[CRITICAL] Customer "Long Ridge Construction - Orchard View:Orchard View HOA" (Contact #264) has NO email OR phone.
+[CRITICAL] Customer "Long Ridge Construction - Orchard View:Orchard View HOA:2023-2024 Snow" (Contact #265) has NO email OR phone.
+[INFO] Customer "The Ultran Group" is missing email.
+[INFO] Customer "Brexx At State College" is missing email.
+[INFO] Customer "Brexx At State College:Miscellaneous" is missing email.
+[INFO] Customer "Brexx At State College:Snow" is missing email.
+[INFO] Customer "Brexx At State College:Monthlies" is missing email.
+[INFO] Customer "Brexx At State College:Ice Melt Sale/Delivery" is missing email.
+[INFO] Customer "Brexx At State College:Splash Block Replacement" is missing email.
+[INFO] Customer "Brexx At State College:Landscape Rehabilitation" is missing email.
+[INFO] Customer "Depto, Daron" is missing email.
+[INFO] Customer "Depto, Daron:2022- Hardscaping Job" is missing email.
+[INFO] Customer "Barker, Dan" is missing email.
+[INFO] Customer "Witmer, Carol & Jim" is missing email.
+[INFO] Customer "Witmer, Carol & Jim:2022 - Hardscaping" is missing email.
+[INFO] Customer "Albert, Glenn & Louise" is missing email.
+[INFO] Customer "Albert, Glenn & Louise:2022 - Landscape Job" is missing email.
+[INFO] Customer "Kepler, Deborah" is missing email.
+[INFO] Customer "Kepler, Deborah:2022- Landscaping Job" is missing email.
+[CRITICAL] Customer "Matthews, Fred" (Contact #283) has NO email OR phone.
+[CRITICAL] Customer "Popovich, Alexander*" (Contact #284) has NO email OR phone.
+[INFO] Customer "Snyder, Mark & Nancy" is missing email.
+[INFO] Customer "Snyder, Mark & Nancy:2023 Maintenance" is missing email.
+[INFO] Customer "Snyder, Mark & Nancy:2022-Maintenance" is missing email.
+[INFO] Customer "Stark, Trevor" is missing email.
+[INFO] Customer "LeTersky, Jessica & Brian" is missing email.
+[CRITICAL] Customer "Best Line Equipment*" (Contact #290) has NO email OR phone.
+[CRITICAL] Customer "Holderman, Sheela" (Contact #291) has NO email OR phone.
+[INFO] Customer "King, Michael & Lee" is missing email.
+[INFO] Customer "King, Michael & Lee:2022 - Hardscaping Project" is missing email.
+[INFO] Customer "Dunmire, Marietta" is missing email.
+[INFO] Customer "Dunmire, Marietta:2022 - Landscpaing Project" is missing email.
+[INFO] Customer "Ocean State Job Lot - c" is missing email.
+[CRITICAL] Customer "Bowman Excavation:Holiday Inn on Dreibelbis" (Contact #383) has NO email OR phone.
+[CRITICAL] Customer "Bowman Excavation:The Villas" (Contact #384) has NO email OR phone.
+[INFO] Customer "Windmere Centre" is missing email.
+[CRITICAL] Customer "Hanna, Scott" (Contact #591) has NO email OR phone.
+[INFO] Customer "Stuckey Ford (Formerly JMaggi)" is missing email.
+[INFO] Customer "Stuckey Ford (Formerly JMaggi):2021-Bellefonte Project" is missing email.
+[INFO] Customer "Stuckey Ford (Formerly JMaggi):2021-Former CDT Building" is missing email.
+[INFO] Customer "Stuckey Ford (Formerly JMaggi):2020- Maintenance" is missing email.
+[INFO] Customer "Hearn, Mary" is missing email.
+[CRITICAL] Customer "Titan Federal Credit Union" (Contact #597) has NO email OR phone.
+[CRITICAL] Customer "Bartley, Doug" (Contact #598) has NO email OR phone.
+[CRITICAL] Customer "Bartley, Doug:111 Spring Hill Ln" (Contact #599) has NO email OR phone.
+[INFO] Customer "Kraytz, Eric" is missing email.
+[INFO] Customer "Hoffman, Jean" is missing email.
+[INFO] Customer "Black, Vivian" is missing email.
+[INFO] Customer "Black, Vivian:2021-Hillside/Retaining Wall" is missing email.
+[INFO] Customer "Black, Vivian:2020 Steps Ret Wall Patio Walks" is missing email.
+[INFO] Customer "Katancik, Tom" is missing email.
+[INFO] Customer "Guler, Ilgin" is missing email.
+[INFO] Customer "Guler, Ilgin:2024-25 Maintenance" is missing email.
+[INFO] Customer "Guler, Ilgin:2023 Maintenance" is missing email.
+[INFO] Customer "Guler, Ilgin:2022-Maintenance" is missing email.
+[INFO] Customer "Wham, Drew" is missing email.
+[INFO] Customer "Wham, Drew:2024-26 Maintenance" is missing email.
+[INFO] Customer "Wham, Drew:2023 Maintenance" is missing email.
+[INFO] Customer "Wham, Drew:2022-Maintenance" is missing email.
+[CRITICAL] Customer "Woodruff, Harold*" (Contact #614) has NO email OR phone.
+[INFO] Customer "Beal, Lyle & Joann" is missing email.
+[INFO] Customer "Beal, Lyle & Joann:2023 Maintenance" is missing email.
+[INFO] Customer "Beal, Lyle & Joann:2020-Maintenance" is missing email.
+[INFO] Customer "Guild, Nancy" is missing email.
+[INFO] Customer "Guild, Nancy:2020 - Paver Relay" is missing email.
+[INFO] Customer "Park Forest Enterprises, Inc." is missing email.
+[INFO] Customer "Kline, Ellen" is missing email.
+[INFO] Customer "Kline, Ellen:2024-2025 Snow" is missing email.
+[INFO] Customer "Kline, Ellen:2024 Maintenance" is missing email.
+[INFO] Customer "Kline, Ellen:2023-2024 Snow" is missing email.
+[INFO] Customer "Kline, Ellen:2023 Maintenance" is missing email.
+[INFO] Customer "Kline, Ellen:2022/2023 - Snow Maintenance" is missing email.
+[INFO] Customer "Kline, Ellen:2022-Maintenance" is missing email.
+[INFO] Customer "Matyaz, Joe" is missing email.
+[CRITICAL] Customer "Gagliardi, Jason" (Contact #629) has NO email OR phone.
+[INFO] Customer "State College Friends School" is missing email.
+[CRITICAL] Customer "State College Friends School:2025-2026 Snow" (Contact #631) has NO email OR phone.
+[INFO] Customer "State College Friends School:2024-2025 Snow" is missing email.
+[CRITICAL] Customer "State College Friends School:2023-2024 Snow" (Contact #633) has NO email OR phone.
+[CRITICAL] Customer "State College Friends School:2022/2023 - Snow Maintenance" (Contact #634) has NO email OR phone.
+[CRITICAL] Customer "State College Friends School:2020/2021-Snow" (Contact #635) has NO email OR phone.
+[INFO] Customer "Scipione, Cheryl" is missing email.
+[INFO] Customer "Scipione, Cheryl:2019 Aerated" is missing email.
+[INFO] Customer "Cooper, Sue" is missing email.
+[INFO] Customer "Foxdale Village" is missing email.
+[INFO] Customer "Foxdale Village:2025-2026 Snow" is missing email.
+[INFO] Customer "Foxdale Village:2024-2025 Snow" is missing email.
+[INFO] Customer "Foxdale Village:2023-2024 Snow" is missing email.
+[INFO] Customer "Foxdale Village:Hardscape Job" is missing email.
+[CRITICAL] Customer "Alight (SC Park Apts)" (Contact #135) has NO email OR phone.
+[CRITICAL] Customer "Alight (SC Park Apts):Monthly Maintenance" (Contact #136) has NO email OR phone.
+[CRITICAL] Customer "Popovich, Alex-Rental Property" (Contact #137) has NO email OR phone.
+[INFO] Customer "Nerkowski, Matt" is missing email.
+[INFO] Customer "Scallion, Dan" is missing email.
+[CRITICAL] Customer "Dry, Glenn" (Contact #140) has NO email OR phone.
+[CRITICAL] Customer "H/K Property Investments" (Contact #141) has NO email OR phone.
+[INFO] Customer "AARHUS 1174 Hardscape - Patio" is missing email.
+[INFO] Customer "Nurmagambetova, Mina" is missing email.
+[INFO] Customer "Hart, Karen" is missing email.
+[INFO] Customer "Brickhouse, Larry" is missing email.
+[INFO] Customer "Richards-Kalenak, Beth" is missing email.
+[INFO] Customer "Glickstein, Cindy & Bob" is missing email.
+[INFO] Customer "Doerr, Donna" is missing email.
+[INFO] Customer "Zipp, John" is missing email.
+[INFO] Customer "Strawberry Fields, Inc" is missing email.
+[INFO] Customer "Mauersberg, Brian" is missing email.
+[INFO] Customer "Shapiro, Hermine" is missing email.
+[INFO] Customer "Dunkelberger, Cathy" is missing email.
+[INFO] Customer "Pro Design & Construction" is missing email.
+[INFO] Customer "Brauser, Greg" is missing email.
+[CRITICAL] Customer "Duckworth, Melissa" (Contact #156) has NO email OR phone.
+[CRITICAL] Customer "Hagan, Matt" (Contact #157) has NO email OR phone.
+[INFO] Customer "Restall, Matthew" is missing email.
+[INFO] Customer "Brunelli, Anthony" is missing email.
+[INFO] Customer "Brunelli, Anthony:Concrete Pad" is missing email.
+[INFO] Customer "Brunelli, Anthony:Flagstone Patio" is missing email.
+[INFO] Customer "Armillas-Tiseyra, Magali" is missing email.
+[INFO] Customer "Sowko, Michelle &  Mic" is missing email.
+[INFO] Customer "Gates, Barbara" is missing email.
+[INFO] Customer "McCarl, Cyrus" is missing email.
+[INFO] Customer "Alessi, Carmen" is missing email.
+[INFO] Customer "Glantz, Nicholas" is missing email.
+[INFO] Customer "Centre Animal Hospital (Pro Design & Con)" is missing email.
+[INFO] Customer "Fish, Joan & Harold" is missing email.
+[INFO] Customer "Gamble, Ken" is missing email.
+[INFO] Customer "Ehrenburg, Kym & Tim" is missing email.
+[INFO] Customer "Hassinger, Brian & Sara" is missing email.
+[INFO] Customer "Kissinger, Brian & Chloe" is missing email.
+[INFO] Customer "Kissinger, Brian & Chloe:1051 Karen St, Boalsburg, PA" is missing email.
+[INFO] Customer "Kissinger, Brian & Chloe:RePointing" is missing email.
+[INFO] Customer "Kissinger, Brian & Chloe:Torrey Lane Properties" is missing email.
+[INFO] Customer "Kissinger, Brian & Chloe:1415 & 1417 University Drive" is missing email.
+[CRITICAL] Customer "Jiang, James" (Contact #178) has NO email OR phone.
+[INFO] Customer "Cunningham, Joann" is missing email.
+[CRITICAL] Customer "Stroschein, Gary" (Contact #180) has NO email OR phone.
+[INFO] Customer "Yearick, Russ & Amy" is missing email.
+[INFO] Customer "Pipe, Ashley" is missing email.
+[CRITICAL] Customer "Marshall, Jeffrey" (Contact #183) has NO email OR phone.
+[CRITICAL] Customer "Miller, Kevin" (Contact #184) has NO email OR phone.
+[INFO] Customer "Fantle, Matthew & Maureen" is missing email.
+[INFO] Customer "Fantle, Matthew & Maureen:Hardscape Job" is missing email.
+[INFO] Customer "Jones, Dan" is missing email.
+[INFO] Customer "Jones, Dan:Hardscape" is missing email.
+[CRITICAL] Customer "Aplan, Lucy" (Contact #189) has NO email OR phone.
+[CRITICAL] Customer "Choi, Sukwon" (Contact #190) has NO email OR phone.
+[INFO] Customer "Daniels, Carol" is missing email.
+[INFO] Customer "Heenan, Maria" is missing email.
+[INFO] Customer "Vadella, Katie" is missing email.
+[INFO] Customer "Castonguay, Louis" is missing email.
+[INFO] Customer "Capparelle, Toby & Noel" is missing email.
+[INFO] Customer "Williams, Kathy" is missing email.
+[CRITICAL] Customer "Shepherd, Ann" (Contact #197) has NO email OR phone.
+[CRITICAL] Customer "Friel, Janet" (Contact #198) has NO email OR phone.
+[INFO] Customer "Heron, John" is missing email.
+[INFO] Customer "Hartley, Jesse" is missing email.
+[CRITICAL] Customer "Kurtz, Alison" (Contact #201) has NO email OR phone.
+[INFO] Customer "Estep, Racquel" is missing email.
+[INFO] Customer "Allen, Michele" is missing email.
+[INFO] Customer "Borro, Brandi & Geoff" is missing email.
+[INFO] Customer "Wu, Hong" is missing email.
+[INFO] Customer "Wu, Hong:Landscape Enhance" is missing email.
+[INFO] Customer "Evitts, Paul" is missing email.
+[INFO] Customer "Evitts, Paul:2023 Maintenance" is missing email.
+[INFO] Customer "Zhou, Amanda" is missing email.
+[INFO] Customer "Ingold, Fredina/ Allison Rand" is missing email.
+[INFO] Customer "Ingold, Fredina/ Allison Rand:Hardscape" is missing email.
+[INFO] Customer "Contino, Laura & Michael" is missing email.
+[INFO] Customer "Contino, Laura & Michael:Hardscape" is missing email.
+[INFO] Customer "Quinn, Peter" is missing email.
+[INFO] Customer "Himes, Carla" is missing email.
+[INFO] Customer "Property Management, Inc. (PMI)" is missing email.
+[INFO] Customer "Property Management, Inc. (PMI):Paradise Shopping Center" is missing email.
+[INFO] Customer "Hopson-King, Joyce" is missing email.
+[INFO] Customer "Gido, Rosemary" is missing email.
+[INFO] Customer "Yecina, Lynn" is missing email.
+[INFO] Customer "Colonial Press" is missing email.
+[INFO] Customer "Sisitki, Bill" is missing email.
+[INFO] Customer "Waters, Alexander" is missing email.
+[CRITICAL] Customer "Curt Kimble" (Contact #224) has NO email OR phone.
+[INFO] Customer "Kaplan, Kelly" is missing email.
+[INFO] Customer "Kaplan, Kelly:2023 Maintenance" is missing email.
+[CRITICAL] Customer "Best Line Powersports" (Contact #227) has NO email OR phone.
+[CRITICAL] Customer "Best Line Corporate HQ" (Contact #228) has NO email OR phone.
+[INFO] Customer "Rolph, Christi" is missing email.
+[INFO] Customer "Drum, Tom" is missing email.
+[INFO] Customer "Michael Steese" is missing email.
+[INFO] Customer "Michael Steese:Seg. Wall & Stairs" is missing email.
+[INFO] Customer "Houser, James" is missing email.
+[INFO] Customer "White-Vega, Gabriel" is missing email.
+[INFO] Customer "Kresovich, David & Wanda" is missing email.
+[INFO] Customer "Kresovich, David & Wanda:2023 Hardscaping" is missing email.
+[INFO] Customer "Kresovich, David & Wanda:2023 Maintenance" is missing email.
+[INFO] Customer "Heininger, Laurie" is missing email.
+[INFO] Customer "Allebach, Rodney" is missing email.
+[INFO] Customer "Moore, Janet & Booker" is missing email.
+[INFO] Customer "Moore, Janet & Booker:626 E. Irvin Avenue, State College, PA" is missing email.
+[CRITICAL] Customer "Vovchenko, Alexandr" (Contact #242) has NO email OR phone.
+[INFO] Customer "Sherbondy, Paul" is missing email.
+[INFO] Customer "Shortle, James & Lou" is missing email.
+[INFO] Customer "Shortle, James & Lou:2025 Maintenance" is missing email.
+[INFO] Customer "Shortle, James & Lou:Hardscape" is missing email.
+[INFO] Customer "Shortle, James & Lou:2024 Maintenance" is missing email.
+[INFO] Customer "Shortle, James & Lou:2023 Maintenance" is missing email.
+[CRITICAL] Customer "Hettmansperger, Tom 2023 Hardscaping" (Contact #249) has NO email OR phone.
+[INFO] Customer "Khoury, Noreen & George" is missing email.
+[CRITICAL] Customer "Long Ridge Construction - Orchard View" (Contact #251) has NO email OR phone.
+[CRITICAL] Customer "Long Ridge Construction - Orchard View:BTJM Orchard View Lot 05" (Contact #252) has NO email OR phone.
+[CRITICAL] Customer "Long Ridge Construction - Orchard View:BTJM Orchard View Lot 01" (Contact #253) has NO email OR phone.
+[INFO] Customer "Oliver, Kris:2022Wall Project" is missing email.
+[CRITICAL] Customer "Long Ridge Construction - Orchard View:BTJM Orchard View Lot 14" (Contact #254) has NO email OR phone.
+[CRITICAL] Customer "Long Ridge Construction - Orchard View:ORCHARD SQUARE" (Contact #255) has NO email OR phone.
+[CRITICAL] Customer "Long Ridge Construction - Orchard View:ORCHARD SQUARE:2023-2024 Snow" (Contact #256) has NO email OR phone.
+[CRITICAL] Customer "Long Ridge Construction - Orchard View:BTJM Orchard View Lot 29" (Contact #257) has NO email OR phone.
+[CRITICAL] Customer "Long Ridge Construction - Orchard View:BTJM Orchard View Lot 16" (Contact #258) has NO email OR phone.
+[CRITICAL] Customer "Long Ridge Construction - Orchard View:BTJM Orchard View Lot 13" (Contact #259) has NO email OR phone.
+[CRITICAL] Customer "Long Ridge Construction - Orchard View:BTJM Orchard View Lot 12" (Contact #260) has NO email OR phone.
+[CRITICAL] Customer "Long Ridge Construction - Orchard View:BTJM Orchard View Lot 11" (Contact #261) has NO email OR phone.
+[CRITICAL] Customer "Long Ridge Construction - Orchard View:BTJM Orchard View Lot 10" (Contact #262) has NO email OR phone.
+[CRITICAL] Customer "Long Ridge Construction - Orchard View:BTJM Orchard View Lot 20" (Contact #263) has NO email OR phone.
+[INFO] Customer "Ocean State Job Lot - c:2024 - Nittany Commons" is missing email.
+[INFO] Customer "Ocean State Job Lot - c:2023-Nittany Commons" is missing email.
+[INFO] Customer "Ocean State Job Lot - c:2022 - Nittany Commons" is missing email.
+[INFO] Customer "Barner, Harold" is missing email.
+[INFO] Customer "Dubois, Lynn & Charles" is missing email.
+[INFO] Customer "Confer, Michael & Darlene" is missing email.
+[INFO] Customer "Confer, Michael & Darlene:2022- Hardscaping Project" is missing email.
+[INFO] Customer "Long, Dan & Dovizia" is missing email.
+[INFO] Customer "Long, Dan & Dovizia:Landscape" is missing email.
+[INFO] Customer "Long, Dan & Dovizia:2022- Hardscaping Project" is missing email.
+[CRITICAL] Customer "Myers, Mrs." (Contact #307) has NO email OR phone.
+[INFO] Customer "Moore, Randy" is missing email.
+[INFO] Customer "Mayes, Larry" is missing email.
+[INFO] Customer "Mayes, Larry:2022-Concrete Work" is missing email.
+[INFO] Customer "Nava Rios, Alma" is missing email.
+[CRITICAL] Customer "Happy Valley Blended Products" (Contact #312) has NO email OR phone.
+[CRITICAL] Customer "Happy Valley Blended Products:2022 - Project 21051" (Contact #313) has NO email OR phone.
+[CRITICAL] Customer "Fernsler, Fred" (Contact #314) has NO email OR phone.
+[INFO] Customer "Fura, Scott" is missing email.
+[INFO] Customer "Fura, Scott:2022-Hardscaping" is missing email.
+[INFO] Customer "DeGeorge, Denise" is missing email.
+[INFO] Customer "DeGeorge, Denise:2022-Hardscaping" is missing email.
+[INFO] Customer "Nieves, David" is missing email.
+[INFO] Customer "Nieves, David:2022-Tree Work" is missing email.
+[INFO] Customer "Shumate, Paul" is missing email.
+[INFO] Customer "Shumate, Paul:2022-Maintenance" is missing email.
+[INFO] Customer "Boeldt, Eric" is missing email.
+[INFO] Customer "Ouwehand, Pieter" is missing email.
+[INFO] Customer "Ouwehand, Pieter:2024 Hardscaping" is missing email.
+[INFO] Customer "Ouwehand, Pieter:2022-Hardscaping" is missing email.
+[INFO] Customer "Cutting Edge Tree Professionals, LLC*" is missing email.
+[CRITICAL] Customer "Telegrahpis, Sandy" (Contact #328) has NO email OR phone.
+[INFO] Customer "Whitney, Anne" is missing email.
+[INFO] Customer "Whitney, Anne:2022-Multi Job" is missing email.
+[INFO] Customer "Salter, Daniel" is missing email.
+[INFO] Customer "Salter, Daniel:2022-Regrading" is missing email.
+[CRITICAL] Customer "Berks Homes" (Contact #333) has NO email OR phone.
+[CRITICAL] Customer "Berks Homes:Ashford Manor" (Contact #334) has NO email OR phone.
+[CRITICAL] Customer "Berks Homes:OYL Central 100(002)" (Contact #335) has NO email OR phone.
+[CRITICAL] Customer "Berks Homes:Buffalo Run Road PH 1" (Contact #336) has NO email OR phone.
+[CRITICAL] Customer "Berks Homes:Shady Lane Estates" (Contact #337) has NO email OR phone.
+[CRITICAL] Customer "Berks Homes:Feidler Road" (Contact #338) has NO email OR phone.
+[CRITICAL] Customer "Berks Homes:Horizon" (Contact #339) has NO email OR phone.
+[CRITICAL] Customer "Berks Homes:Stonehenge" (Contact #340) has NO email OR phone.
+[CRITICAL] Customer "Berks Homes:Harvest Meadows Townhomes" (Contact #341) has NO email OR phone.
+[CRITICAL] Customer "Berks Homes:Harvest Meadows Townhomes:Snow" (Contact #342) has NO email OR phone.
+[CRITICAL] Customer "Berks Homes:Werner Springfield Commons" (Contact #343) has NO email OR phone.
+[INFO] Customer "Yevchak, Lecinda" is missing email.
+[INFO] Customer "Yevchak, Lecinda:2024 Projects" is missing email.
+[INFO] Customer "Yevchak, Lecinda:2022-Driveway Project" is missing email.
+[INFO] Customer "Galgoci, Nancy" is missing email.
+[INFO] Customer "Galgoci, Nancy:2025" is missing email.
+[INFO] Customer "Anderson, Bob" is missing email.
+[INFO] Customer "Seko Logistics" is missing email.
+[INFO] Customer "Seko Logistics:2022-Maintenance" is missing email.
+[INFO] Customer "Frances, Carroll" is missing email.
+[INFO] Customer "Frances, Carroll:2022-Maintenance" is missing email.
+[INFO] Customer "Deibler Machining" is missing email.
+[INFO] Customer "Horizon Federal Credit Union" is missing email.
+[INFO] Customer "Horizon Federal Credit Union:2023 Maintenance" is missing email.
+[INFO] Customer "Horizon Federal Credit Union:2022-Maintenance" is missing email.
+[INFO] Customer "Roszyk, Greg" is missing email.
+[INFO] Customer "Roszyk, Greg:2024-26 Maintenance" is missing email.
+[INFO] Customer "Roszyk, Greg:2023 Maintenance" is missing email.
+[INFO] Customer "Roszyk, Greg:2022-Maintenance" is missing email.
+[CRITICAL] Customer "Lauver, Spencer" (Contact #362) has NO email OR phone.
+[CRITICAL] Customer "Lauver, Spencer:2022-Multi Job" (Contact #363) has NO email OR phone.
+[CRITICAL] Customer "Spicer, Jake" (Contact #364) has NO email OR phone.
+[CRITICAL] Customer "Madrid, Paul" (Contact #365) has NO email OR phone.
+[INFO] Customer "Doyle, Nancy" is missing email.
+[INFO] Customer "Schmidbauer, Harmony" is missing email.
+[INFO] Customer "Schmidbauer, Harmony:2024-26 Maintenance" is missing email.
+[INFO] Customer "Schmidbauer, Harmony:2023 Maintenance" is missing email.
+[INFO] Customer "Schmidbauer, Harmony:2022-Maintenance" is missing email.
+[INFO] Customer "Ezray, Jay" is missing email.
+[INFO] Customer "Genovese, Katherine" is missing email.
+[INFO] Customer "Genovese, Katherine:2023 Maintenance" is missing email.
+[INFO] Customer "Genovese, Katherine:2022-Maintenance" is missing email.
+[INFO] Customer "Senn, Eileen" is missing email.
+[INFO] Customer "Senn, Eileen:2022-Walls/Patio/Deck" is missing email.
+[CRITICAL] Customer "Care Property Services" (Contact #377) has NO email OR phone.
+[INFO] Customer "Gray, Bill" is missing email.
+[INFO] Customer "Gray, Bill:2022-Hardscaping" is missing email.
+[CRITICAL] Customer "Bowman Excavation" (Contact #380) has NO email OR phone.
+[CRITICAL] Customer "Bowman Excavation:Trees" (Contact #381) has NO email OR phone.
+[CRITICAL] Customer "Bowman Excavation:Cleveland Bros (snow 2024-5)" (Contact #382) has NO email OR phone.
+[CRITICAL] Customer "Bowman Excavation:SC Food Bank" (Contact #385) has NO email OR phone.
+[CRITICAL] Customer "Bowman Excavation:2022-Bimini Lake" (Contact #386) has NO email OR phone.
+[INFO] Customer "Bellows Constructions, LLC" is missing email.
+[INFO] Customer "The Pointe" is missing email.
+[INFO] Customer "The Pointe:2025 Miscellaneous" is missing email.
+[INFO] Customer "The Pointe:Monthlies" is missing email.
+[INFO] Customer "The Pointe:2023 Monthly Maintenance" is missing email.
+[INFO] Customer "The Pointe:2022-Brush Clearing" is missing email.
+[INFO] Customer "The Pointe:2022/2023 - Maintenance" is missing email.
+[INFO] Customer "Oliver, Kris" is missing email.
+[INFO] Customer "Anskis, Rhonda" is missing email.
+[INFO] Customer "Anskis, Rhonda:2022-Driveway" is missing email.
+[CRITICAL] Customer "Spring Hill Lane" (Contact #398) has NO email OR phone.
+[CRITICAL] Customer "Spring Hill Lane:2024-2025, 2025-2026 Snow" (Contact #399) has NO email OR phone.
+[CRITICAL] Customer "Spring Hill Lane:2022/2023-Snow Maintenance" (Contact #400) has NO email OR phone.
+[INFO] Customer "Merritt, Laura" is missing email.
+[INFO] Customer "Merritt, Laura:2022-Pond Project" is missing email.
+[CRITICAL] Customer "Polymics, LTD" (Contact #403) has NO email OR phone.
+[CRITICAL] Customer "Polymics, LTD:2023 Maintenance" (Contact #404) has NO email OR phone.
+[CRITICAL] Customer "Polymics, LTD:2022/2023 - Snow Maintenance" (Contact #405) has NO email OR phone.
+[CRITICAL] Customer "Polymics, LTD:2022-Maintenance" (Contact #406) has NO email OR phone.
+[INFO] Customer "Sunbelt Rentals*" is missing email.
+[CRITICAL] Customer "Hume, Kathryn" (Contact #408) has NO email OR phone.
+[CRITICAL] Customer "Hume, Kathryn:2024-2025 Snow" (Contact #409) has NO email OR phone.
+[CRITICAL] Customer "Hume, Kathryn:2024-25" (Contact #410) has NO email OR phone.
+[CRITICAL] Customer "Hume, Kathryn:2023-2024 Snow" (Contact #411) has NO email OR phone.
+[CRITICAL] Customer "Hume, Kathryn:2022/2023 - Snow Maintenance" (Contact #412) has NO email OR phone.
+[CRITICAL] Customer "Roan, Kerstin" (Contact #413) has NO email OR phone.
+[CRITICAL] Customer "Roan, Kerstin:2022 - Hardscaping Project" (Contact #414) has NO email OR phone.
+[CRITICAL] Customer "Roan, Kerstin:2022-Window Well Repair" (Contact #415) has NO email OR phone.
+[INFO] Customer "Carter, Rosemary" is missing email.
+[INFO] Customer "Carter, Rosemary:2021-Foundation Repair" is missing email.
+[CRITICAL] Customer "Werner, Brent" (Contact #418) has NO email OR phone.
+[CRITICAL] Customer "Werner, Brent:2023-2024 Snow" (Contact #419) has NO email OR phone.
+[CRITICAL] Customer "Werner, Brent:2023-25 Maintenance" (Contact #420) has NO email OR phone.
+[CRITICAL] Customer "Werner, Brent:2022-Maintenance" (Contact #421) has NO email OR phone.
+[INFO] Customer "Allen, Daniel" is missing email.
+[INFO] Customer "Wasilko, John" is missing email.
+[INFO] Customer "Kranich, Charles" is missing email.
+[INFO] Customer "Kranich, Charles:2025-2026 Snow" is missing email.
+[INFO] Customer "Kranich, Charles:2024-2025 Snow" is missing email.
+[INFO] Customer "Kranich, Charles:2024-26 Maintenance" is missing email.
+[INFO] Customer "Kranich, Charles:2023-2024 Snow" is missing email.
+[INFO] Customer "Kranich, Charles:2023 Maintenance" is missing email.
+[INFO] Customer "Kranich, Charles:2022/2023 - Snow Maintenance" is missing email.
+[INFO] Customer "Kranich, Charles:2022-Maintenance" is missing email.
+[INFO] Customer "Bragg, Jeff & Elli" is missing email.
+[INFO] Customer "Beasley, Val" is missing email.
+[INFO] Customer "Roberts, Jonathon" is missing email.
+[INFO] Customer "Roberts, Jonathon:2023 Maintenance" is missing email.
+[INFO] Customer "Roberts, Jonathon:2022-Maintenance" is missing email.
+[INFO] Customer "Laird, Kerrie" is missing email.
+[INFO] Customer "Laird, Kerrie:2022-Pavers/Topsoil" is missing email.
+[CRITICAL] Customer "Keystone Real Estate Group" (Contact #439) has NO email OR phone.
+[CRITICAL] Customer "Keystone Real Estate Group:Eastview Plaza" (Contact #440) has NO email OR phone.
+[CRITICAL] Customer "Keystone Real Estate Group:Eastview Plaza:2024-26 Maintenance" (Contact #441) has NO email OR phone.
+[CRITICAL] Customer "Keystone Real Estate Group:Eastview Plaza:2023 Maintenance" (Contact #442) has NO email OR phone.
+[CRITICAL] Customer "Keystone Real Estate Group:Eastview Plaza:2022-Maintenance" (Contact #443) has NO email OR phone.
+[INFO] Customer "Irmak, Suat" is missing email.
+[INFO] Customer "Irmak, Suat:2024-26 Maintenance" is missing email.
+[INFO] Customer "Irmak, Suat:2023 Maintenance" is missing email.
+[INFO] Customer "Irmak, Suat:2022-Maintenance" is missing email.
+[CRITICAL] Customer "Smith, Trevor" (Contact #448) has NO email OR phone.
+[CRITICAL] Customer "Smith, Trevor:2023-2024 Maintenance" (Contact #449) has NO email OR phone.
+[CRITICAL] Customer "Smith, Trevor:2022-Maintenance" (Contact #450) has NO email OR phone.
+[INFO] Customer "Turner, Mike" is missing email.
+[INFO] Customer "Turner, Mike:Hardscape Job" is missing email.
+[INFO] Customer "Turner, Mike:2021-Stoop Repair" is missing email.
+[CRITICAL] Customer "Webb, Leslie" (Contact #454) has NO email OR phone.
+[CRITICAL] Customer "Alexander, Cindy" (Contact #455) has NO email OR phone.
+[CRITICAL] Customer "Alexander, Cindy:2025-2026 Snow" (Contact #456) has NO email OR phone.
+[CRITICAL] Customer "Alexander, Cindy:2024-2025 Snow" (Contact #457) has NO email OR phone.
+[CRITICAL] Customer "Alexander, Cindy:2024-26 Maintenance" (Contact #458) has NO email OR phone.
+[CRITICAL] Customer "Alexander, Cindy:2023-2024 Snow" (Contact #459) has NO email OR phone.
+[CRITICAL] Customer "Alexander, Cindy:2023 Maintenance" (Contact #460) has NO email OR phone.
+[CRITICAL] Customer "Alexander, Cindy:2022/2023 - Snow Maintenance" (Contact #461) has NO email OR phone.
+[CRITICAL] Customer "Alexander, Cindy:2022-Maintenance" (Contact #462) has NO email OR phone.
+[INFO] Customer "Goins, Barbara" is missing email.
+[INFO] Customer "Goins, Barbara:2025-2026 Snow" is missing email.
+[INFO] Customer "Goins, Barbara:2024-2025 Snow" is missing email.
+[INFO] Customer "Goins, Barbara:2024-26 Maintenance" is missing email.
+[INFO] Customer "Goins, Barbara:2023-2024 Snow" is missing email.
+[INFO] Customer "Goins, Barbara:2023 Maintenance" is missing email.
+[INFO] Customer "Goins, Barbara:2022/2023 - Snow Maintenance" is missing email.
+[INFO] Customer "Goins, Barbara:2022-Maintenance" is missing email.
+[CRITICAL] Customer "Merrell, Jo" (Contact #471) has NO email OR phone.
+[CRITICAL] Customer "Reitz, Tom" (Contact #472) has NO email OR phone.
+[INFO] Customer "Everly, Judy" is missing email.
+[INFO] Customer "Everly, Judy:2023 Maintenance" is missing email.
+[INFO] Customer "Everly, Judy:2022-Maintenance" is missing email.
+[INFO] Customer "Warner, Jere" is missing email.
+[INFO] Customer "Warner, Jere:2023 Maintenance" is missing email.
+[INFO] Customer "Warner, Jere:2022-Maintenance" is missing email.
+[CRITICAL] Customer "Keslar, John" (Contact #479) has NO email OR phone.
+[INFO] Customer "Zimmerman, Rachel" is missing email.
+[INFO] Customer "Zimmerman, Rachel:2022-Maintenance" is missing email.
+[INFO] Customer "Penn Terra Engineering, Inc" is missing email.
+[INFO] Customer "Penn Terra Engineering, Inc:2025-2026 Snow" is missing email.
+[INFO] Customer "Penn Terra Engineering, Inc:2024-2025 Snow" is missing email.
+[INFO] Customer "Penn Terra Engineering, Inc:2024-26 Maintenance" is missing email.
+[INFO] Customer "Penn Terra Engineering, Inc:2023-2024 Snow" is missing email.
+[INFO] Customer "Penn Terra Engineering, Inc:2023 Maintenance" is missing email.
+[INFO] Customer "Penn Terra Engineering, Inc:2022/2023 - Snow Maintenance" is missing email.
+[INFO] Customer "Penn Terra Engineering, Inc:2022-Maintenance" is missing email.
+[INFO] Customer "Loss, Erik" is missing email.
+[INFO] Customer "Loss, Erik:2023-26 Maintenance" is missing email.
+[INFO] Customer "Loss, Erik:2022/2023 - Snow Maintenance" is missing email.
+[INFO] Customer "Loss, Erik:2022-Maintenance" is missing email.
+[INFO] Customer "GiGi's Southern Comfort, LLC" is missing email.
+[INFO] Customer "GiGi's Southern Comfort, LLC:2021-Stone Path" is missing email.
+[CRITICAL] Customer "Agostinelli, Linda" (Contact #496) has NO email OR phone.
+[INFO] Customer "Mochan, Damian" is missing email.
+[INFO] Customer "Mochan, Damian:2024 Maintenance" is missing email.
+[INFO] Customer "Mochan, Damian:2023 Maintenance" is missing email.
+[INFO] Customer "Mochan, Damian:2022/2023 - Snow Maintenance" is missing email.
+[INFO] Customer "Mochan, Damian:2022-Maintenance" is missing email.
+[INFO] Customer "Harris, Melanie" is missing email.
+[INFO] Customer "Harris, Melanie:2024 Maintenance" is missing email.
+[INFO] Customer "Harris, Melanie:2023 Maintenance" is missing email.
+[INFO] Customer "Harris, Melanie:2022-Maintenance" is missing email.
+[INFO] Customer "Zimmerman, Jane" is missing email.
+[INFO] Customer "Zimmerman, Jane:2022/2023 - Snow Maintenance" is missing email.
+[INFO] Customer "Zimmerman, Jane:2022-Maintenance" is missing email.
+[INFO] Customer "Sogor, Laura" is missing email.
+[INFO] Customer "Sogor, Laura:2022/2023 - Snow Maintenance" is missing email.
+[INFO] Customer "Fredericks, Greg & Anne" is missing email.
+[INFO] Customer "Bresee, Jerry" is missing email.
+[INFO] Customer "McKee, David" is missing email.
+[CRITICAL] Customer "Agostinelli, Eddie" (Contact #514) has NO email OR phone.
+[INFO] Customer "Button, Rich" is missing email.
+[INFO] Customer "Button, Rich:2022-Maintenance" is missing email.
+[CRITICAL] Customer "Hamilton Apartments" (Contact #517) has NO email OR phone.
+[CRITICAL] Customer "Hamilton Apartments:2025-2026 Snow" (Contact #518) has NO email OR phone.
+[CRITICAL] Customer "Hamilton Apartments:2024-2025 Snow" (Contact #519) has NO email OR phone.
+[CRITICAL] Customer "Hamilton Apartments:2024-26 Maintenance" (Contact #520) has NO email OR phone.
+[CRITICAL] Customer "Hamilton Apartments:2023-2024 Snow" (Contact #521) has NO email OR phone.
+[CRITICAL] Customer "Hamilton Apartments:2023 Maintenance" (Contact #522) has NO email OR phone.
+[CRITICAL] Customer "Hamilton Apartments:2022/2023 - Snow Maintenance" (Contact #523) has NO email OR phone.
+[CRITICAL] Customer "Hamilton Apartments:2022-Maintenance" (Contact #524) has NO email OR phone.
+[INFO] Customer "Goldberg, Jeff" is missing email.
+[INFO] Customer "Goldberg, Jeff:Hardscaping/Lawn Install" is missing email.
+[CRITICAL] Customer "Schoenholtz, Jack" (Contact #527) has NO email OR phone.
+[CRITICAL] Customer "Schoenholtz, Jack:Maintenance" (Contact #528) has NO email OR phone.
+[INFO] Customer "Wang, James" is missing email.
+[INFO] Customer "Wang, James:2023 Maintenance" is missing email.
+[INFO] Customer "Wang, James:2022-Maintenance" is missing email.
+[CRITICAL] Customer "The Valley" (Contact #532) has NO email OR phone.
+[CRITICAL] Customer "The Valley:Snow Removal" (Contact #533) has NO email OR phone.
+[CRITICAL] Customer "The Valley:The Valley & The View Projects" (Contact #534) has NO email OR phone.
+[CRITICAL] Customer "The Valley:2024-25 Projects" (Contact #535) has NO email OR phone.
+[CRITICAL] Customer "The Valley:Monthlies" (Contact #536) has NO email OR phone.
+[CRITICAL] Customer "The Valley:2023 Monthly Maintenance" (Contact #537) has NO email OR phone.
+[INFO] Customer "The Valley:2023 Projects" is missing email.
+[CRITICAL] Customer "The Valley:2022/2023 - Snow Maintenance" (Contact #539) has NO email OR phone.
+[INFO] Customer "Miller Kistler & Campbell, LLC" is missing email.
+[INFO] Customer "Aguer, Kirk" is missing email.
+[INFO] Customer "Aguer, Kirk:2025 at Nittany Grove" is missing email.
+[INFO] Customer "Aguer, Kirk:2024 at Nittany Grove" is missing email.
+[INFO] Customer "Hunter, Bob" is missing email.
+[INFO] Customer "Climb Nittany" is missing email.
+[INFO] Customer "Climb Nittany:2023-2024 Snow" is missing email.
+[INFO] Customer "Climb Nittany:2023 Maintenance" is missing email.
+[INFO] Customer "Climb Nittany:2022/2023 - Snow Maintenance" is missing email.
+[INFO] Customer "Climb Nittany:2022-Mainteance" is missing email.
+[INFO] Customer "Barger, Scott" is missing email.
+[INFO] Customer "Rushe, Scott" is missing email.
+[INFO] Customer "Gavek, Brian" is missing email.
+[INFO] Customer "LaBarca, Robert & Cindy" is missing email.
+[INFO] Customer "LaBarca, Robert & Cindy:2024 Maintenance" is missing email.
+[INFO] Customer "The View" is missing email.
+[INFO] Customer "The View:Snow Removal" is missing email.
+[CRITICAL] Customer "The View:2024-25 Projects" (Contact #557) has NO email OR phone.
+[INFO] Customer "The View:Monthlies" is missing email.
+[INFO] Customer "The View:2023 projects" is missing email.
+[INFO] Customer "The View:2023 Monthly Maintenance" is missing email.
+[INFO] Customer "The View:2022/2023-Snow Maintenance" is missing email.
+[INFO] Customer "Ferguson, Justin" is missing email.
+[INFO] Customer "Ferguson, Justin:2024-26 Maintenance" is missing email.
+[INFO] Customer "Ferguson, Justin:2023 Maintenance" is missing email.
+[INFO] Customer "Ferguson, Justin:2022-Maintenance" is missing email.
+[INFO] Customer "Oakwood Centre" is missing email.
+[INFO] Customer "Centre County Mutual Fire Insurance Co.*" is missing email.
+[INFO] Customer "Centre County Mutual Fire Insurance Co.*:2024-26 Maintenance" is missing email.
+[INFO] Customer "Centre County Mutual Fire Insurance Co.*:2023 Maintenance" is missing email.
+[INFO] Customer "Centre County Mutual Fire Insurance Co.*:2022-Maintenance" is missing email.
+[INFO] Customer "Katsouros, Mark" is missing email.
+[INFO] Customer "Katsouros, Mark:2020-Maintenance" is missing email.
+[INFO] Customer "Centre Mansion" is missing email.
+[INFO] Customer "Centre Mansion:2022-Landscaping Enhancement" is missing email.
+[CRITICAL] Customer "United Rentals*" (Contact #575) has NO email OR phone.
+[INFO] Customer "United Rentals*:2023 Maintenance" is missing email.
+[INFO] Customer "United Rentals*:2022-Maintenance" is missing email.
+[INFO] Customer "Hoffman, Bob & Ann" is missing email.
+[INFO] Customer "Callejo, David" is missing email.
+[INFO] Customer "Campbell, Jim*" is missing email.
+[INFO] Customer "Valente, Joe & Allison" is missing email.
+[CRITICAL] Customer "API Field (Little League Field)" (Contact #582) has NO email OR phone.
+[INFO] Customer "Heidrich, Shirley" is missing email.
+[INFO] Customer "Heidrich, Shirley:2025-2026 Snow" is missing email.
+[INFO] Customer "Heidrich, Shirley:2024-2025 Snow" is missing email.
+[INFO] Customer "Heidrich, Shirley:2023-2024 Snow" is missing email.
+[INFO] Customer "Heidrich, Shirley:2023 Maintenance" is missing email.
+[INFO] Customer "Heidrich, Shirley:2022/2023 - Snow Maintenance" is missing email.
+[INFO] Customer "Heidrich, Shirley:2022-Maintenance" is missing email.
+[INFO] Customer "Maxwell Trucking & Excavating, Inc.:Barnes & Noble:2024-25 Maintenance" is missing email.
+[INFO] Customer "Maxwell Trucking & Excavating, Inc.:Barnes & Noble:2023 Maintenance" is missing email.
+[INFO] Customer "Maxwell Trucking & Excavating, Inc.:Barnes & Noble:2022-Maintenance" is missing email.
+[INFO] Customer "McClusick, Barabara" is missing email.
+[INFO] Customer "McClusick, Barabara:Pond Re-do" is missing email.
+[INFO] Customer "Divisions Maint. Group (Formerly Merit)" is missing email.
+[INFO] Customer "Divisions Maint. Group (Formerly Merit):Lowe's-US Highway 522 S. Lewistown" is missing email.
+[INFO] Customer "Divisions Maint. Group (Formerly Merit):Rite Aid Pharmacy Bellefonte" is missing email.
+[INFO] Customer "Divisions Maint. Group (Formerly Merit):Walmart-Us Hwy 522 S Lewistown 1607" is missing email.
+[INFO] Customer "Divisions Maint. Group (Formerly Merit):Home Depot" is missing email.
+[INFO] Customer "Divisions Maint. Group (Formerly Merit):Lowe's" is missing email.
+[INFO] Customer "Divisions Maint. Group (Formerly Merit):Lowe's:Lowe's State College" is missing email.
+[INFO] Customer "Divisions Maint. Group (Formerly Merit):UPS" is missing email.
+[INFO] Customer "Divisions Maint. Group (Formerly Merit):UPS:2023/2024 Snow Maintenance" is missing email.
+[INFO] Customer "Divisions Maint. Group (Formerly Merit):UPS:2021/2022-2023 Snow Maintenance" is missing email.
+[INFO] Customer "Divisions Maint. Group (Formerly Merit):Walmart Huntingdon 5470" is missing email.
+[INFO] Customer "Divisions Maint. Group (Formerly Merit):Walmart - Benner/Atherton" is missing email.
+[INFO] Customer "Foxdale Village:2022/2023 - Snow Maintenance" is missing email.
+[INFO] Customer "Lang, Greg" is missing email.
+[INFO] Customer "Lang, Greg:2019-Lawncare" is missing email.
+[INFO] Customer "Wolgast, Kelly" is missing email.
+[INFO] Customer "AARHUS" is missing email.
+[INFO] Customer "AARHUS:Monthly" is missing email.
+[INFO] Customer "ABC Supply" is missing email.
+[INFO] Customer "ABC Supply:2024 Maintenance" is missing email.
+[INFO] Customer "ABC Supply:2023 Maintenance" is missing email.
+[INFO] Customer "ABC Supply:2022-Maintenance" is missing email.
+[INFO] Customer "Ackerman, Bob" is missing email.
+[INFO] Customer "Ackerman, Bob:2023 Maintenance" is missing email.
+[INFO] Customer "Ackerman, Bob:2022-Maintenance" is missing email.
+[CRITICAL] Customer "Albright, Timothy" (Contact #657) has NO email OR phone.
+[CRITICAL] Customer "Aldrich, Jennifer" (Contact #658) has NO email OR phone.
+[CRITICAL] Customer "Aldrich, Jennifer:2024-25 Maintenance" (Contact #659) has NO email OR phone.
+[CRITICAL] Customer "Aldrich, Jennifer:2023 Maintenance" (Contact #660) has NO email OR phone.
+[CRITICAL] Customer "Aldrich, Jennifer:2022-Maintenance" (Contact #661) has NO email OR phone.
+[INFO] Customer "Ameron Construction Co., Inc." is missing email.
+[INFO] Customer "Ameron Construction Co., Inc.:Altoona Church" is missing email.
+[INFO] Customer "Ameron Construction Co., Inc.:2023 Maintenance" is missing email.
+[CRITICAL] Customer "Ameron Construction Co., Inc.:RidgeView Campground" (Contact #665) has NO email OR phone.
+[INFO] Customer "Ameron Construction Co., Inc.:2022-Maintenance" is missing email.
+[CRITICAL] Customer "Ameron Construction Co., Inc.:2021-Westminster Place" (Contact #667) has NO email OR phone.
+[INFO] Customer "Ameron Construction Co., Inc.:2020-Stearns Crossing (Phase 9)" is missing email.
+[INFO] Customer "APArchitects, LLC" is missing email.
+[INFO] Customer "APArchitects, LLC:2022-Maintenance" is missing email.
+[INFO] Customer "Babb, Ben" is missing email.
+[INFO] Customer "Babb, Ben:Beneyfield, Farrell, and Babb" is missing email.
+[INFO] Customer "Babb, Lance" is missing email.
+[INFO] Customer "Babb, Lance:2020 Gravel" is missing email.
+[INFO] Customer "Babb, Lance:Set Fence Posts" is missing email.
+[INFO] Customer "Babcock, Marilyn" is missing email.
+[INFO] Customer "Barnes, Gayle" is missing email.
+[INFO] Customer "Baumrucker, Craig & Nancy" is missing email.
+[INFO] Customer "Bennett, Patty" is missing email.
+[INFO] Customer "Bennett, Patty:2024-26 Maintenance" is missing email.
+[INFO] Customer "Bennett, Patty:2023 Maintenance" is missing email.
+[INFO] Customer "Bennett, Patty:2022-Maintenance" is missing email.
+[CRITICAL] Customer "Best Buy/Staples" (Contact #683) has NO email OR phone.
+[INFO] Customer "Bickle, Kay & Wayne" is missing email.
+[INFO] Customer "Bieschke, Kathy" is missing email.
+[INFO] Customer "Bieschke, Kathy:2024-26 Maintenance" is missing email.
+[INFO] Customer "Bieschke, Kathy:2023 Maintenance" is missing email.
+[INFO] Customer "Bieschke, Kathy:2022-Maintenance" is missing email.
+[INFO] Customer "Blake, Bill" is missing email.
+[INFO] Customer "Blake, Bill:Hardscape Projects" is missing email.
+[INFO] Customer "Blake, Bill:2024-26 Maintenance" is missing email.
+[INFO] Customer "Blake, Bill:2023 Maintenance" is missing email.
+[INFO] Customer "Blake, Bill:2021-Maintenance" is missing email.
+[INFO] Customer "Blake, Bill:2021-New Wall" is missing email.
+[INFO] Customer "Bobby Rahal Honda" is missing email.
+[INFO] Customer "Bobby Rahal Honda:2022-Maintenance" is missing email.
+[INFO] Customer "Bohner, Nancy" is missing email.
+[INFO] Customer "Bohner, Robert" is missing email.
+[INFO] Customer "Bollinger, Marty" is missing email.
+[INFO] Customer "Bollinger, Marty:2025-2026 Snow" is missing email.
+[INFO] Customer "Bollinger, Marty:2024-2025 Snow" is missing email.
+[INFO] Customer "Bollinger, Marty:2024-26 Maintenance" is missing email.
+[INFO] Customer "Bollinger, Marty:2023-2024 Snow" is missing email.
+[INFO] Customer "Bollinger, Marty:2023 Maintenance" is missing email.
+[INFO] Customer "Bollinger, Marty:2022/2023 - Snow Maintenance" is missing email.
+[INFO] Customer "Bollinger, Marty:2022-Maintenance" is missing email.
+[INFO] Customer "Boni, Maciej" is missing email.
+[INFO] Customer "Boni, Maciej:2023 Maintenance" is missing email.
+[INFO] Customer "Boni, Maciej:2022-Maintenance" is missing email.
+[INFO] Customer "Bortz Woodworks (Customer)" is missing email.
+[CRITICAL] Customer "Bortz, Brian" (Contact #711) has NO email OR phone.
+[INFO] Customer "Braasch, Cathy" is missing email.
+[CRITICAL] Customer "Brewer, Ansusan" (Contact #713) has NO email OR phone.
+[INFO] Customer "Broking, Emily" is missing email.
+[INFO] Customer "Broking, Emily:2025-2026 Snow" is missing email.
+[INFO] Customer "Broking, Emily:2024-2025 Snow" is missing email.
+[INFO] Customer "Broking, Emily:2023-2024 Snow" is missing email.
+[INFO] Customer "Broking, Emily:Maintenance" is missing email.
+[INFO] Customer "Broking, Emily:2022/2023 - Snow Maintenance" is missing email.
+[INFO] Customer "Broking, Emily:2022-Maintenance" is missing email.
+[INFO] Customer "Brown, Dave" is missing email.
+[INFO] Customer "Brown, Dave:2024-26 Maintenance" is missing email.
+[INFO] Customer "Brown, Dave:2023 Maintenance" is missing email.
+[INFO] Customer "Brown, Dave:River Stone Project" is missing email.
+[INFO] Customer "Brown, Dave:2022-Maintenance" is missing email.
+[INFO] Customer "Brown, Mary Anna & David" is missing email.
+[INFO] Customer "Bundy, Richard" is missing email.
+[INFO] Customer "Bundy, Richard:2026 Maintenance" is missing email.
+[INFO] Customer "Bundy, Richard:2017-Tree Install" is missing email.
+[INFO] Customer "Bundy, Richard:2017 Maintenance" is missing email.
+[CRITICAL] Customer "Bundy, Richard:2017/18 Snow" (Contact #731) has NO email OR phone.
+[CRITICAL] Customer "Calabro, Christa & Trevor" (Contact #732) has NO email OR phone.
+[CRITICAL] Customer "Calabro, Christa & Trevor:2024-26 Maintenance" (Contact #733) has NO email OR phone.
+[CRITICAL] Customer "Calabro, Christa & Trevor:2023 Maintenance" (Contact #734) has NO email OR phone.
+[CRITICAL] Customer "Calabro, Christa & Trevor:2022-Maintenance" (Contact #735) has NO email OR phone.
+[INFO] Customer "Carson, Chuck" is missing email.
+[INFO] Customer "Carson, Chuck:2024-25 Maintenance" is missing email.
+[INFO] Customer "Carson, Chuck:2023 Maintenance" is missing email.
+[INFO] Customer "Carson, Chuck:2022-Maintenance" is missing email.
+[INFO] Customer "Cochrane, Philip" is missing email.
+[INFO] Customer "Cochrane, Philip:2024 Maintenance" is missing email.
+[INFO] Customer "Cochrane, Philip:2023 Maintenance" is missing email.
+[INFO] Customer "Cochrane, Philip:2022-Maintenance" is missing email.
+[CRITICAL] Customer "Collins, John & Mary" (Contact #744) has NO email OR phone.
+[INFO] Customer "Continental Real Estate" is missing email.
+[INFO] Customer "Continental Real Estate:518 S. Garner St. - Hendricks" is missing email.
+[INFO] Customer "Continental Real Estate:Raleigh Place" is missing email.
+[INFO] Customer "Continental Real Estate:Remington Ridge" is missing email.
+[INFO] Customer "Continental Real Estate:Penns Manor Condo Association" is missing email.
+[INFO] Customer "Continental Real Estate:Evergreen Townhomes" is missing email.
+[INFO] Customer "Continental Real Estate:Siena Woods" is missing email.
+[INFO] Customer "Continental Real Estate:Shamrock Townhomes" is missing email.
+[INFO] Customer "Continental Real Estate:Shamrock Townhomes:2024-25 Monthly Maintenance" is missing email.
+[INFO] Customer "Continental Real Estate:Shamrock Townhomes:2023 Monthly Maintenance" is missing email.
+[INFO] Customer "Continental Real Estate:Fairlawn" is missing email.
+[INFO] Customer "Continental Real Estate:Fairlawn:2025-2026 Snow" is missing email.
+[INFO] Customer "Continental Real Estate:Fairlawn:2024-2025 Snow" is missing email.
+[INFO] Customer "Continental Real Estate:Fairlawn:2023-2024 Snow" is missing email.
+[INFO] Customer "Continental Real Estate:Teaberry Ridge" is missing email.
+[INFO] Customer "Continental Real Estate:Teaberry Ridge:2024-2025 Snow" is missing email.
+[INFO] Customer "Continental Real Estate:Teaberry Ridge:2023-2024 snow" is missing email.
+[INFO] Customer "Continental Real Estate:Teaberry Ridge:2024-2026 - Maintenance" is missing email.
+[INFO] Customer "Continental Real Estate:Teaberry Ridge:2024-2026 - Maintenance:2025-2026 Snow" is missing email.
+[INFO] Customer "Continental Real Estate:Teaberry Ridge:2023/2024 - Maintenance" is missing email.
+[INFO] Customer "Continental Real Estate:Teaberry Ridge:2022/2023 - Maintenance" is missing email.
+[INFO] Customer "Continental Real Estate:Stoneglenn Apts." is missing email.
+[INFO] Customer "Continental Real Estate:Stoneglenn Apts.:2025-2026 Snow" is missing email.
+[INFO] Customer "Continental Real Estate:Stoneglenn Apts.:2024-2025 Snow" is missing email.
+[INFO] Customer "Continental Real Estate:Stoneglenn Apts.:2023-2024 Snow" is missing email.
+[INFO] Customer "Continental Real Estate:Stoneglenn Apts.:2024-2026 - Maintenance" is missing email.
+[INFO] Customer "Continental Real Estate:Stoneglenn Apts.:2023/2024-Maintenance" is missing email.
+[INFO] Customer "Continental Real Estate:Stoneglenn Apts.:2022/2023-Maintence" is missing email.
+[INFO] Customer "Continental Real Estate:Longmeadow Townhomes" is missing email.
+[INFO] Customer "Continental Real Estate:Longmeadow Townhomes:2025-2026 Snow" is missing email.
+[INFO] Customer "Continental Real Estate:Longmeadow Townhomes:2024-2025 Snow" is missing email.
+[INFO] Customer "Continental Real Estate:Longmeadow Townhomes:2023-2024 snow" is missing email.
+[INFO] Customer "Continental Real Estate:Longmeadow Townhomes:2022/2023 - Snow Maintenance" is missing email.
+[INFO] Customer "Continental Real Estate:Longmeadow Townhomes:2021/2022-Snow" is missing email.
+[INFO] Customer "Continental Real Estate:Townview" is missing email.
+[INFO] Customer "Continental Real Estate:Townview:2025-2026 Snow" is missing email.
+[INFO] Customer "Continental Real Estate:Townview:2024-2025 Snow" is missing email.
+[INFO] Customer "Continental Real Estate:Townview:2023-2024 Snow" is missing email.
+[INFO] Customer "Continental Real Estate:Townview:2022/2023 - Snow" is missing email.
+[INFO] Customer "Continental Real Estate:Aaron Village" is missing email.
+[INFO] Customer "Continental Real Estate:Aaron Village:Snow 2026" is missing email.
+[INFO] Customer "Continental Real Estate:Aaron Village:2024 Miscellaneous" is missing email.
+[INFO] Customer "Continental Real Estate:Aaron Village:2024-26 Maintenance" is missing email.
+[INFO] Customer "Continental Real Estate:Aaron Village:Hardscape" is missing email.
+[INFO] Customer "Continental Real Estate:Aaron Village:2023 Miscellaneous" is missing email.
+[INFO] Customer "Continental Real Estate:Aaron Village:2023/2024-Maintenance" is missing email.
+[INFO] Customer "Continental Real Estate:Aaron Village:2022/2023-Maintenance" is missing email.
+[INFO] Customer "Continental Real Estate:Stonebridge" is missing email.
+[INFO] Customer "Continental Real Estate:Stonebridge:Stonebridge Maintenance" is missing email.
+[INFO] Customer "Continental Real Estate:Stonebridge:2021/2022-Maintenance" is missing email.
+[INFO] Customer "Continental Real Estate:Whitehall Commons" is missing email.
+[INFO] Customer "Continental Real Estate:Whitehall Commons:Snow 2026" is missing email.
+[INFO] Customer "Continental Real Estate:Whitehall Commons:2023 Miscellaneous" is missing email.
+[INFO] Customer "Continental Real Estate:Whitehall Commons:2023-2026 Maintenance" is missing email.
+[INFO] Customer "Continental Real Estate:Whitehall Commons:2022/2023-Maintenance" is missing email.
+[INFO] Customer "Continental Real Estate:Woods Edge Condo Association" is missing email.
+[INFO] Customer "Continental Real Estate:Woods Edge Condo Association:Snow 2026" is missing email.
+[INFO] Customer "Continental Real Estate:Woods Edge Condo Association:2023-2026 Maintenance" is missing email.
+[INFO] Customer "Continental Real Estate:Woods Edge Condo Association:2022/2023 - Maintenance" is missing email.
+[INFO] Customer "Corless, Beth" is missing email.
+[INFO] Customer "Corless, Beth:2023-2024 Snow" is missing email.
+[INFO] Customer "Corless, Beth:2023 Maintenance" is missing email.
+[INFO] Customer "Corless, Beth:2022/2023 - Snow Maintenance" is missing email.
+[INFO] Customer "Corless, Beth:2022-Maintenance" is missing email.
+[INFO] Customer "Craig, Ana" is missing email.
+[INFO] Customer "Dante's Corporation" is missing email.
+[INFO] Customer "Dante's Corporation:2019/2020-Snow" is missing email.
+[INFO] Customer "Dante's Corporation:2018/2019-Snow Maintenance" is missing email.
+[INFO] Customer "Dante's Corporation:Adam Cole" is missing email.
+[INFO] Customer "Dante's Corporation:Adam Cole:2017/2018 Adam Cole Snow Removal" is missing email.
+[INFO] Customer "Dante's Corporation:Home Office" is missing email.
+[INFO] Customer "Dante's Corporation:Mario & Luigi's" is missing email.
+[INFO] Customer "Davidson, Matt" is missing email.
+[INFO] Customer "Davidson, Matt:2024-25 Maintenance" is missing email.
+[INFO] Customer "Davidson, Matt:2023 Maintenance" is missing email.
+[INFO] Customer "Davidson, Matt:2022-Maintenance" is missing email.
+[INFO] Customer "Davoli, Jason" is missing email.
+[INFO] Customer "Davoli, Jason:2024-25 Maintenance" is missing email.
+[INFO] Customer "Davoli, Jason:2023 Maintenance" is missing email.
+[INFO] Customer "Davoli, Jason:2022/2023 - Snow Maintenance" is missing email.
+[INFO] Customer "Davoli, Jason:2022-Maintenance" is missing email.
+[INFO] Customer "DeMartino, Theresa" is missing email.
+[INFO] Customer "DeMartino, Theresa:2024-26 Maintenance" is missing email.
+[INFO] Customer "DeMartino, Theresa:2023 Maintenance" is missing email.
+[INFO] Customer "DeMartino, Theresa:2022-Maintenance" is missing email.
+[INFO] Customer "Dombrowski, Maria" is missing email.
+[INFO] Customer "Dombrowski, Maria:2024-25 Maintenance" is missing email.
+[INFO] Customer "Dombrowski, Maria:2023 Maintenance" is missing email.
+[INFO] Customer "Dombrowski, Maria:2022-Maintenance" is missing email.
+[INFO] Customer "Dougherty, Susan" is missing email.
+[INFO] Customer "Dougherty, Susan:2023 Maintenance" is missing email.
+[INFO] Customer "Dougherty, Susan:2022/2023 - Snow Maintenance" is missing email.
+[INFO] Customer "Dougherty, Susan:2022-Maintenance" is missing email.
+[INFO] Customer "Dry, Ruth" is missing email.
+[INFO] Customer "Duffield, Bruce C." is missing email.
+[INFO] Customer "Edkin, Tim" is missing email.
+[INFO] Customer "Edkin, Tim:2024-26 Maintenance" is missing email.
+[INFO] Customer "Edkin, Tim:2023 Maintenance" is missing email.
+[INFO] Customer "Edkin, Tim:2022-Maintenance" is missing email.
+[INFO] Customer "Esposito, Al" is missing email.
+[INFO] Customer "Ferrigno, Carmello" is missing email.
+[INFO] Customer "Ferrigno, Carmello:2017 Mowing" is missing email.
+[INFO] Customer "Figlin, Joshua Dr." is missing email.
+[INFO] Customer "Figlin, Joshua Dr.:2023 Maintenance" is missing email.
+[INFO] Customer "Figlin, Joshua Dr.:2022-Maintenance" is missing email.
+[INFO] Customer "Ford, John" is missing email.
+[INFO] Customer "Ford, John:2024-26 Maintenance" is missing email.
+[INFO] Customer "Ford, John:2023 Maintenance" is missing email.
+[INFO] Customer "Ford, John:2022-Maintenance" is missing email.
+[INFO] Customer "Foster, Kelly" is missing email.
+[INFO] Customer "Cooper_Electric" is missing email.
+[INFO] Customer "Cooper_Electric:2025-2026 Snow" is missing email.
+[INFO] Customer "Cooper_Electric:2024-2025 Snow" is missing email.
+[INFO] Customer "Cooper_Electric:2024-25 Maintenance" is missing email.
+[INFO] Customer "Cooper_Electric:2023-2024 Snow" is missing email.
+[INFO] Customer "Cooper_Electric:2023 Maintenance" is missing email.
+[INFO] Customer "Gallagher, Christa & William" is missing email.
+[INFO] Customer "Gallagher, Christa & William:2024-26 Maintenance" is missing email.
+[INFO] Customer "Gallagher, Christa & William:2023 Maintenance" is missing email.
+[INFO] Customer "Gallagher, Christa & William:2022-Maintenance" is missing email.
+[INFO] Customer "Gant, Russel" is missing email.
+[INFO] Customer "Gant, Russel:2024-2025 Snow" is missing email.
+[INFO] Customer "Gant, Russel:2024 Maintenance" is missing email.
+[INFO] Customer "Gant, Russel:2023-2024 Snow" is missing email.
+[INFO] Customer "Gant, Russel:2023 Maintenance" is missing email.
+[INFO] Customer "Gant, Russel:2022/2023 - Snow Maintenance" is missing email.
+[INFO] Customer "Gant, Russel:2022-Maintenance" is missing email.
+[INFO] Customer "Governor's Gate Apartment" is missing email.
+[INFO] Customer "Governor's Gate Apartment:2024-25 Maintenance" is missing email.
+[INFO] Customer "Governor's Gate Apartment:2023 Maintenance" is missing email.
+[INFO] Customer "Governor's Gate Apartment:2022/2023 - Snow Maintenance" is missing email.
+[INFO] Customer "Governor's Gate Apartment:2022-Maintenance" is missing email.
+[CRITICAL] Customer "Graham, Edward" (Contact #877) has NO email OR phone.
+[CRITICAL] Customer "Graham, Edward:2025-2026 Snow" (Contact #878) has NO email OR phone.
+[CRITICAL] Customer "Graham, Edward:2024-2025 Snow" (Contact #879) has NO email OR phone.
+[CRITICAL] Customer "Graham, Edward:2024 Hardscape Job" (Contact #880) has NO email OR phone.
+[CRITICAL] Customer "Graham, Edward:2024-26 Maintenance" (Contact #881) has NO email OR phone.
+[CRITICAL] Customer "Graham, Edward:2023-2024 Snow" (Contact #882) has NO email OR phone.
+[CRITICAL] Customer "Graham, Edward:2023 Maintenance" (Contact #883) has NO email OR phone.
+[CRITICAL] Customer "Graham, Edward:2022/2023 - Snow Maintenance" (Contact #884) has NO email OR phone.
+[CRITICAL] Customer "Graham, Edward:2022-Maintenance" (Contact #885) has NO email OR phone.
+[CRITICAL] Customer "Graham, Edward:2021/2022-Snow" (Contact #886) has NO email OR phone.
+[INFO] Customer "Graves, Robert" is missing email.
+[INFO] Customer "Graves, Robert:2025-2026 Snow" is missing email.
+[INFO] Customer "Graves, Robert:2024-2025 Snow" is missing email.
+[INFO] Customer "Graves, Robert:2024-26 Maintenance" is missing email.
+[INFO] Customer "Graves, Robert:2023-2024 Snow" is missing email.
+[INFO] Customer "Graves, Robert:2023 Maintenance" is missing email.
+[INFO] Customer "Graves, Robert:2022/2023 - Snow Maintenance" is missing email.
+[INFO] Customer "Graves, Robert:2022-Maintenance" is missing email.
+[INFO] Customer "Green, Joanne & Mike" is missing email.
+[INFO] Customer "Green, Joanne & Mike:2024 Maintenance" is missing email.
+[INFO] Customer "Green, Joanne & Mike:2023-2024 Snow" is missing email.
+[INFO] Customer "Green, Joanne & Mike:2023 Maintenance" is missing email.
+[INFO] Customer "Green, Joanne & Mike:2022/2023 - Snow Maintenance" is missing email.
+[INFO] Customer "Green, Joanne & Mike:2022-Maintenance" is missing email.
+[INFO] Customer "Hale, Sue" is missing email.
+[INFO] Customer "Hampton Inn" is missing email.
+[INFO] Customer "Hampton Inn:2024 Maintenance" is missing email.
+[INFO] Customer "Hampton Inn:2023 Maintenance" is missing email.
+[INFO] Customer "Hampton Inn:2022-Maintenance" is missing email.
+[INFO] Customer "Hanczar, Gordon" is missing email.
+[INFO] Customer "Harter, Kevin" is missing email.
+[INFO] Customer "Harter, Kevin:Maintenance" is missing email.
+[INFO] Customer "Heim, Bruce" is missing email.
+[INFO] Customer "Heim, Bruce:Susan" is missing email.
+[INFO] Customer "Heritage Realty" is missing email.
+[INFO] Customer "Heritage Realty:Quail Ridge One (251 Amblewood Way)" is missing email.
+[INFO] Customer "Hettmansperger, Tom" is missing email.
+[INFO] Customer "Hettmansperger, Tom:2022/2023 - Snow Maintenance" is missing email.
+[INFO] Customer "Hettmansperger, Tom:Maintenance" is missing email.
+[INFO] Customer "Hyatt Place" is missing email.
+[CRITICAL] Customer "Hyatt Place:2025 Maintenance" (Contact #917) has NO email OR phone.
+[INFO] Customer "Hyatt Place:2023-2024 snow" is missing email.
+[INFO] Customer "Hyatt Place:2023 Maintenance" is missing email.
+[INFO] Customer "Hyatt Place:Glenlynn Bldg" is missing email.
+[INFO] Customer "Hyatt Place:2022/2023 - Snow Maintenance" is missing email.
+[INFO] Customer "Hyatt Place:Scholar State College (205 E. Beaver Ave)" is missing email.
+[INFO] Customer "Hyatt Place:Scholar State College (205 E. Beaver Ave):2023-2024 Snow" is missing email.
+[INFO] Customer "Hyatt Place:Scholar State College (205 E. Beaver Ave):2023 Maintenance" is missing email.
+[INFO] Customer "Hyatt Place:Scholar State College (205 E. Beaver Ave):2022/2023 - Snow Maintenance" is missing email.
+[INFO] Customer "Jaworski, Lu Ann" is missing email.
+[CRITICAL] Customer "Jenkins, J.P." (Contact #927) has NO email OR phone.
+[CRITICAL] Customer "Jenkins, J.P.:2025-2026 Snow" (Contact #928) has NO email OR phone.
+[CRITICAL] Customer "Jenkins, J.P.:2024-2025 Snow" (Contact #929) has NO email OR phone.
+[CRITICAL] Customer "Jenkins, J.P.:2024-26 Maintenance" (Contact #930) has NO email OR phone.
+[CRITICAL] Customer "Jenkins, J.P.:2023-2024 Snow" (Contact #931) has NO email OR phone.
+[CRITICAL] Customer "Jenkins, J.P.:2023 Maintenance" (Contact #932) has NO email OR phone.
+[CRITICAL] Customer "Jenkins, J.P.:2022/2023 - Snow Maintenance" (Contact #933) has NO email OR phone.
+[CRITICAL] Customer "Jenkins, J.P.:2022-Maintenance" (Contact #934) has NO email OR phone.
+[CRITICAL] Customer "Jenkins, J.P.:2021/2022-Snow" (Contact #935) has NO email OR phone.
+[CRITICAL] Customer "Jenkins, J.P.:2021-Maintenance" (Contact #936) has NO email OR phone.
+[CRITICAL] Customer "Jenkins, J.P.:2020-2021-Snow" (Contact #937) has NO email OR phone.
+[CRITICAL] Customer "Jenkins, J.P.:2020-Maintenance" (Contact #938) has NO email OR phone.
+[INFO] Customer "JSSB" is missing email.
+[INFO] Customer "JSSB:North Atherton Branch" is missing email.
+[INFO] Customer "JSSB:North Atherton Branch:2024-2025 Snow" is missing email.
+[CRITICAL] Customer "JSSB:North Atherton Branch:2024-25 Maintenance" (Contact #942) has NO email OR phone.
+[INFO] Customer "JSSB:North Atherton Branch:2023-2024 Snow" is missing email.
+[INFO] Customer "JSSB:North Atherton Branch:Hardscape Job" is missing email.
+[INFO] Customer "JSSB:North Atherton Branch:2023 Maintenance" is missing email.
+[INFO] Customer "JSSB:North Atherton Branch:2022/2023 - Snow Maintenance" is missing email.
+[INFO] Customer "JSSB:North Atherton Branch:2022-Maintenance" is missing email.
+[INFO] Customer "Kauffman, Seth" is missing email.
+[INFO] Customer "Kauffman, Seth:2022-Maintenance" is missing email.
+[CRITICAL] Customer "Kempton, Kenny & Sue" (Contact #950) has NO email OR phone.
+[INFO] Customer "Kennedy, Richard" is missing email.
+[INFO] Customer "Kennedy, Richard:2023 Maintenance" is missing email.
+[INFO] Customer "Kennedy, Richard:2022- Hardscaping Project" is missing email.
+[INFO] Customer "Killian, Beth" is missing email.
+[INFO] Customer "Killian, Beth:2019-Maintenance" is missing email.
+[INFO] Customer "Kimble, Shawn" is missing email.
+[INFO] Customer "Kimble, Shawn:2022-Plant Health Care" is missing email.
+[INFO] Customer "Kish, Bob & Melissa" is missing email.
+[INFO] Customer "Kish, Bob & Melissa:2021-Retaining Wall" is missing email.
+[INFO] Customer "Klingler, Bob" is missing email.
+[INFO] Customer "Klingler, Bob:2025-2026 Snow" is missing email.
+[INFO] Customer "Klingler, Bob:2024-2025 Snow" is missing email.
+[INFO] Customer "Klingler, Bob:2024-26 Maintenance" is missing email.
+[INFO] Customer "Klingler, Bob:2023-2024 Snow" is missing email.
+[INFO] Customer "Klingler, Bob:2023 Maintenance" is missing email.
+[INFO] Customer "Klingler, Bob:2022/2023 - Snow Maintenance" is missing email.
+[INFO] Customer "Klingler, Bob:2022-Maintenance" is missing email.
+[INFO] Customer "Kotch, Nick" is missing email.
+[INFO] Customer "Kris, Lee Ann" is missing email.
+[INFO] Customer "Kris, Lee Ann:2017 Mowing" is missing email.
+[INFO] Customer "Kris, Lee Ann:2018 Mowing" is missing email.
+[INFO] Customer "Kris, Lee Ann:2019-Maintenance" is missing email.
+[INFO] Customer "Kunes, Curtis" is missing email.
+[INFO] Customer "Kunes, Curtis:2024-25 Maintenance" is missing email.
+[INFO] Customer "Kunes, Curtis:2023 Maintenance" is missing email.
+[INFO] Customer "Kunes, Curtis:2022-Maintenance" is missing email.
+[INFO] Customer "Larkin, Jude" is missing email.
+[INFO] Customer "Lichty, Jordan" is missing email.
+[INFO] Customer "Lichty, Jordan:2020-Maintenance" is missing email.
+[INFO] Customer "Lin, Clarabelle" is missing email.
+[INFO] Customer "Liu, Yiming" is missing email.
+[INFO] Customer "Liu, Yiming:2022-Maintenance" is missing email.
+[INFO] Customer "Lloyd, Gwen" is missing email.
+[INFO] Customer "Lloyd, Gwen:2025-2026 Snow" is missing email.
+[INFO] Customer "Lloyd, Gwen:2024-2025 Snow" is missing email.
+[INFO] Customer "Lloyd, Gwen:2024-26 Maintenance" is missing email.
+[INFO] Customer "Lloyd, Gwen:2023-2024 Snow" is missing email.
+[INFO] Customer "Lloyd, Gwen:2023 Maintenance" is missing email.
+[INFO] Customer "Lloyd, Gwen:2022-Maintenance" is missing email.
+[INFO] Customer "Lloyd, Gwen:2018 Maintenance" is missing email.
+[INFO] Customer "Lunnen, Ray Jr." is missing email.
+[INFO] Customer "Lunnen, Ray Jr.:Maintenance" is missing email.
+[INFO] Customer "Maggi, Tim" is missing email.
+[INFO] Customer "Maggi, Tim:714 W Main St. Boalsburg" is missing email.
+[INFO] Customer "Maggi, Tim:2023 - 350 Matilda" is missing email.
+[INFO] Customer "Maggi, Tim:2023 - Old Houserville Rd" is missing email.
+[INFO] Customer "Malcolm, Jamison" is missing email.
+[INFO] Customer "Malcolm, Jamison:2018-Pruning" is missing email.
+[INFO] Customer "Mann, Kim" is missing email.
+[INFO] Customer "Marciniak, Bob" is missing email.
+[INFO] Customer "Marx Realty & Improvement Co., Inc." is missing email.
+[INFO] Customer "Marx Realty & Improvement Co., Inc.:Westerly Parkway Hardscape" is missing email.
+[INFO] Customer "Marx Realty & Improvement Co., Inc.:Westerly Parkway" is missing email.
+[INFO] Customer "Marx Realty & Improvement Co., Inc.:Westerly Parkway:2026 Maintenance" is missing email.
+[INFO] Customer "Marx Realty & Improvement Co., Inc.:Westerly Parkway:2026 Miscellaneous" is missing email.
+[INFO] Customer "Marx Realty & Improvement Co., Inc.:Westerly Parkway:2025-2026 Snow" is missing email.
+[INFO] Customer "Marx Realty & Improvement Co., Inc.:Westerly Parkway:2024-2025 Snow" is missing email.
+[INFO] Customer "Marx Realty & Improvement Co., Inc.:Westerly Parkway:2024-2025 Miscellaneous" is missing email.
+[INFO] Customer "Marx Realty & Improvement Co., Inc.:Westerly Parkway:2023-2024 Snow" is missing email.
+[INFO] Customer "Marx Realty & Improvement Co., Inc.:Westerly Parkway:2024-25 Maintenance" is missing email.
+[INFO] Customer "Marx Realty & Improvement Co., Inc.:Westerly Parkway:2023 Monthly Maintenance" is missing email.
+[INFO] Customer "Marx Realty & Improvement Co., Inc.:Westerly Parkway:2023 Miscellaneous" is missing email.
+[INFO] Customer "Marx Realty & Improvement Co., Inc.:Westerly Parkway:2022/2023 - Snow Maintenance" is missing email.
+[INFO] Customer "Marx Realty & Improvement Co., Inc.:Westerly Parkway:2022-Maintenance" is missing email.
+[INFO] Customer "Marx Realty & Improvement Co., Inc.:Westerly Parkway:Lot Sweep" is missing email.
+[INFO] Customer "Matason, Kathy" is missing email.
+[INFO] Customer "Matason, Kathy:2023 Maintenance" is missing email.
+[INFO] Customer "Matason, Kathy:2022-Maintenance" is missing email.
+[INFO] Customer "Maxwell Trucking & Excavating, Inc." is missing email.
+[INFO] Customer "Maxwell Trucking & Excavating, Inc.:Barnes & Noble" is missing email.
+[INFO] Customer "Maxwell Trucking & Excavating, Inc.:Barnes & Noble:2026 Maintenance" is missing email.
+[INFO] Customer "Sapia, Mark:Sheetz (former)" is missing email.
+[INFO] Customer "Sapia, Mark:Jax Bar & Kitchen (Jmarks)" is missing email.
+[INFO] Customer "Sapia, Mark:Jax Bar & Kitchen (Jmarks):2025-2026 Snow" is missing email.
+[INFO] Customer "Sapia, Mark:Mark's House" is missing email.
+[INFO] Customer "Sapia, Mark:Mark's House:2025-2026 Snow" is missing email.
+[INFO] Customer "Sapia, Mark:Mark's House:2024-2025 Snow" is missing email.
+[INFO] Customer "Sapia, Mark:143 W Park Ave" is missing email.
+[INFO] Customer "Sapia, Mark:Tony's House" is missing email.
+[INFO] Customer "Sapia, Mark:Tony's House:2025-2026 Snow" is missing email.
+[INFO] Customer "Sapia, Mark:Tony's House:2024-2025 Snow" is missing email.
+[INFO] Customer "Sapia, Mark:Citizens Bank" is missing email.
+[INFO] Customer "Sapia, Mark:Citizens Bank:2025-2026 Snow" is missing email.
+[INFO] Customer "Sapia, Mark:Citizens Bank:2024-2025 Snow" is missing email.
+[INFO] Customer "Sapia, Mark:Citizens Bank:2023-2024 Snow" is missing email.
+[INFO] Customer "Sapia, Mark:P2P Computer Solutions" is missing email.
+[INFO] Customer "Sapia, Mark:P2P Computer Solutions:2025-2026 Snow" is missing email.
+[INFO] Customer "Sapia, Mark:P2P Computer Solutions:2024-2025 Snow" is missing email.
+[INFO] Customer "Sapia, Mark:P2P Computer Solutions:2023-2024 Snow" is missing email.
+[INFO] Customer "Sapia, Mark:P2P Computer Solutions:2021/2022-Snow" is missing email.
+[INFO] Customer "Sapia, Mark:1341 S Atherton St" is missing email.
+[INFO] Customer "Sapia, Mark:1341 S Atherton St:2025-2026 Snow" is missing email.
+[INFO] Customer "Sapia, Mark:1341 S Atherton St:2024-2025 Snow" is missing email.
+[INFO] Customer "Sapia, Mark:1341 S Atherton St:2024-25 Maintenance" is missing email.
+[INFO] Customer "Sapia, Mark:Jack's Beer Shop" is missing email.
+[INFO] Customer "Sapia, Mark:Jack's Beer Shop:2025-2026 Snow" is missing email.
+[INFO] Customer "Sapia, Mark:Jack's Beer Shop:2024-2025 Snow" is missing email.
+[INFO] Customer "Sapia, Mark:Jack's Beer Shop:2023-26 Maintenance" is missing email.
+[INFO] Customer "Sapia, Mark:The Shandygaff" is missing email.
+[INFO] Customer "Sapia, Mark:The Shandygaff:2025-2026 Snow" is missing email.
+[INFO] Customer "Sapia, Mark:The Shandygaff:2024-2025 Snow" is missing email.
+[INFO] Customer "Divisions Maint. Group (Formerly Merit):Kohl's (State College)" is missing email.
+[INFO] Customer "Divisions Maint. Group (Formerly Merit):Kohl's (State College):2024 Maintenance" is missing email.
+[INFO] Customer "Divisions Maint. Group (Formerly Merit):Kohl's (State College):2020 Kohl's Maintenance" is missing email.
+[INFO] Customer "Divisions Maint. Group (Formerly Merit):Kohl's (State College):2021 Kohl's Maintenance" is missing email.
+[INFO] Customer "Divisions Maint. Group (Formerly Merit):Kohl's (State College):2021 Kohl's Maintenance:2021/2022..." is missing email.
+[INFO] Customer "Miller Electric, Ltd." is missing email.
+[INFO] Customer "Miller Electric, Ltd.:2024-26 Maintenance" is missing email.
+[INFO] Customer "Miller Electric, Ltd.:2023 Maintenance" is missing email.
+[INFO] Customer "Miller Electric, Ltd.:2022-Maintenance" is missing email.
+[CRITICAL] Customer "Circle Drive" (Contact #1048) has NO email OR phone.
+[CRITICAL] Customer "Circle Drive:2025-2026 Snow" (Contact #1049) has NO email OR phone.
+[CRITICAL] Customer "Circle Drive:2024-2025 Snow" (Contact #1050) has NO email OR phone.
+[CRITICAL] Customer "Circle Drive:2023-2024 snow" (Contact #1051) has NO email OR phone.
+[CRITICAL] Customer "Circle Drive:2022/2023 - Snow Maintenance" (Contact #1052) has NO email OR phone.
+[INFO] Customer "Moore, James" is missing email.
+[INFO] Customer "Morgan Properties" is missing email.
+[INFO] Customer "Morgan Properties:Briarwood" is missing email.
+[INFO] Customer "Morgan Properties:Briarwood:2026 Maintenance" is missing email.
+[INFO] Customer "Morgan Properties:Briarwood:Miscellaneous" is missing email.
+[INFO] Customer "Morgan Properties:Briarwood:Snow" is missing email.
+[INFO] Customer "Morgan Properties:Briarwood:2024-25 Maintenance" is missing email.
+[INFO] Customer "Morgan Properties:Briarwood:2023 Maintenance" is missing email.
+[INFO] Customer "Morgan Properties:Briarwood:2022-Maintenance" is missing email.
+[INFO] Customer "Murray, Guy" is missing email.
+[INFO] Customer "Murray, Guy:2018/2019-Snow" is missing email.
+[INFO] Customer "Murray, Guy:2019-Maintenance" is missing email.
+[INFO] Customer "Narayanan, Ram" is missing email.
+[INFO] Customer "Narayanan, Ram:2022/2023 - Snow Maintenance" is missing email.
+[INFO] Customer "Naylor, Susan" is missing email.
+[INFO] Customer "Naylor, Susan:2023 Maintenance" is missing email.
+[INFO] Customer "Naylor, Susan:2022-Maintenance" is missing email.
+[INFO] Customer "Naylor, Susan:2021-Maintenance" is missing email.
+[INFO] Customer "Nicolas, Rhonda" is missing email.
+[INFO] Customer "Nittany Controls" is missing email.
+[INFO] Customer "Nittany Controls:2022/2023 - Snow Maintenance" is missing email.
+[INFO] Customer "Nittany Grove HOA" is missing email.
+[INFO] Customer "Nittany Grove HOA:2025-2026 Snow" is missing email.
+[INFO] Customer "Nittany Grove HOA:2024-2025 Snow" is missing email.
+[INFO] Customer "Nittany Grove HOA:2024-26 Maintenance" is missing email.
+[INFO] Customer "Nittany Grove HOA:Hardscape Project" is missing email.
+[INFO] Customer "Nittany Grove HOA:2023-2024 Snow" is missing email.
+[INFO] Customer "Nittany Grove HOA:2023 Snow" is missing email.
+[INFO] Customer "Nittany Grove HOA:2023 Maintenance" is missing email.
+[INFO] Customer "Nittany Grove HOA:2022/2023 - Snow Maintenance" is missing email.
+[INFO] Customer "Nittany Grove HOA:2022-Maintenance" is missing email.
+[INFO] Customer "Nittany Mall" is missing email.
+[INFO] Customer "Nittany Mall:2026 Maintenance" is missing email.
+[INFO] Customer "Nittany Mall:2025 Miscellaneous" is missing email.
+[INFO] Customer "Nittany Mall:2024 Sinkhole" is missing email.
+[INFO] Customer "Nittany Mall:2023-25 Maintenance" is missing email.
+[INFO] Customer "Nittany Mall:2022-Sign Post Repair" is missing email.
+[INFO] Customer "Nittany Mall:2022-Sinkhole (McDonald's)" is missing email.
+[INFO] Customer "Nittany Mall:2022-Maintenance" is missing email.
+[INFO] Customer "Nittany Property Management" is missing email.
+[INFO] Customer "Nittany Property Management:College Court" is missing email.
+[INFO] Customer "Nittany Property Management:College Court:2025-2026 Snow" is missing email.
+[INFO] Customer "Nittany Property Management:College Court:2024-2025 Snow" is missing email.
+[INFO] Customer "Nittany Property Management:College Court:2023-2024 Snow" is missing email.
+[INFO] Customer "Nittany Property Management:College Court:2022/2023 - Snow Maintenance" is missing email.
+[INFO] Customer "Nittany Property Management:Circlewood (Cherry Lane)" is missing email.
+[INFO] Customer "Nittany Property Management:Circlewood (Cherry Lane):2025-2026 Snow" is missing email.
+[INFO] Customer "Nittany Property Management:Circlewood (Cherry Lane):2024-2025 Snow" is missing email.
+[INFO] Customer "Nittany Property Management:Circlewood (Cherry Lane):2023-2024 Snow" is missing email.
+[INFO] Customer "Nittany Property Management:Circlewood (Cherry Lane):2022/2022 - Snow Maintenance" is missing email.
+[INFO] Customer "Nittany Property Management:1315 S. Allen Street" is missing email.
+[INFO] Customer "Nittany Property Management:1315 S. Allen Street:2022/2023 - Snow Maintenance" is missing email.
+[INFO] Customer "PA's Finest Towing" is missing email.
+[INFO] Customer "Paradigm Properties Group, Inc" is missing email.
+[INFO] Customer "Paradigm Properties Group, Inc:Stony Pointe Phase 3" is missing email.
+[INFO] Customer "Paradigm Properties Group, Inc:Stony Pointe Phase 3:Hardscape" is missing email.
+[INFO] Customer "Paradigm Properties Group, Inc:Burnham Farms Park" is missing email.
+[INFO] Customer "Paradigm Properties Group, Inc:Foxpointe" is missing email.
+[INFO] Customer "Paradigm Properties Group, Inc:Foxpointe:snow" is missing email.
+[INFO] Customer "Paradigm Properties Group, Inc:Harvest Meadows HoA" is missing email.
+[INFO] Customer "Paradigm Properties Group, Inc:Harvest Meadows HoA:Snow" is missing email.
+[INFO] Customer "Paradigm Properties Group, Inc:512 S. Garner St." is missing email.
+[INFO] Customer "Paradigm Properties Group, Inc:Country Cove" is missing email.
+[INFO] Customer "Paradigm Properties Group, Inc:Country Cove:Snow 2026" is missing email.
+[INFO] Customer "Paradigm Properties Group, Inc:Country Cove:Monthlies" is missing email.
+[INFO] Customer "Paradigm Properties Group, Inc:Paradise Hills" is missing email.
+[INFO] Customer "Paradigm Properties Group, Inc:Paradise Hills:Paradise Hills South - 2025 Hardscape" is missing email.
+[INFO] Customer "Paradigm Properties Group, Inc:Paradise Hills:Paradise Hills West - 2025 - Hardscaping" is missing email.
+[INFO] Customer "Paradigm Properties Group, Inc:Paradise Hills:2024 - Hardscape" is missing email.
+[INFO] Customer "Paradigm Properties Group, Inc:Paradise Hills:2022-Hardscaping" is missing email.
+[INFO] Customer "Paradigm Properties Group, Inc:The Regency" is missing email.
+[INFO] Customer "Paradigm Properties Group, Inc:The Regency:2022-Maintenance" is missing email.
+[INFO] Customer "Paradigm Properties Group, Inc:Westway Gardens" is missing email.
+[INFO] Customer "Paradigm Properties Group, Inc:Westway Gardens:Snow 2026" is missing email.
+[INFO] Customer "Paradigm Properties Group, Inc:Westway Gardens:Maintenance (monthly)" is missing email.
+[INFO] Customer "Paradigm Properties Group, Inc:Westway Gardens:Monthlies" is missing email.
+[INFO] Customer "Paradigm Properties Group, Inc:Westway Gardens:2023 Monthly Maintenance" is missing email.
+[INFO] Customer "Paradigm Properties Group, Inc:Westway Gardens:2022/2023-Maintenance" is missing email.
+[INFO] Customer "Paradigm Properties Group, Inc:Tradition Cove" is missing email.
+[INFO] Customer "Paradigm Properties Group, Inc:Tradition Cove:2022-Wall Repair" is missing email.
+[INFO] Customer "Paradigm Properties Group, Inc:The Mews UOA" is missing email.
+[INFO] Customer "Paradigm Properties Group, Inc:The Mews UOA:Snow T&M" is missing email.
+[INFO] Customer "Paradigm Properties Group, Inc:The Mews UOA:Maintenance (monthly)" is missing email.
+[INFO] Customer "Paradigm Properties Group, Inc:The Mews UOA:Monthlies" is missing email.
+[INFO] Customer "Paradigm Properties Group, Inc:The Mews UOA:2023/2024-Maintenance" is missing email.
+[INFO] Customer "Paradigm Properties Group, Inc:The Mews UOA:2022/2023-Maintenance" is missing email.
+[INFO] Customer "Paradigm Properties Group, Inc:Toftrees HOA" is missing email.
+[INFO] Customer "Paradigm Properties Group, Inc:Toftrees HOA:2023-25 Maintenance" is missing email.
+[INFO] Customer "Paradigm Properties Group, Inc:Toftrees HOA:2022-Maintenance" is missing email.
+[INFO] Customer "Paradigm Properties Group, Inc:270-284 Reese Road" is missing email.
+[INFO] Customer "Paradigm Properties Group, Inc:270-284 Reese Road:2025-2026 Snow" is missing email.
+[INFO] Customer "Paradigm Properties Group, Inc:270-284 Reese Road:2024-2025 Snow" is missing email.
+[INFO] Customer "Paradigm Properties Group, Inc:270-284 Reese Road:2024-25 Maintenance" is missing email.
+[INFO] Customer "Paradigm Properties Group, Inc:270-284 Reese Road:2023-2024 Snow" is missing email.
+[INFO] Customer "Paradigm Properties Group, Inc:270-284 Reese Road:2023 Maintenance" is missing email.
+[INFO] Customer "Paradigm Properties Group, Inc:270-284 Reese Road:2022/2023 - Snow Maintenance" is missing email.
+[INFO] Customer "Paradigm Properties Group, Inc:270-284 Reese Road:2022-Maintenance" is missing email.
+[INFO] Customer "Paradigm Properties Group, Inc:220 Reese Rd" is missing email.
+[INFO] Customer "Paradigm Properties Group, Inc:220 Reese Rd:2025-2026 Snow" is missing email.
+[INFO] Customer "Paradigm Properties Group, Inc:220 Reese Rd:2024-2025 Snow" is missing email.
+[INFO] Customer "Paradigm Properties Group, Inc:220 Reese Rd:2024-26 Maintenance" is missing email.
+[INFO] Customer "Paradigm Properties Group, Inc:220 Reese Rd:2023-2024 Snow" is missing email.
+[INFO] Customer "Paradigm Properties Group, Inc:220 Reese Rd:2023 Maintenance" is missing email.
+[INFO] Customer "Paradigm Properties Group, Inc:220 Reese Rd:2022/2023 - Snow Maintenance" is missing email.
+[INFO] Customer "Paradigm Properties Group, Inc:220 Reese Rd:2022-Maintenance" is missing email.
+[INFO] Customer "Paradigm Properties Group, Inc:Forest Edge Townhomes" is missing email.
+[INFO] Customer "Paradigm Properties Group, Inc:Forest Edge Townhomes:Snow 2026" is missing email.
+[INFO] Customer "Paradigm Properties Group, Inc:Forest Edge Townhomes:Monthlies" is missing email.
+[INFO] Customer "Paradigm Properties Group, Inc:Forest Edge Townhomes:2023 Maintenance" is missing email.
+[INFO] Customer "Paradigm Properties Group, Inc:Forest Edge Townhomes:2022/2023-Maintenance" is missing email.
+[INFO] Customer "Paradigm Properties Group, Inc:Gray's Wood Brynwood" is missing email.
+[INFO] Customer "Paradigm Properties Group, Inc:Gray's Wood Brynwood:2024/2025 - Snow Maintenance" is missing email.
+[INFO] Customer "Paradigm Properties Group, Inc:Gray's Wood Brynwood:2023/2024 - Snow Maintenance" is missing email.
+[INFO] Customer "Paradigm Properties Group, Inc:Gray's Wood Brynwood:2022/2023 - Snow Maintenance" is missing email.
+[INFO] Customer "Paradigm Properties Group, Inc:Hemmingway Place" is missing email.
+[INFO] Customer "Paradigm Properties Group, Inc:Hemmingway Place:2025-2026 Snow" is missing email.
+[INFO] Customer "Paradigm Properties Group, Inc:Hemmingway Place:Miscellaneous" is missing email.
+[INFO] Customer "Paradigm Properties Group, Inc:Hemmingway Place:Monthlies" is missing email.
+[INFO] Customer "Paradigm Properties Group, Inc:Hemmingway Place:2023 Maintenance" is missing email.
+[INFO] Customer "Paradigm Properties Group, Inc:Hemmingway Place:2022-Sink Hole Repair" is missing email.
+[INFO] Customer "Paradigm Properties Group, Inc:Hemmingway Place:2022/2023-Maintenance" is missing email.
+[INFO] Customer "Paradigm Properties Group, Inc:Legion Lane Appartments" is missing email.
+[INFO] Customer "Paradigm Properties Group, Inc:Legion Lane Appartments:2025-2026 Snow" is missing email.
+[INFO] Customer "Paradigm Properties Group, Inc:Legion Lane Appartments:2024-2025 Snow" is missing email.
+[INFO] Customer "Paradigm Properties Group, Inc:Legion Lane Appartments:2024-26 Maintenance" is missing email.
+[INFO] Customer "Paradigm Properties Group, Inc:Legion Lane Appartments:2023-2024 snow" is missing email.
+[INFO] Customer "Paradigm Properties Group, Inc:Legion Lane Appartments:2023 Maintenance" is missing email.
+[INFO] Customer "Paradigm Properties Group, Inc:Legion Lane Appartments:2022-Maintenance" is missing email.
+[INFO] Customer "Paradigm Properties Group, Inc:Legion Lane Appartments:2021/2022-Snow" is missing email.
+[INFO] Customer "Parmer, George" is missing email.
+[INFO] Customer "Parmer, George:2022-Maintenance" is missing email.
+[INFO] Customer "Pazak, Lisa" is missing email.
+[INFO] Customer "Pazak, Lisa:2023 Maintenance" is missing email.
+[INFO] Customer "Pazak, Lisa:2022-Maintenance" is missing email.
+[INFO] Customer "Pellicciotta, Lucia" is missing email.
+[INFO] Customer "Pellicciotta, Lucia:Maintenance & Snow" is missing email.
+[INFO] Customer "Penn Installations" is missing email.
+[INFO] Customer "Penn Installations:2025-2026 Snow" is missing email.
+[INFO] Customer "Penn Installations:2024-2025 Snow" is missing email.
+[INFO] Customer "Penn Installations:2024-26 Maintenance" is missing email.
+[INFO] Customer "Penn Installations:2023-2024 Snow" is missing email.
+[INFO] Customer "Penn Installations:2023 Maintenance" is missing email.
+[INFO] Customer "Penn Installations:2022/2023 - Snow Maintenance" is missing email.
+[INFO] Customer "Penn Installations:2022-Maintenance" is missing email.
+[INFO] Customer "Penstan Supply" is missing email.
+[INFO] Customer "Penstan Supply:2025-2026 Snow" is missing email.
+[INFO] Customer "Penstan Supply:2024-2025 Snow" is missing email.
+[INFO] Customer "Penstan Supply:2024 Maintenance" is missing email.
+[INFO] Customer "Penstan Supply:2023-2024 Snow" is missing email.
+[INFO] Customer "Penstan Supply:Landscaping" is missing email.
+[INFO] Customer "Penstan Supply:Hardscape" is missing email.
+[INFO] Customer "Penstan Supply:2023-25 Maintenance" is missing email.
+[INFO] Customer "Penstan Supply:2022/2023 - Snow Maintenance" is missing email.
+[INFO] Customer "Penstan Supply:2022-Maintenance" is missing email.
+[INFO] Customer "Perkins Restaurant/JDK Mgt." is missing email.
+[INFO] Customer "Perkins Restaurant/JDK Mgt.:2024-26 Maintenance" is missing email.
+[INFO] Customer "Perkins Restaurant/JDK Mgt.:2023 Maintenance" is missing email.
+[INFO] Customer "Perkins Restaurant/JDK Mgt.:2022-Maintenance" is missing email.
+[INFO] Customer "Popovich, Alan & Kris" is missing email.
+[INFO] Customer "Prebble, Brandy" is missing email.
+[INFO] Customer "Prebble, Brandy:2024-26 Maintenance" is missing email.
+[INFO] Customer "Prebble, Brandy:2023 Maintenance" is missing email.
+[INFO] Customer "Prebble, Brandy:2022-Maintenance" is missing email.
+[INFO] Customer "Price's Sawmill" is missing email.
+[INFO] Customer "Price's Sawmill:2022/2023 - Snow Maintenance" is missing email.
+[CRITICAL] Customer "Prime Property Group" (Contact #1218) has NO email OR phone.
+[INFO] Customer "Priya, Shashank" is missing email.
+[INFO] Customer "Probst, Andy" is missing email.
+[INFO] Customer "Raytheon" is missing email.
+[INFO] Customer "Raytheon:2026 Maintenance" is missing email.
+[INFO] Customer "Raytheon:2025-2026 Snow" is missing email.
+[INFO] Customer "Raytheon:2025 Maintenance" is missing email.
+[INFO] Customer "Raytheon:2024-2025 Snow" is missing email.
+[INFO] Customer "Raytheon:2024 Maintenance" is missing email.
+[INFO] Customer "Raytheon:2023-2024 Snow" is missing email.
+[INFO] Customer "Raytheon:2023 Maintenance" is missing email.
+[INFO] Customer "Raytheon:2022/2023 - Snow Maintenance" is missing email.
+[INFO] Customer "Raytheon:2022-Maintenance" is missing email.
+[INFO] Customer "ReStore/Habitat for Humanity" is missing email.
+[INFO] Customer "ReStore/Habitat for Humanity:2025-2026 Snow" is missing email.
+[INFO] Customer "ReStore/Habitat for Humanity:2025-2026 Snow:193 Woodycrest" is missing email.
+[INFO] Customer "ReStore/Habitat for Humanity:2025-2026 Snow:nittany" is missing email.
+[INFO] Customer "ReStore/Habitat for Humanity:Chambers Alley" is missing email.
+[INFO] Customer "ReStore/Habitat for Humanity:2024-2025 Snow" is missing email.
+[INFO] Customer "ReStore/Habitat for Humanity:2023-25 Maintenance" is missing email.
+[INFO] Customer "ReStore/Habitat for Humanity:2022/2023 - Snow Maintenance" is missing email.
+[INFO] Customer "ReStore/Habitat for Humanity:2022-Maintenance" is missing email.
+[CRITICAL] Customer "Reed, Dylan" (Contact #1240) has NO email OR phone.
+[INFO] Customer "Rosenberg, David" is missing email.
+[CRITICAL] Customer "Roth, Jennifer" (Contact #1242) has NO email OR phone.
+[CRITICAL] Customer "Roth, Jennifer:2017/2018 Snow removal" (Contact #1243) has NO email OR phone.
+[INFO] Customer "S&A Homes" is missing email.
+[INFO] Customer "Safran/Beaver" is missing email.
+[INFO] Customer "Safran/Beaver:2024-26 Maintenance" is missing email.
+[INFO] Customer "Safran/Beaver:2023 Maintenance" is missing email.
+[INFO] Customer "Safran/Beaver:2022-Maintenance" is missing email.
+[INFO] Customer "Sapia, Mark" is missing email.
+[INFO] Customer "South Hills Business School:2023 Maintenance" is missing email.
+[INFO] Customer "South Hills Business School:2022/2023 - Snow Maintenance" is missing email.
+[INFO] Customer "South Hills Business School:2022-Maintenance" is missing email.
+[INFO] Customer "Stable Hill Estates" is missing email.
+[INFO] Customer "Stable Hill Estates:2026 Monthly Snow" is missing email.
+[INFO] Customer "Stable Hill Estates:2025-2026 Snow" is missing email.
+[INFO] Customer "Stable Hill Estates:2024-2025 Snow" is missing email.
+[INFO] Customer "Stable Hill Estates:Maintenance / Projects" is missing email.
+[INFO] Customer "Stone Manor Condo Assoc" is missing email.
+[INFO] Customer "Stover McGlaughlin Law Office" is missing email.
+[INFO] Customer "Stover McGlaughlin Law Office:2025-2026 Snow" is missing email.
+[INFO] Customer "Stover McGlaughlin Law Office:2024-2025 Snow" is missing email.
+[INFO] Customer "Stover McGlaughlin Law Office:2024-26 Maintenance" is missing email.
+[INFO] Customer "Stover McGlaughlin Law Office:2023-2024 Snow" is missing email.
+[INFO] Customer "Stover McGlaughlin Law Office:2023 Maintenance" is missing email.
+[INFO] Customer "Stover McGlaughlin Law Office:2022/2023 - Snow Maintenance" is missing email.
+[INFO] Customer "Stover McGlaughlin Law Office:2022-Maintenance" is missing email.
+[INFO] Customer "Stover, Elizabeth" is missing email.
+[INFO] Customer "Stover, Elizabeth:2017 Maintenance" is missing email.
+[INFO] Customer "Stover, Elizabeth:2017/2018 Snow Removal" is missing email.
+[CRITICAL] Customer "Swistock, Jim & Jeanne" (Contact #1318) has NO email OR phone.
+[CRITICAL] Customer "Swistock, Jim & Jeanne:2026 Maintenance" (Contact #1319) has NO email OR phone.
+[CRITICAL] Customer "Swistock, Jim & Jeanne:2025-2026 Snow" (Contact #1320) has NO email OR phone.
+[CRITICAL] Customer "Swistock, Jim & Jeanne:2024-2025 Snow" (Contact #1321) has NO email OR phone.
+[CRITICAL] Customer "Swistock, Jim & Jeanne:2024-25 Maintenance" (Contact #1322) has NO email OR phone.
+[CRITICAL] Customer "Swistock, Jim & Jeanne:2023-2024 Snow" (Contact #1323) has NO email OR phone.
+[CRITICAL] Customer "Swistock, Jim & Jeanne:2023 Maintenance" (Contact #1324) has NO email OR phone.
+[CRITICAL] Customer "Swistock, Jim & Jeanne:2022/2023 - Snow Maintenance" (Contact #1325) has NO email OR phone.
+[CRITICAL] Customer "Swistock, Jim & Jeanne:2022-Maintenance" (Contact #1326) has NO email OR phone.
+[INFO] Customer "Temple, Vanessa" is missing email.
+[INFO] Customer "Temple, Vanessa:2025-2026 Snow" is missing email.
+[INFO] Customer "Temple, Vanessa:2024-2025 Snow" is missing email.
+[INFO] Customer "Temple, Vanessa:2024 Projects" is missing email.
+[INFO] Customer "Temple, Vanessa:2023-2024 Snow" is missing email.
+[INFO] Customer "Temple, Vanessa:Lawn Installation" is missing email.
+[INFO] Customer "Temple, Vanessa:2023 Maintenance" is missing email.
+[INFO] Customer "Temple, Vanessa:2022/2023 - Snow Maintenance" is missing email.
+[INFO] Customer "Temple, Vanessa:2022-Maintenance" is missing email.
+[INFO] Customer "The Bryn" is missing email.
+[CRITICAL] Customer "The Bryn:Snow 2026" (Contact #1337) has NO email OR phone.
+[CRITICAL] Customer "The Bryn:The Bryn (PEP) Monthly" (Contact #1338) has NO email OR phone.
+[CRITICAL] Customer "The Bryn:The Bryn (PEP) - projects" (Contact #1339) has NO email OR phone.
+[CRITICAL] Customer "The Bryn:2023 Stairway Tread Replacement" (Contact #1340) has NO email OR phone.
+[CRITICAL] Customer "The Bryn:2022/2023-Snow Maintenance" (Contact #1341) has NO email OR phone.
+[CRITICAL] Customer "The Bryn:2023-Maintenance" (Contact #1342) has NO email OR phone.
+[CRITICAL] Customer "Timko, Dan" (Contact #1343) has NO email OR phone.
+[CRITICAL] Customer "Timko, Dan:Maintenance" (Contact #1344) has NO email OR phone.
+[INFO] Customer "Together Investments" is missing email.
+[INFO] Customer "Together Investments:1524 W. College Ave." is missing email.
+[INFO] Customer "Together Investments:1524 W. College Ave.:2024-25 Maintenance" is missing email.
+[INFO] Customer "Together Investments:1524 W. College Ave.:2023 Maintenance" is missing email.
+[INFO] Customer "Together Investments:1524 W. College Ave.:2022-Maintenance" is missing email.
+[INFO] Customer "Together Investments:Sandywoods Professional Center" is missing email.
+[INFO] Customer "Together Investments:Sandywoods Professional Center:2025-2026 Snow" is missing email.
+[INFO] Customer "Together Investments:Sandywoods Professional Center:2024-2025 Snow" is missing email.
+[INFO] Customer "Together Investments:Sandywoods Professional Center:2024-26 Maintenance" is missing email.
+[INFO] Customer "Together Investments:Sandywoods Professional Center:2023-2024 Snow" is missing email.
+[INFO] Customer "Together Investments:Sandywoods Professional Center:2023 Maintenance" is missing email.
+[INFO] Customer "Sapia, Mark:Pugh Street Associates / Yoga Lab" is missing email.
+[INFO] Customer "Sapia, Mark:Pugh Street Associates / Yoga Lab:2025-2026 Snow" is missing email.
+[INFO] Customer "Sapia, Mark:Pugh Street Associates / Yoga Lab:2024-2025 Snow" is missing email.
+[INFO] Customer "Sims, Norrine" is missing email.
+[INFO] Customer "Smith, Roy" is missing email.
+[INFO] Customer "Smith, Roy:2025-2026 Snow" is missing email.
+[INFO] Customer "Smith, Roy:2024-2025 Snow" is missing email.
+[INFO] Customer "Smith, Roy:2024-26 Maintenance" is missing email.
+[INFO] Customer "Smith, Roy:2023-2024 Snow" is missing email.
+[INFO] Customer "Smith, Roy:2023 Maintenance" is missing email.
+[INFO] Customer "Smith, Roy:2022/2023 - Snow Maintenance" is missing email.
+[INFO] Customer "Smith, Roy:2023 - Yard Restoration" is missing email.
+[INFO] Customer "Smith, Roy:2022-Maintenance" is missing email.
+[INFO] Customer "South Hills Business School" is missing email.
+[INFO] Customer "South Hills Business School:2025-2026 Snow" is missing email.
+[INFO] Customer "South Hills Business School:2024-2025 Snow" is missing email.
+[INFO] Customer "South Hills Business School:2024-26 Maintenance" is missing email.
+[INFO] Customer "South Hills Business School:2023-2024 Snow" is missing email.
+[INFO] Customer "Together Investments:Sandywoods Professional Center:2022/2023 - Snow" is missing email.
+[INFO] Customer "Together Investments:Sandywoods Professional Center:2022-Maintenance" is missing email.
+[INFO] Customer "Tremont Student Living" is missing email.
+[INFO] Customer "Tremont Student Living:Snow 2026" is missing email.
+[INFO] Customer "Tremont Student Living:Tremont (PEP) Monthly" is missing email.
+[INFO] Customer "Tremont Student Living:Miscellaneous" is missing email.
+[INFO] Customer "Tremont Student Living:2022/2023-Snow Maintenance" is missing email.
+[INFO] Customer "Tremont Student Living:2023-Maintenance" is missing email.
+[INFO] Customer "Tremont Student Living:2019-ADA Work" is missing email.
+[INFO] Customer "Tybout, Jim & Daniels, Pat" is missing email.
+[INFO] Customer "Tybout, Jim & Daniels, Pat:2024-26 Maintenance" is missing email.
+[INFO] Customer "Tybout, Jim & Daniels, Pat:2023 Maintenance" is missing email.
+[INFO] Customer "Tybout, Jim & Daniels, Pat:2022-Maintenance" is missing email.
+[INFO] Customer "U-Haul of Harrisburg (State College)" is missing email.
+[INFO] Customer "U-Haul of Harrisburg (State College):2025-2026 Snow" is missing email.
+[INFO] Customer "U-Haul of Harrisburg (State College):2024-2025 Snow" is missing email.
+[INFO] Customer "U-Haul of Harrisburg (State College):2024-26 Maintenance" is missing email.
+[INFO] Customer "U-Haul of Harrisburg (State College):2023-2024 Snow" is missing email.
+[INFO] Customer "U-Haul of Harrisburg (State College):2023 Maintenance" is missing email.
+[INFO] Customer "U-Haul of Harrisburg (State College):2022/2023 - Snow Maintenance" is missing email.
+[INFO] Customer "U-Haul of Harrisburg (State College):2022-Maintenance" is missing email.
+[INFO] Customer "Ullman, Larry" is missing email.
+[INFO] Customer "Ullman, Larry:2017 Maintenance" is missing email.
+[INFO] Customer "Vannice, Albert" is missing email.
+[INFO] Customer "Vie Development (Southgate)" is missing email.
+[INFO] Customer "Vie Development (Southgate):Southgate Apartments" is missing email.
+[INFO] Customer "Vie Development (Southgate):Southgate Apartments:2024-26 Maintenance" is missing email.
+[INFO] Customer "Vie Development (Southgate):Southgate Apartments:2023 Maintenance" is missing email.
+[INFO] Customer "Vie Development (Southgate):Southgate Apartments:2022-Maintenance" is missing email.
+[INFO] Customer "Waslohn, Kay" is missing email.
+[INFO] Customer "Waslohn, Kay:2019-Sandstone Patio" is missing email.
+[INFO] Customer "Weber, Gary & Jeanne" is missing email.
+[INFO] Customer "Weber, Gary & Jeanne:2022-Maintenance" is missing email.
+[INFO] Customer "White, Dick" is missing email.
+[INFO] Customer "White, Dick:2024-26 Maintenance" is missing email.
+[INFO] Customer "White, Dick:2023 Maintenance" is missing email.
+[INFO] Customer "White, Dick:2022-Maintenance" is missing email.
+[CRITICAL] Customer "Whitmarsh, David & Lynn" (Contact #1393) has NO email OR phone.
+[INFO] Customer "Williams, Garry" is missing email.
+[CRITICAL] Customer "Wood, Fred" (Contact #1395) has NO email OR phone.
+[INFO] Customer "Yapa, Lakshman Dr." is missing email.
+[INFO] Customer "Yapa, Lakshman Dr.:2023 Maintenance" is missing email.
+[INFO] Customer "Yapa, Lakshman Dr.:2022-Maintenance" is missing email.
+[INFO] Customer "Yellappa, Naveen" is missing email.
+[INFO] Customer "Yellappa, Naveen:2023 Maintenance" is missing email.
+[INFO] Customer "Yellappa, Naveen:2022-Maintenance" is missing email.
+[INFO] Customer "Yorks, Annette" is missing email.
+[INFO] Customer "Yorks, Annette:2018- Mulch" is missing email.
+[INFO] Customer "Yorks, Annette:2018-Mowing" is missing email.
+[INFO] Customer "Zbiek, Rose" is missing email.
+[INFO] Customer "Zbiek, Rose:2023 Maintenance" is missing email.
+[INFO] Customer "Zbiek, Rose:2022/2023 - Snow Maintenance" is missing email.
+[INFO] Customer "Zbiek, Rose:2022-Maintenance" is missing email.

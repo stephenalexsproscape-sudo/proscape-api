@@ -1,0 +1,179 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Company {
+  id        Int        @id @default(autoincrement())
+  name      String     @unique
+  customers Customer[]
+}
+
+model Customer {
+  id              Int              @id @default(autoincrement())
+  companyId       Int?
+  parentId        Int?
+  displayName     String
+  accountStatus   String           @default("LEAD")
+  addresses       Address[]
+  contacts        Contact[]
+  company         Company?         @relation(fields: [companyId], references: [id])
+  parent          Customer?        @relation("SubAccounts", fields: [parentId], references: [id])
+  subAccounts     Customer[]       @relation("SubAccounts")
+  messages        Message[]
+  serviceRequests ServiceRequest[]
+  siteSpec        SiteSpec?
+
+  @@index([companyId])
+  @@index([parentId])
+  @@index([displayName])
+}
+
+model Contact {
+  id         Int      @id @default(autoincrement())
+  customerId Int
+  firstName  String?
+  lastName   String?
+  phone      String?
+  email      String?
+  isPrimary  Boolean  @default(false)
+  customer   Customer @relation(fields: [customerId], references: [id], onDelete: Cascade)
+
+  @@index([customerId])
+}
+
+model Address {
+  id         Int         @id @default(autoincrement())
+  customerId Int
+  street1    String
+  street2    String?
+  city       String?
+  state      String?     @db.Char(2)
+  zip        String?
+  type       AddressType @default(SERVICE)
+  customer   Customer    @relation(fields: [customerId], references: [id], onDelete: Cascade)
+
+  @@index([customerId])
+}
+
+model Message {
+  content    String
+  createdAt  DateTime @default(now())
+  author     String   @default("System")
+  customerId Int
+  id         Int      @id @default(autoincrement())
+  customer   Customer @relation(fields: [customerId], references: [id], onDelete: Cascade)
+
+  @@index([customerId])
+}
+
+model ServiceRequest {
+  id                Int       @id @default(autoincrement())
+  dateReceived      DateTime  @default(now())
+  updatedAt         DateTime  @updatedAt
+  howReceived       String?
+  clientConnection  String?
+  requestType       String?
+  description       String
+  assignedTo        String?
+  status            String    @default("OPEN")
+  proposalSentDate  DateTime?
+  scheduledWorkDate DateTime?
+  scheduledEndDate  DateTime?
+  followUpDate      DateTime?
+  customerId        Int
+  deadline          DateTime?
+  isPremium         Boolean      @default(false)
+  customer          Customer     @relation(fields: [customerId], references: [id], onDelete: Cascade)
+  attachments       Attachment[]
+
+  @@index([customerId])
+  }
+
+  model Attachment {
+  id               Int            @id @default(autoincrement())
+  serviceRequestId Int
+  fileName         String
+  fileUrl          String
+  uploadedAt       DateTime       @default(now())
+  serviceRequest   ServiceRequest @relation(fields: [serviceRequestId], references: [id], onDelete: Cascade)
+  }
+
+model AuditLog {
+  id         Int      @id @default(autoincrement())
+  entityType String
+  entityId   Int
+  action     String
+  details    String
+  createdAt  DateTime @default(now())
+  newValues  Json?
+  oldValues  Json?
+
+  @@index([entityType, entityId])
+}
+
+model Crew {
+  id        Int      @id @default(autoincrement())
+  name      String   @unique
+  color     String   @default("#64748b")
+  isActive  Boolean  @default(true)
+}
+
+model JobCategory {
+  id        Int      @id @default(autoincrement())
+  name      String   @unique
+  icon      String   @default("📌")
+  isActive  Boolean  @default(true)
+}
+
+model User {
+  id                   Int       @id @default(autoincrement())
+  username             String    @unique
+  email                String?   @unique
+  phone                String?
+  passwordHash         String
+  role                 String    @default("USER")
+  resetPasswordToken   String?   @unique
+  resetPasswordExpires DateTime?
+  createdAt            DateTime  @default(now())
+
+  sentMessages     InternalMessage[] @relation("SentMessages")
+  receivedMessages InternalMessage[] @relation("ReceivedMessages")
+}
+
+model InternalMessage {
+  id           Int      @id @default(autoincrement())
+  content      String
+  createdAt    DateTime @default(now())
+  senderId     Int
+  receiverId   Int
+  isRead       Boolean  @default(false)
+  sentViaEmail Boolean  @default(false)
+  sentViaSms   Boolean  @default(false)
+  
+  sender       User     @relation("SentMessages", fields: [senderId], references: [id])
+  receiver     User     @relation("ReceivedMessages", fields: [receiverId], references: [id])
+
+  @@index([senderId])
+  @@index([receiverId])
+}
+
+model SiteSpec {
+  id            Int      @id @default(autoincrement())
+  customerId    Int      @unique
+  snowTrigger   String?
+  gateCode      String?
+  mulchYardage  Float?
+  propertyNotes String?
+  updatedAt     DateTime @updatedAt
+  customer      Customer @relation(fields: [customerId], references: [id], onDelete: Cascade)
+}
+
+enum AddressType {
+  BILLING
+  SERVICE
+}

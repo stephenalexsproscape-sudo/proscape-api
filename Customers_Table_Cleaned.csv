@@ -1,0 +1,545 @@
+CustomerID,CompanyID,ParentID,DisplayName
+1,46.0,,"Paradigm Properties Group, Inc"
+2,46.0,1.0,AARHUS
+3,,,"Ackerman, Bob"
+4,,,"Agostinelli, Eddie"
+5,,,"Agostinelli, Linda"
+6,,,"Aguer, Kirk"
+7,,,"Albert, Glenn & Louise"
+8,,,"Aldrich, Jennifer"
+9,,,"Alessi, Carmen"
+10,,,"Alexander, Cindy"
+11,,,"Ali, Jared"
+12,,,"Allebach, Rodney"
+13,,,"Allen, Daniel"
+14,,,"Allen, David & Keriann"
+15,,,"Allen, Michele"
+16,,,"Anderson, Bob"
+17,,,"Anderson, Nancy"
+18,,,"Anskis, Rhonda"
+19,,,"APArchitects, LLC"
+20,,,API Field (Little League Field)
+21,,,"Aplan, Lucy"
+22,,,"Armburger, Jay & Letitia"
+23,,,"Armillas-Tiseyra, Magali"
+24,,,"Babb, Ben"
+25,,,"Babb, Lance"
+26,,,"Babcock, Marilyn"
+27,,,"Baker, Paul"
+28,,,"Barger, Scott"
+29,,,"Barker, Dan"
+30,,,"Barner, Harold"
+31,,,"Barnes, Gayle"
+32,3.0,,Bartley Builders (Doug Bartley)
+33,32.0,,"Bartley, Doug"
+34,,,"Bartley, Jon"
+35,,,"Batcho, Dan"
+36,,,"Baumrucker, Craig & Nancy"
+37,,,"Beal, Lyle & Joann"
+38,,,"Beasley, Val"
+39,,,Bellefonte Little League-c
+40,4.0,,"Bellows Constructions, LLC"
+41,,,"Benett, Les"
+42,,,"Bennett, Patty"
+43,5.0,,Berks Homes
+44,6.0,,Best Buy/Staples
+45,7.0,,Best Line Corporate HQ
+46,8.0,,Best Line Equipment
+47,9.0,,Best Line Powersports
+48,,,"Bickle, Kay & Wayne"
+49,,,"Bieschke, Kathy"
+50,,,"Blake, Bill"
+51,,,"Blanco, Carlos"
+52,10.0,,Bobby Rahal Honda
+53,,,"Boeldt, Eric"
+54,,,"Bohner, Nancy"
+55,,,"Bohner, Robert"
+56,,,"Bollinger, Marty"
+57,,,"Boni, Maciej"
+58,,,"Borro, Brandi & Geoff"
+59,11.0,,Bortz Woodworks (Customer)
+60,,,"Bortz, Brian"
+61,12.0,,Bowman Excavation
+62,,,Boy Scouts of America
+63,,,"Braasch, Cathy"
+64,,,"Brachbill, Steven"
+65,,,"Bragg, Jeff & Elli"
+66,,,"Brauser, Greg"
+67,,,"Bresee, Jerry"
+68,,,Brexx At State College
+69,,,"Brickhouse, Larry"
+70,,,"Broking, Emily"
+71,,,"Brown, Dave"
+72,,,"Brunelli, Anthony"
+73,,,"Brungo, Maura"
+74,,,"Bryson, Gwendolyn"
+75,,,"Brzycki, Henry & Elaine"
+76,,,Builder's Hardware
+77,,,"Bundy, Richard"
+78,,,"Button, Rich"
+79,,,"Calabro, Christa & Trevor"
+80,,,Caliber Collision
+81,,,"Callejo, David"
+82,,,"Campbell, Jim"
+83,,,Cannon Instrument Company
+84,,,"Capparelle, Toby & Noel"
+85,,,"Caracappa, Phyllis"
+86,,,Care Property Services
+87,,,"Carson, Chuck"
+88,,,"Carter, Rosemary"
+89,,,"Caskey, Chris & Cherrie"
+90,,,"Castonguay, Louis"
+91,58.0,,Centre Animal Hospital (Pro Design & Con)
+92,,,Centre County Historical Society-C
+93,,,Centre County Mutual Fire Insurance Co.
+94,,,Centre Mansion
+95,,,"Choi, Sukwon"
+96,,,Circle Drive
+97,,,Climb Nittany
+98,,,"Cochrane, Philip"
+99,,,"Collins, John & Mary"
+100,,,Colonial Press
+101,,,"Confer, Michael & Darlene"
+102,,,Continental Real Estate
+103,,,"Contino, Laura & Michael"
+104,,,"Cooper, Sue"
+105,,,Cooper Electric
+106,,,"Craig, Ana"
+107,,,"Cunningham, Joann"
+108,,,Curt Kimble
+109,,,"Cutting Edge Tree Professionals, LLC"
+110,,,"Daniels, Carol"
+111,,,"Davidson, Matt"
+112,,,"Davoli, Jason"
+113,,,"DeGeorge, Denise"
+114,,,Deibler Machining
+115,,,"DeMartino, Theresa"
+116,,,"Depto, Daron"
+117,,,"Dixon, Kara & Temeles, Lisanne"
+118,,,"Doerr, Donna"
+119,,,"Dombrowski, Maria"
+120,,,"Dorey, Lee"
+121,,,"Dorney, Megan"
+122,,,"Dougherty, Susan"
+123,,,"Doyle, Nancy"
+124,,,"Dreibelbis, Doran"
+125,,,"Drezner, Naomi"
+126,,,"Drum, Tom"
+127,,,"Dry, Glenn"
+128,,,"Dry, Ruth"
+129,,,DST Investments
+130,,,"Dubois, Lynn & Charles"
+131,,,"Duck, Bryce (Former EE)"
+132,,,"Duckworth, Melissa"
+133,,,"Duffield, Bruce C."
+134,,,"Dunkelberger, Cathy"
+135,,,"Dunmire, Marietta"
+136,,,"Dunn, Mary Polly & James"
+137,,,"Edkin, Tim"
+138,,,"Ehrenburg, Kym & Tim"
+139,,,"Englert, Butch"
+140,,,"Esposito, Al"
+141,,,"Estep, Racquel"
+142,,,"Everly, Judy"
+143,,,"Evitts, Paul"
+144,,,"Ewing, Paul"
+145,,,"Ezray, Jay"
+146,,,"Fantle, Matthew & Maureen"
+147,,,"Ferguson, Justin"
+148,,,"Fernsler, Fred"
+149,,,"Ferrigno, Carmello"
+150,,,"Figlin, Joshua Dr."
+151,,,"Firth, Karen"
+152,,,"Fish, Joan & Harold"
+153,,,"Fisher, Kala"
+154,,,Fleming. Jim
+155,,,"Flohr, Travis"
+156,,,"Folen, Rob"
+157,,,State College Food Bank
+158,,,"Ford, John"
+159,,,"Foster, Kelly"
+160,,,Foxdale Village
+161,,,"Frances, Carroll"
+162,,,"Fredericks, Greg & Anne"
+163,,,"Friel, Janet"
+164,,,"Fura, Scott"
+165,,,"Gagliardi, Jason"
+166,,,"Galgoci, Nancy"
+167,,,"Gallagher, Christa & William"
+168,,,"Gamble, Ken"
+169,,,"Gates, Barbara"
+170,,,"Gavek, Brian"
+171,,,"Genovese, Katherine"
+172,,,"Gido, Rosemary"
+173,18.0,,"GiGi's Southern Comfort, LLC"
+174,,,"Glantz, Nicholas"
+175,,,"Glickstein, Cindy & Bob"
+176,,,"Goins, Barbara"
+177,,,"Goldberg, Jeff"
+178,,,"Goldstine, Marian"
+179,,,"Gordon, Davann"
+180,,,"Gornick, Alex"
+181,19.0,,Governor's Gate Apartment
+182,,,"Graham, Edward"
+183,,,"Graves, Robert"
+184,,,"Gray, Bill"
+185,,,"Grey, Jim"
+186,,,Grimd
+187,,,"Guild, Nancy"
+188,,,"Guler, Ilgin"
+189,,,H/K Property Investments
+190,,,"Hagan, Matt"
+191,,,"Haight, Molly"
+192,,,"Hale, Sue"
+193,20.0,,Hamilton Apartments
+194,21.0,,Hampton Inn
+195,,,"Hanczar, Gordon"
+196,,,"Hanna, Scott"
+197,22.0,,Happy Valley Blended Products
+198,,,"Harris, Melanie"
+199,,,"Hart, Karen"
+200,,,"Harter, Kevin"
+201,,,"Hartley, Jesse"
+202,,,"Hassinger, Brian & Sara"
+203,54.0,,"Hawk, Phil"
+204,,,HC Hood Co
+205,,,"Hearn, Mary"
+206,,,"Heenan, Maria"
+207,,,"Heidrich, Shirley"
+208,,,"Heim, Bruce"
+209,,,"Heininger, Laurie"
+210,,,"Helms, Lisa"
+211,,,"Hendricks, Rodney-c"
+212,23.0,,Heritage Realty
+213,,,"Heron, John"
+214,,,"Hettmansperger, Tom"
+215,,,"Heverly, Rebecca"
+216,,,"Himes, Carla"
+217,,,"Hoffman, Bob & Ann"
+218,,,"Hoffman, Jean"
+219,,,"Holderman, Jake"
+220,,,"Holderman, Sheela"
+221,67.0,,Holiday Inn
+222,25.0,,Homecoming Ridge COA
+223,,,"Hopson-King, Joyce"
+224,,,"Houser, James"
+225,,,"Houser, Willis"
+226,,,"Hume, Kathryn"
+227,,,"Hunter, Bob"
+228,26.0,,Hyatt Place
+229,,,"Ingold, Fredina/ Allison Rand"
+230,,,"Irani, Hannah"
+231,,,"Irmak, Suat"
+232,,,"Irons, Janet"
+233,,,"Jaworski, Lu Ann"
+234,,,"Jenkins, J.P."
+235,,,"Jiang, James"
+236,,,"Jones, Dan"
+237,28.0,,JSSB
+238,,,"Kameda, Mechiko/Henry, Marc"
+239,,,"Kaplan, Kelly"
+240,,,"Katancik, Tom"
+241,,,"Katsouros, Mark"
+242,,,"Kauffman, Seth"
+243,,,"Kearns, Shawn"
+244,,,"Keat, Marilyn"
+245,,,"Kempton, Kenny & Sue"
+246,,,"Kennedy, Richard"
+247,,,"Kepler, Deborah"
+248,,,"Keslar, John"
+249,30.0,,Keystone Real Estate Group
+250,,,"Khan, Azizur"
+251,,,"Khoury, Noreen & George"
+252,,,"Killian, Beth"
+253,,,"Kimble, Jeff"
+254,,,"Kimble, Shawn"
+255,,,"King, Michael & Lee"
+256,,,Kingdom Hall Jehovah Witness
+257,,,"Kipp, Phyllis & Richard"
+258,,,"Kish, Bob & Melissa"
+259,,,"Kissinger, Brian & Chloe"
+260,,,"Kline, Ellen"
+261,,,"Klingler, Bob"
+262,,,"Kotch, Nick"
+263,16.0,,"Kranich, Ashley"
+264,,,"Kranich, Charles"
+265,,,"Kraytz, Eric"
+266,,,"Kreidler, Ann & Ronald"
+267,,,"Kresovich, David & Wanda"
+268,,,"Kresovich, Preston"
+269,,,"Kunes, Curtis"
+270,,,"Kurtz, Alison"
+271,,,"LaBarca, Robert & Cindy"
+272,,,"Laird, Kerrie"
+273,,,"Lang, Greg"
+274,,,"Larkin, Jude"
+275,,,"Lauver, Spencer"
+276,,,"LeTersky, Jessica & Brian"
+277,,,"Lichty, Jordan"
+278,,,"Lin, Clarabelle"
+279,,,"Liu, Yiming"
+280,,,"Lloyd, Gwen"
+281,,,"Long, Dan & Dovizia"
+282,,,"Lorenz, Luke & Dawn"
+283,,,"Loss, Erik"
+284,,,"Lundberg, Michael"
+285,,,"Lunnen, Ray Jr."
+286,,,"Lyons, Heather"
+287,,,"Macelwee, Carene"
+288,,,"Madrid, Paul"
+289,,,"Maggi, Tim"
+290,,,"Malcolm, Jamison"
+291,,,"Mann, Kim"
+292,,,"Manno, Sharon & Kenneth"
+293,,,"Marciniak, Bob"
+294,,,"Marshall, Jeffrey"
+295,,,"Martin, Brook"
+296,,,"Martin, Karen & Jeffrey"
+297,34.0,,"Marx Realty & Improvement Co., Inc."
+298,,,"Matason, Kathy"
+299,,,"Matthews, Fred"
+300,,,"Matyaz, Joe"
+301,,,"Mauersberg, Brian"
+302,36.0,,"Maxwell Trucking & Excavating, Inc."
+303,36.0,302.0,Barnes & Noble
+304,,,"Mayes, Larry"
+305,31.0,,MBSC Properties (Dog Bartley)
+306,31.0,305.0,1602 Yardall Rd
+307,31.0,305.0,171 Old Houserville Rd
+308,31.0,305.0,714 W. Main St
+309,,,"McCarl, Cyrus"
+310,,,"McClusick, Barabara"
+311,,,"McKee, David"
+312,,,"Merrell, Jo"
+313,,,"Merritt, Laura"
+314,,,Michael Steese
+315,,,"Milewski, Tom & Donna"
+316,37.0,,"Miller Electric, Ltd."
+317,,,"Miller, Kevin"
+318,,,"Moore, James"
+319,,,"Moore, Janet & Booker"
+320,,,"Moore, Michael"
+321,,,"Moore, Randy"
+322,38.0,,Morgan Properties
+323,38.0,322.0,Briarwood
+324,,,"Myers, Mrs."
+325,,,"Narayanan, Ram"
+326,,,"Nava Rios, Alma"
+327,,,"Nerkowski, Matt"
+328,,,"Nicolas, Rhonda"
+329,,,"Nieves, David"
+330,39.0,,Nittany Controls
+331,15.0,,Nittany Grove HOA
+332,40.0,,Nittany Mall
+333,41.0,,Nittany Property Management
+334,41.0,333.0,1315 S. Allen Street
+335,41.0,333.0,Circlewood (Cherry Lane)
+336,41.0,333.0,College Court
+337,42.0,,Northwest Bank
+338,,,"Nurmagambetova, Mina"
+339,43.0,,Oakwood Centre
+340,44.0,,Ocean State Job Lot
+341,45.0,,"Okonak Dean & Lechner, P.C.-cust"
+342,,,"Oliver, Kris"
+343,,,"Ouwehand, Pieter"
+344,46.0,1.0,220 Reese Rd
+345,46.0,1.0,270-284 Reese Road
+346,46.0,1.0,512 S. Garner St.
+347,46.0,1.0,Burnham Farms Park
+348,46.0,1.0,Country Cove
+349,46.0,1.0,Forest Edge Townhomes
+350,46.0,1.0,Foxpointe
+351,46.0,1.0,Gray's Wood Brynwood
+352,46.0,1.0,Harvest Meadows HoA
+353,46.0,1.0,Hemmingway Place
+354,46.0,1.0,Legion Lane Appartments
+355,46.0,1.0,Paradise Hills
+356,46.0,1.0,The Mews UOA
+357,46.0,,"Paradigm Properties Group, Inc"
+358,46.0,357.0,Toftrees HOA
+359,46.0,1.0,Tradition Cove
+360,48.0,,"Park Forest Enterprises, Inc."
+361,49.0,,Parkway Plaza
+362,,,"Parmer, George"
+363,,,"Patterson, Paul"
+364,,,"Payne, Tyler"
+365,,,"Pazak, Lisa"
+366,,,"Pellicciotta, Lucia"
+367,,,Pellicciotta_Lisa
+368,50.0,,Penn Installations
+369,51.0,,"Penn Terra Engineering, Inc"
+370,52.0,,Penstan Supply
+371,53.0,,Perkins Restaurant/JDK Mgt.
+372,,,"Petryczenko, Mike"
+373,,,"Pipe, Ashley"
+374,,,"Poorman, Donna"
+375,,,"Popovich, Alan & Kris"
+376,,,"Popovich, Alexander"
+377,,,"Popovich, Alex-Rental Property"
+378,,,"Portelli, John"
+379,55.0,,Porter Brothers
+380,,,Potter Twnshp Athletic
+381,,,"Prebble, Brandy"
+382,56.0,,Price's Sawmill
+383,57.0,,Prime Property Group
+384,,,"Priya, Shashank"
+385,,,"Probst, Andy"
+386,59.0,,"Property Management, Inc. (PMI)"
+387,35.0,,PSU - Jeffrey Fields Project
+388,,,"Quinn, Peter"
+389,,,"Ramage, Megan & Thomas"
+390,62.0,,Raytheon
+391,,,"Reed, Dylan"
+392,,,"Reed, Judy & William"
+393,,,"Restall, Matthew"
+394,63.0,,ReStore/Habitat for Humanity
+395,,,"Richards-Kalenak, Beth"
+396,,,"Rishel, Roxanne"
+397,,,"Roan, Kerstin"
+398,,,"Roberts, Jonathon"
+399,,,"Rockey, Steven"
+400,,,"Rolph, Christi"
+401,,,"Rosenberg, David"
+402,,,"Roszyk, Greg"
+403,,,"Roth, Jennifer"
+404,,,"Ruff, Dickie"
+405,,,"Rushe, Scott"
+406,64.0,,S&A Homes
+407,,,Safran/Beaver
+408,,,"Salada, Ian"
+409,,,"Salter, Daniel"
+410,,,"Sapia, Mark"
+411,1.0,,"Sapia, Mark"
+412,1.0,411.0,1341 S Atherton St
+413,2.0,,"Sapia, Mark"
+414,2.0,413.0,143 W Park Ave
+415,13.0,,"Sapia, Mark"
+416,13.0,415.0,Citizens Bank
+417,27.0,,"Sapia, Mark"
+418,27.0,417.0,Jack's Beer Shop
+419,29.0,,"Sapia, Mark"
+420,29.0,419.0,Jax Bar & Kitchen (Jmarks)
+421,33.0,,"Sapia, Mark"
+422,33.0,421.0,Mark's House
+423,89.0,,"Sapia, Mark"
+424,89.0,423.0,P2P Computer Solutions
+425,61.0,,"Sapia, Mark"
+426,61.0,425.0,Pugh Street Associates / Yoga Lab
+427,60.0,,"Sapia, Mark"
+428,60.0,427.0,Sheetz (former)
+429,77.0,,"Sapia, Mark"
+430,77.0,429.0,The Shandygaff
+431,84.0,,"Sapia, Mark"
+432,84.0,431.0,Tony's House
+433,,,"Scallion, Dan"
+434,,,"Schmidbauer, Harmony"
+435,,,"Schoenholtz, Jack"
+436,,,"Scipione, Cheryl"
+437,65.0,,Seko Logistics
+438,,,"Senn, Eileen"
+439,,,"Shapiro, Hermine"
+440,,,"Sheehan, John & Collen"
+441,,,"Shepherd, Ann"
+442,,,"Sherbondy, Paul"
+443,,,"Shortle, James & Lou"
+444,,,"Shumate, Paul"
+445,,,"Shvenke, Alex"
+446,,,"Sims, Norrine"
+447,,,"Sisitki, Bill"
+448,,,"Smith, Roy"
+449,,,"Smith, Stephen & Michelle"
+450,,,"Smith, Trevor"
+451,,,"Snyder, Mark & Nancy"
+452,,,"Sogor, Laura"
+453,66.0,,South Hills Business School
+454,,,"Sowko, Michelle & Mic"
+455,,,"Spangler, Carol"
+456,,,"Spicer, Jake"
+457,,,Spring Hill Lane
+458,24.0,,Stable Hill Estates
+459,,,"Stark, Trevor"
+460,68.0,,State College Friends School
+461,,,"Stiller, Sam"
+462,,,"Stillwagon, Jeff & Sandy"
+463,,,"Stoffels, Shelley"
+464,69.0,,Stone Manor Condo Assoc
+465,70.0,,Stover McGlaughlin Law Office
+466,,,"Stover, Elizabeth"
+467,71.0,,"Strawberry Fields, Inc"
+468,,,"Stroschein, Gary"
+469,72.0,,Stuckey Ford
+470,73.0,,Sunbelt Rentals
+471,,,"Swab, Lorraine & Jeffrey"
+472,,,"Swistock, Jim & Jeanne"
+473,,,"Telegrahpis, Sandy"
+474,,,"Temple, Vanessa"
+475,74.0,,The Bryn
+476,75.0,,The Heights
+477,76.0,,The Pointe
+478,78.0,,The Station at State College
+479,79.0,,The Valley
+480,80.0,,The View
+481,81.0,,The Yards at Old State
+482,,,"Timko, Dan"
+483,82.0,,Titan Federal Credit Union
+484,83.0,,Together Investments
+485,83.0,484.0,1524 W. College Ave.
+486,83.0,484.0,Sandywoods Professional Center
+487,,,"Torsell, Bernie"
+488,14.0,,Township - College
+489,17.0,,Township - Ferguson
+490,,,Township - Harris
+491,85.0,,Tremont Student Living
+492,,,Tudek Park (Ferguson Twnshp)
+493,,,"Turner, Mike"
+494,,,"Tybout, Jim & Daniels, Pat"
+495,86.0,,U-Haul of Harrisburg (State College)
+496,,,"Ullman, Larry"
+497,87.0,,United Rentals
+498,,,"Vadella, Katie"
+499,,,"Valente, Joe & Allison"
+500,,,"Vannice, Albert"
+501,,,Southgate Apartments
+502,,,"Viglione, Angela"
+503,,,"Viviano, Anthony"
+504,,,"Vlajic, Nick"
+505,,,"Vovchenko, Alexandr"
+506,,,"Wang, James"
+507,,,"Ward, Rebecca"
+508,,,"Warneka, Lynn"
+509,,,"Warner, Jere"
+510,,,"Wasilko, John"
+511,,,"Waslohn, Kay"
+512,,,"Waters, Alexander"
+513,,,"Webb, Leslie"
+514,,,"Weber, Gary & Jeanne"
+515,,,"Welch, Leanne"
+516,,,"Wendle, Ethan"
+517,,,"Werner, Brent"
+518,,,"Wert, Janice & John"
+519,88.0,,Westmoreland Electric
+520,,,"Wham, Drew"
+521,,,"Whitaker, Jane"
+522,,,"White, Dick"
+523,,,"White-Vega, Gabriel"
+524,,,"Whitmarsh, David & Lynn"
+525,,,"Whitney, Anne"
+526,,,"Whitney, Anne{1}"
+527,,,"Williams, Garry"
+528,,,"Williams, Kathy"
+529,,,"Wilson, Dorothy"
+530,,,Windmere Centre
+531,,,"Wing, Scott & Kara"
+532,,,"Winterrowd, Pat & Gary"
+533,,,"Witmer, Carol & Jim"
+534,,,"Wolgast, Kelly"
+535,,,"Wood, Fred"
+536,,,"Woodruff, Harold"
+537,,,"Yearick, Russ & Amy"
+538,,,"Yecina, Lynn"
+539,,,"Yellappa, Naveen"
+540,,,"Yevchak, Lecinda"
+541,,,"Yorks, Annette"
+542,,,"Zbiek, Rose"
+543,,,"Zhou, Amanda"
+544,,,"Zipp, John"

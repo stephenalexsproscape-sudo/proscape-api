@@ -1,0 +1,499 @@
+AddressID,CustomerID,Street1,Street2,City,State,Zip,AddressType
+1,2,2029 Cato Ave,AARHUS,State College,PA,16801,Service
+2,3,PO Box 785,,Lemont,PA,16851,Billing
+3,4,123 Hess Rd,,,,,Service
+4,5,133 Hess Rd,,State College,PA,16801,Service
+5,6,113 Ramsy Way,,Boalsburg,PA,16827,Service
+6,7,170 Grove Circle,,Lemont,PA,16851,Service
+7,8,313 Park Ave,,Bellefonte,PA,16823,Service
+8,9,321 Farmhill Dr,,State College,,,Service
+9,10,444 Hunter Ave,,State College,PA,16801,Service
+10,11,100 Skytop Ln,,Port Matilda,,16870,Service
+11,12,401 Candlewood Dr,,State College,PA,16801,Service
+12,13,1036 Saxton Dr,,State College,PA,16801,Service
+13,14,1141 Seibert Rd,,Bellefonte,PA,16823,Service
+14,15,1703 James Ave,,,,,Service
+15,16,138 Harris,,,,,Service
+16,17,Foxdale Village Unit D-53,,,,,Service
+17,18,11945 Bumbarger Circle,,Petersburg,PA,16669,Service
+18,19,P.O. Box 99,Attn: Alan Popovich,Lemont,PA,16851,Service
+19,20,P.O. Box 244,,Lemont,PA,16851,Service
+20,22,688 Oakwood Ave - Unit I,,State College,PA,16801,Service
+21,23,1196 Westerly Parkway,,State College,,,Service
+22,25,381 West Clearview Ave,,State College,PA,16801,Service
+23,26,132 Spring Hill Ln,,State College,PA,16801,Service
+24,27,1847 Red Lion Dr,,State College,PA,16801,Service
+25,28,8 Holly Circle,,State College,PA,16801,Service
+26,29,160 Darthmouth Ln,,State College,PA,16803,Service
+27,30,119 South Burrowes St #101,,State College,PA,16801,Service
+28,31,120 Colonial Court,,State College,PA,16801,Service
+29,32,111 Spring Hill Ln,,State College,PA,16801,Service
+30,34,129 Mayes Ln,,Snow Shoe,PA,,Service
+31,35,1234 E Branch Rd,,State College,PA,16801,Service
+32,36,300 Circle Dr,,State College,PA,16801,Service
+33,37,159 Whiterock Ave,,Pleasant Gap,PA,16823,Service
+34,38,198 Blackberry Hill,,Port Matilda,PA,16870,Service
+35,41,1870 Park Forest Ave,,State College,PA,16803,Service
+36,42,258 Ivy Hill Dr,,State College,PA,16801,Service
+37,44,1650 North Atherton St,Attn: Mike Fetzer,State College,PA,16803,Service
+38,45,2582 Gateway Dr,Attn: Curt Kimble,State College,PA,16801,Service
+39,46,140 Hawbaker Industrial Dr,Attn: Carl Reynolds,State College,PA,16803,Service
+40,48,1306 Harris St,,State College,PA,16803,Service
+41,49,1895 S. Allen St,,State College,PA,16801,Service
+42,50,207 Circle Dr,,State College,PA,16801,Service
+43,51,301 Dover Cir,,State College,PA,16801,Service
+44,52,2796 W. College Ave,,State College,PA,16801,Service
+45,53,400 S. Gill St,,State College,PA,16801,Service
+46,54,715 Market St,,Lykens,PA,17048,Service
+47,55,1334 Chestnut Ridge,,State College,PA,16803,Service
+48,56,2990 Fairchild Ln,,State College,PA,16801,Service
+49,57,430 Canterbury Dr,,State College,PA,16801,Service
+50,58,295 Jay Ln,,State College,,,Service
+51,59,P.O. Box 243,Attn: Brian Bortz,Boalsburg,PA,16827,Service
+52,60,115 E. Hubler Ave,,State College,PA,16801,Service
+53,62,132 W. Beaver Ave,Attn: Troup # 32,State College,PA,16801,Service
+54,63,525 E. Foster Ave,,State College,PA,16801,Service
+55,64,457 Valley View Rd,,Bellefonte,PA,16823,Service
+56,65,209 Circle Dr,,State College,PA,16801,Service
+57,66,223 Claremont Ave,,State College,PA,16801,Service
+58,67,201 Fairfield Dr,,State College,PA,16801,Service
+59,68,300 Waupelani Dr,Attn: Amanda Quinn,State College,PA,16801,Service
+60,69,1766 Cambridge Dr,,State College,PA,16803,Service
+61,70,1445 Westerly Parkway,,State College,PA,16801,Service
+62,71,442 Spring Lea Dr,,State College,PA,16801,Service
+63,72,154 Black Bear Ln,,State College,,,Service
+64,73,108 Willowbrook Dr,,Boalsburg,PA,16827,Service
+65,74,1304 Springfield Cir,,Boalsburg,PA,16827,Service
+66,75,2352 Park Center Blvd,,State College,PA,16801,Service
+67,76,649 Rolling Ridge Dr,,Bellefonte,PA,16823,Service
+68,77,116 Aspen Dr,,Boalsburg,PA,16827,Service
+69,78,1002 Greenbriar Dr,,State College,PA,16801,Service
+70,79,430 Norle St,,State College,PA,16801,Service
+71,80,130 Hawbaker Industrial Dr,,State College,PA,16801,Service
+72,81,13 Coventry Ln,,State College,PA,16803,Service
+73,82,140 Reuben Way,,Boalsburg,PA,16827,Service
+74,83,2139 High Tech Rd,Attn: Accounts Payable,State College,PA,16803,Service
+75,84,110 Eckley Ln,,Bellefonte,PA,16823,Service
+76,85,Foxdale Village: Unit G-113,,,,,Service
+77,86,1235 Abbottstown Pike,Attn: Dave Pepper,Hanover,PA,17331,Service
+78,87,1281 Pine Circle,,Bellefonte,PA,16823,Service
+79,88,220 Ridge Ave,,State College,PA,16801,Service
+80,89,319 1st Ave,,Lemont,PA,16801,Service
+81,90,405 W Shadow Ln,,State College,PA,16801,Service
+82,91,1518 W. College Ave,,State College,PA,16801,Service
+83,92,1001 E. College Ave,Attn: Mary Sorenson,State College,PA,,Service
+84,93,3555 Benner Pike,Attn: Shirley Heidrich,Bellefonte,PA,16823,Service
+85,94,1001 E. College Ave,Attn: Mary Sorensen,State College,PA,16801,Service
+86,95,3096 Westover Dr,,State College,PA,16801,Service
+87,96,209 Circle Dr,,State College,PA,16801,Service
+88,97,328 Discovery Dr,Attn: Mark Grummun,Boalsburg,PA,16827,Service
+89,98,121 W. North Hills Place,,State College,PA,16803,Service
+90,99,1209 S. Garner St,,State College,PA,16801,Service
+91,100,500 Torrey Ln,,Boalsburg,PA,16827,Service
+92,101,142 Mountainside Ln,,Centre Hall,PA,16828,Service
+93,102,403 S. Allen St,Suite 206,State College,PA,16801,Service
+94,103,1140 Shamrock Ave,,State College,PA,16801,Service
+95,104,997 Shamrock Ave,,State College,PA,16801,Service
+96,105,2620 Carolean Dr,,State College,PA,16801,Service
+97,106,1804 S. Allen St,,State College,PA,16801,Service
+98,107,104 Emory Ln,,Pa Furnace,PA,,Service
+99,108,321 Saddle Ridge Rd,,Port Matilda,PA,16870,Service
+100,109,245 Commerce St,,Pleasant Gap,PA,16823,Service
+101,110,3841 S. Atherton St,,State College,PA,16801,Service
+102,111,95 Greenmeadow Ln,,Port Matilda,PA,16870,Service
+103,112,3544 S. Atherton St,,State College,PA,16801,Service
+104,113,151 Whitehill St,,Lemont,PA,16851,Service
+105,114,1809 Zion Rd,,Bellefonte,PA,16823,Service
+106,115,1820 S. Allen St,,State College,PA,16801,Service
+107,117,114 Heirloom,,Centre Hall,PA,16828,Service
+108,118,125 W. North Hills Place,,State College,PA,16803,Service
+109,119,91 Greenmeadow Ln,,Port Matilda,PA,16870,Service
+110,120,1403 Nittany Valley Dr,,Bellefonte,PA,16823,Service
+111,121,138 Magnolia Ln,,State College,PA,16803,Service
+112,122,3230 Garnet Mine Rd,,Garnet Valley,PA,19060,Service
+113,123,1752 Manor Court,,State College,PA,16801,Service
+114,124,123 Fairbrook Dr,,Pa Furnace,PA,16865,Service
+115,125,1165 Checkerberry Ln,,Lockhaven,PA,,Service
+116,126,359 W. Sawmill Rd,,Port Matilda,PA,16870,Service
+117,127,209 Glenndale Dr,,Port Matilda,PA,16870,Service
+118,128,102 Circle Dr,,State College,PA,16801,Service
+119,129,226 W. Main St,Attn: Scott Shamrock,Boalsburg,PA,16827-1349,Service
+120,130,137 Sophie Court,,Boalsburg,PA,16827,Service
+121,132,2479 Buchenhorst Rd,,,,,Service
+122,133,620 Holmes St,,State College,PA,16803,Service
+123,134,1526 Brush Valley Rd,,Centre Hall,PA,16828,Service
+124,135,624 Struble Rd,,State College,PA,16801,Service
+125,136,Foxdale Village,Unit D-54,,,,Service
+126,137,381 Millgate Rd,,Bellefonte,PA,16823,Service
+127,138,378 Old Ivy Dr,,Bellefonte,PA,,Service
+128,139,315 E. Pike St,,Bellefonte,PA,16823,Service
+129,140,1309 E. Harris St,,State College,PA,16803,Service
+130,141,70 Green Meadow Ln,,Port Matilda,PA,16870,Service
+131,142,707 Pike St,,Lemont,PA,16851,Service
+132,143,119 Crestmont Ave,,State College,PA,16801,Service
+133,144,,,State College,PA,16803,Service
+134,145,105 Winchester Court,(Whitehall Commons),,,,Service
+135,146,116 Hazel St,,Boalsburg,PA,,Service
+136,147,220 Reichenbaugh Ln,,Bellefonte,PA,16823,Service
+137,148,629 Beaumont Dr,,State College,PA,16801,Service
+138,149,400 Millgate Rd,,Bellefonte,PA,16823,Service
+139,150,P.O. Box 958,,Lemont,PA,16851,Service
+140,151,151 Peru Cir,,Pleasant Gap,PA,16823,Service
+141,152,112 Beacon Circle,,Boalsburg,PA,,Service
+142,153,141 Meadow Ln,,Bellefonte,PA,16823,Service
+143,154,271 Timber Wood Trail,,Centre Hall,PA,,Service
+144,155,688 Oakwood Ave,,State College,PA,16801,Service
+145,156,550 Millgate Rd,,Bellefonte,PA,16823,Service
+146,157,169 Gerald St,Allayn Beck,State College,PA,16801,Service
+147,158,203 Grace Court,,State College,PA,16801,Service
+148,159,1841 Kings Court,,State College,PA,16801,Service
+149,161,211 Steeplechase Dr,,Bellefonte,PA,16823,Service
+150,162,350 E. Outer Dr,,State College,PA,16801,Service
+151,163,1245-49 Westerly Pkwy,,State College,PA,16801,Service
+152,164,1131 Karen St,,,,,Service
+153,165,12 Julie Circle,,,,,Service
+154,166,Westway Gardens II #51,,State College,PA,16801,Service
+155,167,P.O. Box 14807437,,Sioux Falls,SD,57186,Service
+156,168,402 Amblewood Way,,State College,PA,16803,Service
+157,169,153 Quarry St,,Bellefonte,PA,16823,Service
+158,171,714 Rosslyn Rd,,Boalsburg,PA,16827,Service
+159,172,1301 Springfield Circle,,Boalsburg,PA,16827,Service
+160,173,2080 Cato Ave,,State College,PA,16801,Service
+161,174,656 Severn Dr,,State College,PA,16801,Service
+162,175,,,State College,PA,16801,Service
+163,176,101 Skytop Ln,,Port Matilda,PA,16870,Service
+164,177,22 Lutz Ln,,Port Matilda,PA,16870,Service
+165,178,1639 Glenwood Circle,,State College,PA,,Service
+166,179,165 Quarry St,,Bellefonte,PA,16823,Service
+167,180,114 Basswood Ln,,Bellefonte,PA,16823,Service
+168,181,415 Governors Park Rd,Attn: Anna Broadbander,Bellefonte,PA,16823,Service
+169,182,50 Calvert Ave West,,Edison,NJ,8820,Service
+170,183,220 Osmond St,,State College,PA,16801,Service
+171,184,3031 BRdmoor Ln,,State College,PA,16801,Service
+172,185,110 Basswood Ln,,Bellefonte,PA,16823,Service
+173,186,402 Beacon Circle,,Boalsburg,PA,16827,Service
+174,187,525 Stony Ln,,State College,PA,16801,Service
+175,188,87 Greenmeadow Ln,,Port Matilda,PA,16870,Service
+176,189,1541 West Branch Rd,,State College,PA,16801,Service
+177,191,765 W Hamilton Ave,,State College,PA,16801,Service
+178,192,537 Blanchard St,,Bellefonte,PA,16823,Service
+179,194,1101 E. College Ave,,State College,PA,16801,Service
+180,195,209 Seneca Circle,,State College,PA,16801,Service
+181,197,170 Penntech Dr,Attn: Barry Gensimore,Bellefonte,PA,16823,Service
+182,198,246 Pepper Ridge Dr,,Spring Mills,PA,16875,Service
+183,199,824 Brookside Dr,,Boalsburg,PA,16827,Service
+184,200,147 Meadow Ln,,Bellefonte,PA,16823,Service
+185,201,150 Apple View,,,,,Service
+186,202,1997 Fairwood Ln,,State College,PA,,Service
+187,203,PO Box 1115,Phil Hawk,Lemont,PA,16851,Billing
+188,204,649 E. Rolling Ridge Dr,,Bellefonte,PA,16823,Service
+189,205,706 Winser Court,,State College,PA,16801,Service
+190,206,235 Stable View Dr,,Port Matilda,PA,,Service
+191,207,1024 Taylor St,,,,,Service
+192,208,955 Toftrees Ave,,State College,PA,16803,Service
+193,209,1830 S. Allen St,,State College,PA,16801,Service
+194,210,330 Henderson,,Julian,PA,16844,Service
+195,211,100 Haymaker,,State College,PA,16801,Service
+196,212,1023 Benner Pike,Attn: Bernice Williams,State College,PA,16803,Service
+197,213,273 Amberleigh Ln,,Bellefonte,PA,16823,Service
+198,214,500 East Marylyn Ave,Apt J157,State College,PA,16801,Service
+199,215,111 Merry Hill Rd,,State College,PA,16801,Service
+200,216,126 Boalsburg Rd,,Lemont,PA,16851,Service
+201,217,101 Hillview Ave,,State College,PA,16801,Service
+202,218,734 Tussey Ln,,State College,PA,16801,Service
+203,219,1035 Two Mile Rd,,Howard,PA,16841,Service
+204,220,320 Timberwood Trail,,Centre Hall,PA,16828,Service
+205,221,11 Bush Rd,Star Grande LLC DBA Holiday Inn,Hillsborough,NJ,8844,Service
+206,222,105-177 Presidents Dr,Andrea Reger,State College,PA,16801,Service
+207,223,1101 Houserville Rd,,,,,Service
+208,224,625 Rock Rd,,State College,PA,16801,Service
+209,225,1503 Valley View Rd,,Bellefonte,PA,16823,Service
+210,226,500 East Marylyn Ave,Apt. L-204,State College,PA,16801,Service
+211,227,1730 Princeton Dr,,State College,PA,16803,Service
+212,228,219 W. Beaver Ave,Ryan Saal,State College,PA,16801,Service
+213,229,4165 Buffalo Run Rd,,Port Matilda,PA,16870,Service
+214,230,1410 Estate Dr,,Boalsburg,PA,,Service
+215,231,66 Greenmeadow Ln,,Port Matilda,PA,16870,Service
+216,233,947 Seibert Rd,,Bellefonte,PA,16823,Service
+217,234,1222 Old Boalsburg Rd,,State College,PA,16801,Service
+218,235,145 Jay Ln,,,,,Service
+219,236,204 W. Linn St,,Bellefonte,PA,16823,Service
+220,237,2050 N. Atherton St,Attn: Adam Pursell,State College,PA,16803,Service
+221,238,670 Franklin St,,State College,PA,16803,Service
+222,239,300 Meadowlark Ln,,Boalsburg,PA,16827,Service
+223,240,422 Scenery Dr,,State College,PA,16801,Service
+224,241,254 E. Hamilton Ave,,State College,PA,,Service
+225,242,124 Oakwood Dr,,State College,PA,16801,Service
+226,243,801 Sand Ridge Rd,,Howard,PA,,Service
+227,244,Foxdale Village Unit,I-142,,,,Service
+228,245,1840 Walnut Grove Dr,,State College,PA,16801,Service
+229,246,465 Glenn Rd,,State College,PA,16801,Service
+230,247,188 Timberwood Trail,,Centre Hall,PA,16823,Service
+231,248,238 1st Ave,,Lemont,PA,16851,Service
+232,250,1998 Pine Hall Rd,,State College,PA,16801,Service
+233,251,190 Grove Circle,,State College,PA,16801,Service
+234,252,613 Old Farm Ln,,State College,PA,16803,Service
+235,253,240 Reeder Rd,,Spring Mills,PA,16801,Service
+236,254,226 Circle Dr,,State College,PA,16801,Service
+237,255,224 Meadow Lark Ln,,Boalsburg,PA,16827,Service
+238,256,101 Villandry Blvd,,State College,PA,16801,Service
+239,257,139 Harris Ave,,Boalsburg,PA,16827-1237,Service
+240,258,268 Timberwood Trail,,Centre Hall,PA,16828,Service
+241,259,600 E. Branch Rd,,State College,PA,16801,Service
+242,260,729 Outer Dr,,State College,PA,16801,Service
+243,261,415 W. Park Ave,,State College,PA,16803,Service
+244,262,1245 Cottonwood Ave,,State College,PA,16801,Service
+245,263,406 Brandywine Dr,,State College,PA,16801,Service
+246,264,406 Brandywine Dr,,State College,PA,16801,Service
+247,265,412 Homestead Ln,,Boalsburg,PA,16827,Service
+248,266,1540 Brush Valley Rd,,Centre Hall,PA,16828,Service
+249,267,911 Fairview Rd,,Howard,PA,16841,Service
+250,271,2615 Acacia Dr,,State College,PA,16803-1230,Service
+251,272,211 Port Ln,,Philipsburg,PA,16866,Service
+252,273,441 Park Ln,,State College,PA,16803,Service
+253,274,122 Mount Nittany Rd,,Lemont,PA,16851,Service
+254,275,237 Timberwood Trail,,Centre Hall,PA,16827,Service
+255,276,1012 Baythorne Dr,,Mechanicsburg,PA,17050,Service
+256,277,163 Brothers Court,,Port Matilda,PA,16870,Service
+257,278,460 Hunter Ave,,State College,PA,16801,Service
+258,279,650 Clark Way,,Palo Alto,CA,94304,Service
+259,280,1018 Saxton Dr,,State College,PA,16801,Service
+260,281,525 Benner Rd,,Bellefonte,PA,16823,Service
+261,282,752 Westerly Parkway,,State College,PA,16801,Service
+262,283,315 Whitehill St,,Lemont,PA,16851,Service
+263,284,113 Greenmeadow Ln,,Port Matilda,PA,16870,Service
+264,285,1930 Cliffside Dr,Apt 6,State College,PA,16801,Service
+265,286,226 Spring St,,State College,PA,16801,Service
+266,287,185 Timberwood Trail,,Centre Hall,PA,,Service
+267,288,738 Devonshire Dr,,State College,PA,16803,Service
+268,289,P.O. Box 637,,Lemont,PA,16851,Service
+269,290,1708 E. Branch Rd,,Lemont,PA,16851,Service
+270,291,207 Camelot Ln.,,State College,PA,16803,Service
+271,292,131 Memorial Dr,,Boalsburg,PA,16827,Service
+272,293,834 Bayberry Dr,,State College,PA,16801,Service
+273,294,204 Fairfield Dr,,State College,PA,16801,Service
+274,295,361 Millgate Rd,,Bellefonte,PA,16823,Service
+275,296,PO Box 118,826 Thompson St.,Lemont,PA,16851-0118,Billing
+276,297,708 3rd Ave - 21st Floor,C/O Property Management,New York,NY,10017,Service
+277,298,545 Puddingtown Rd,,State College,PA,16801,Service
+278,300,6415 Tisdale Terrace,,Bethesda,MD,20817,Service
+279,301,261 hawknest Rd,,State College,,,Service
+280,302,1705 E. Trout Rd,,State College,PA,16801,Service
+281,303,1705 E. Trout Rd,,State College,PA,16801,Service
+282,304,1092 W. Sycamore Rd,,Snow Shoe,PA,16874,Service
+283,305,111 Spring Hill Ln,,State College,PA,16801,Service
+284,306,111 Spring Hill Ln,,State College,PA,16801,Service
+285,307,111 Spring Hill Ln,,State College,PA,16801,Service
+286,308,111 Spring Hill Ln,,State College,PA,16801,Service
+287,309,1110 Westerly Parkway,,State College,PA,16801,Service
+288,310,PO Box 197,180 Pancake Rd.,Clarence,PA,16829,Billing
+289,311,2631 Acacia Dr,,State College,PA,16803,Service
+290,313,114 Timothy Ln,,,,,Service
+291,314,265 Sycamore Dr,,State College,PA,16801,Service
+292,315,3222 Shellers Bend,Unit #217,State College,PA,16801,Service
+293,316,450 Torrey Ln,,Boalsburg,PA,16827,Service
+294,317,858 E Valley Rd,,Logantown,PA,,Service
+295,318,1854 Redlion Dr,,State College,PA,16801,Service
+296,319,634 E. Irvin Ave,,State College,PA,16801,Service
+297,320,620 Elmwood St,,State College,PA,16801,Service
+298,321,3075 Westover Dr,,State College,PA,16801,Service
+299,322,160 Clubhouse Rd,,King Of Prussia,PA,19406,Service
+300,323,160 Clubhouse Rd,,King Of Prussia,PA,19406,Service
+301,324,130 Kensington Rd,,Port Matilda,PA,16870,Service
+302,325,54 Green Meadow Ln,,Port Matilda,PA,16870,Service
+303,326,525 Kennard Rd,,State College,PA,16801,Service
+304,327,110 Slate Ct,,Bellefonte,PA,16823,Service
+305,328,134 Reuben Way,,Boalsburg,PA,16727,Service
+306,329,175 Science Park Court,,State College,PA,16801,Service
+307,330,912 S. Atherton St,,State College,PA,16801,Service
+308,331,403 S. Allen St,Suite 206,State College,PA,16801,Service
+309,332,2901 E. College Ave,,State College,PA,16801,Service
+310,333,938 West College Ave,Attn: Megan,State College,PA,16801,Service
+311,334,938 West College Ave,Attn:Megan,State College,PA,16801,Service
+312,335,938 West College Ave,Attn: Megan,State College,PA,16801,Service
+313,336,938 West College Ave,Attn: Megan,State College,PA,16801,Service
+314,337,100 Liberty St,Facilities Management,Warren,PA,16365,Service
+315,338,623 Beaumont Dr,,,,,Service
+316,339,100 Oakwood Ave,Attn: Spencer Myer,State College,PA,16803,Service
+317,341,3941 South Athertlon St,,State College,PA,16801,Service
+318,342,240 Windmill Rd,,Boalsburg,PA,16824,Service
+319,343,1378 Deerfield Dr,,State College,PA,16803,Service
+320,1,2029 Cato Ave,,State College,PA,16801,Service
+321,344,2029 Cato Ave,220 Reese Rd,State College,PA,16801,Service
+322,345,2029 Cato Ave,270 Reese Rd,State College,PA,16801,Service
+323,346,2029 Cato Ave,512 S Garner St,State College,PA,16801,Service
+324,347,2029 Cato Ave,Burnham Farms Park,State College,PA,16801,Service
+325,348,2029 Cato Ave,Country Cove,State College,PA,16801,Service
+326,349,2029 Cato Ave,Forest Edge,State College,PA,16801,Service
+327,350,2029 Cato Ave,Foxpointe,State College,PA,16801,Service
+328,351,2029 Cato Ave,Gray's Wood Brynwood,State College,PA,16801,Service
+329,352,2029 Cato Ave,Harvest Meadows,State College,PA,16801,Service
+330,353,2029 Cato Ave,Hemmingway Place,State College,PA,16801,Service
+331,354,2029 Cato Ave,Legion Lane,State College,PA,16801,Service
+332,355,2029 Cato Ave,Paradise Hills,State College,PA,16801,Service
+333,356,2029 Cato Ave,The Mews,State College,PA,16801,Service
+334,358,2029 Cato Ave,Toftrees HOA,State College,PA,16801,Service
+335,359,2029 Cato Ave,Tradition Cove,State College,PA,16801,Service
+336,361,1000 Plaza Dr,Kate Russo,State College,PA,16801,Service
+337,362,332 Warrick St,,Boalsburg,PA,16827,Service
+338,363,121 Aberdeen Ln,,State College,PA,16801,Service
+339,364,502 Bell Ave,,Boalsburg,PA,16827,Service
+340,365,3135 Sheffield Dr,,State College,PA,16801,Service
+341,366,1169 Dorum Ave,,State College,PA,16801,Service
+342,367,235 Circle Dr,,State College,PA,16801,Service
+343,368,1428 RailRd St,Attn: A/P,Summerhill,PA,15958,Service
+344,369,3075 Enterprise Dr #100,,State College,PA,16801,Service
+345,370,2640 Carolean Industrial Dr,,State College,PA,16801,Service
+346,371,525 Benner Pike,,State College,PA,16801,Service
+347,372,216 High St,,State College,,,Service
+348,373,135 Harris Ave,,Boalsburg,PA,16870,Service
+349,374,4 Holly Circle,,State College,PA,16801,Service
+350,375,P.O. Box 99,,Lemont,PA,16851,Service
+351,376,930 E. HIgh St,,Bellefonte,PA,16823,Service
+352,377,930 E. High St,,Bellefonte,PA,16823,Service
+353,378,949 Tressler St,,Boalsburg,PA,16827,Service
+354,379,1821 W College,,State College,PA,16801,Service
+355,380,150 Summer Ln,,Centre Hall,PA,16828,Service
+356,381,400 Matilda Ave,,Lemont,PA,16851,Service
+357,382,114 Green Meadow Ln,,Port Matilda,PA,16870,Service
+358,383,PO Box 1057,,State College,PA,16804,Billing
+359,384,952 Greenbriar Dr,,State College,PA,16801,Service
+360,385,2459 Oak Leaf Ct.,,State College,PA,16803,Service
+361,386,PO Box 8899,Crystal Matthews,Camp Hill,PA,17001,Billing
+362,387,120 Delta Dr,,Pittsburgh,PA,15238,Service
+363,388,1302 Springfield Cr,,,,,Service
+364,389,1347 Vineyard Haven,,State College,PA,16803,Service
+365,390,302 N. Science Park Rd,Attn: Beth Miller,State College,PA,16803,Service
+366,391,930 E. High St,,Bellefonte,PA,16823,Service
+367,392,1420 E. Park Hills Ave,,State College,PA,16803,Service
+368,393,617 W. Prospect Ave,,State College,,,Service
+369,394,1155 Zion Rd,Attn: Wendy,Bellefonte,PA,16823,Service
+370,395,107 McClary Court E,,State College,PA,16801,Service
+371,396,229 First Ave,,Lemont,PA,16851,Service
+372,397,712 McKee St,,State College,PA,16803,Service
+373,398,330 Strouse Ave,,State College,PA,16803,Service
+374,399,461 Valley View Rd,,Bellefonte,PA,16823,Service
+375,400,471 Adam Ave,,State College,PA,16801,Service
+376,401,4400 Deer Path Rd,,Harrisburg,PA,17100,Service
+377,402,230 Longhouse Ln.,,Julian,PA,16844,Service
+378,403,113 Doubletree Place,,Port Matilda,PA,16870,Service
+379,404,438 Farmhill Dr,,State College,PA,16801,Service
+380,405,1313 Harris St,,State College,PA,16803,Service
+381,406,2121 Old Gatesburg Rd,Attn: Tom Jacobs,State College,PA,16803,Service
+382,407,P.O. Box 513,,Lemont,PA,16851,Service
+383,408,1210 Shamrock Ave,,State College,PA,16801,Service
+384,409,517 Royal Rd,,State College,PA,16801,Service
+385,412,,,State College,PA,16801,Service
+386,414,,,State College,PA,16803,Service
+387,416,,,State College,PA,16801,Service
+388,418,,,State College,PA,16801,Service
+389,420,,,State College,PA,16801,Service
+390,422,,,State College,PA,16801,Service
+391,424,,,State College,PA,16801,Service
+392,426,,,State College,PA,16801,Service
+393,428,,,State College,PA,16801,Service
+394,430,,,State College,PA,16801,Service
+395,432,,,State College,PA,16801,Service
+396,433,,,State College,PA,16801,Service
+397,434,138 Harris Ave,,Boalsburg,PA,16827,Service
+398,435,89 Cherrywood Way,,Port Matilda,PA,16870,Service
+399,436,2458 Pinehurst Court,,State College,PA,16803,Service
+400,437,100 Walker Dr,Attn: Jodilynn Spricer,State College,PA,16801,Service
+401,438,249 Homan Ave,,State College,PA,16801,Service
+402,439,2523 Shawn Circle,,State College,PA,16801,Service
+403,440,222 Lee Ave,,Boalsburg,PA,16827,Service
+404,441,1245-48 Westerly Pkwy,,State College,PA,16801,Service
+405,442,507 Beaumount Dr,,State College,PA,16801,Service
+406,443,1518 Brush Valley Rd,,Centre Hall,PA,16828,Service
+407,444,614 Boal Ave,,,,,Service
+408,445,330 Millgate Rd,,Bellefonte,PA,16823,Service
+409,446,530 Stoney Ln,,State College,PA,16801,Service
+410,447,126 Washington Ave,,,,,Service
+411,448,303 Gumtree Rd,,Annville,PA,17003,Service
+412,449,Foxdale Village H-125,,,,,Service
+413,450,371 Manhasset Dr,,Port Matilda,PA,16870,Service
+414,451,129 Harris Ave,,Boalsburg,PA,16827,Service
+415,452,713 Rosslyn Rd,,Boalsburg,PA,16827,Service
+416,453,480 Waupelani Dr,Attn: Matt Musser,State College,PA,16801,Service
+417,454,820 Outer Dr,,State College,PA,,Service
+418,455,717 Tussey Ln,,State College,PA,16801,Service
+419,456,771 Two Mile Rd,,Howard,PA,,Service
+420,457,123 Spring Hill Ln,,State College,PA,16801,Service
+421,458,1023 Benner Pike,Attn: Bernice Williams,State College,PA,16801,Service
+422,459,1111 Fox Hill Rd,,State College,PA,16803,Service
+423,460,1900 University Dr,,State College,PA,16801,Service
+424,461,232 Beaumanor Rd,,State College,PA,,Service
+425,462,247 Saddle Ridge Rd,,Port Matilda,PA,,Service
+426,463,332 Bradley Ave,,State College,PA,16801,Service
+427,464,206 Amblewood Way,,State College,PA,16803,Service
+428,465,919 University Dr,,State College,PA,16801,Service
+429,466,212 High St,,State College,PA,16801,Service
+430,467,3054 Enterprise Dr,,State College,PA,16801,Service
+431,468,2488 Buchenhorst Rd,,,,,Service
+432,469,273 Benner Pike,Attn: Eric Behm,State College,PA,16801,Service
+433,470,4417 Valley Rd,Attn: Janet Phillips,Enola,PA,17025,Service
+434,471,320 Adams Ave,,State College,PA,,Service
+435,472,283 River Dr,,Tequesta,FL,33469,Service
+436,473,631 Lower Geroges Valley Rd,,Spring Mills,PA,16875,Service
+437,474,572 West Hillside Ave,,State College,PA,16803,Service
+438,475,601 Vairo Blvd.,,State College,PA,16803,Service
+439,476,201 Northwick Blvd,,State College,PA,16803,Service
+440,477,501 Vairo Blvd.,,State College,PA,16803,Service
+441,478,801 Toftrees Ave,Attn: Kayleigh Hagenbuch,State College,PA,16803,Service
+442,479,870 Toftrees Ave,Attn: McKenzie McGonigal,State College,PA,16803,Service
+443,480,850 Toftrees Ave,,State College,PA,16803,Service
+444,481,1830 Blue Course Dr,,State College,PA,16801,Service
+445,482,153 Meadow Ln,,Bellefonte,PA,16823,Service
+446,487,3680 W. Whitehall Rd,,Pa Furnace,PA,16865,Service
+447,488,Amy Kerner,,,,,Service
+448,489,3147 Research Dr,,State College,PA,16801,Service
+449,490,Township Manager,,Harris Township,PA,16827,Service
+450,491,201 Vairo Bld,,State College,PA,16803,Service
+451,492,3147 Research Dr,,State College,PA,16801,Service
+452,493,142 Kunes Ln,,,,,Service
+453,494,117 Sara Way,,Port Matilda,PA,16870,Service
+454,495,5621 Allentown Boulevard,Attn: Cameron Selvaggio,Harrisburg,PA,17112,Service
+455,496,579 Melissa Ln,,State College,PA,16803,Service
+456,498,601 Severn Dr,,State College,PA,16803,Service
+457,499,1225 Haymaker Rd,,State College,PA,16801,Service
+458,500,1140 Kay St,,Boalsburg,PA,16827,Service
+459,501,713 Southgate Dr,,State College,PA,16801,Service
+460,502,315 Shrineview Ave,,Boalsburg,PA,16827,Service
+461,503,321 Oakley Dr,,State College,PA,16801,Service
+462,504,613 Crandall Dr,,,,,Service
+463,506,1754 Cambridge Dr,,State College,PA,16803,Service
+464,507,322 Arbor Way,,State College,PA,,Service
+465,508,629 W. Park Ave,,State College,PA,16801,Service
+466,509,1009 Greenbriar Dr,,State College,PA,16801,Service
+467,510,413 Norle St,,State College,PA,16801,Service
+468,511,1401 Linn St,,State College,PA,16803,Service
+469,512,857 E. High St,,Bellefonte,PA,16823,Service
+470,514,219 N. Springwood Place,,Port Matilda,PA,16870,Service
+471,515,204 Ash St,,Bellefonte,PA,16823,Service
+472,517,123 Spring Hill Ln,,State College,PA,16801,Service
+473,518,364 Immel Rd,,Spring Mills,PA,,Service
+474,519,193 Central Rd,,Tarrs,PA,15688,Service
+475,520,222 Haymaker Circle,,State College,PA,16801,Service
+476,521,1006 Kathryn St,,Boalsburg,PA,,Service
+477,522,205 Jay Ln,,State College,PA,16801,Service
+478,523,246 E. Hamilton Ave,,State College,PA,16801,Service
+479,524,219 E. Irvin Ave,,State College,PA,16801,Service
+480,525,275 Douglas Dr,,State College,PA,16801,Service
+481,527,P.O. Box 792,,Lemont,PA,16851,Service
+482,528,332 S. Gill St,,State College,PA,,Service
+483,529,226 Jonathan Ln,,Bellefonte,PA,16823,Service
+484,530,476 Rolling Ridge Dr,Attn: Spencer Myer,State College,PA,16801,Service
+485,531,721 Holmes St,,State College,PA,16823,Service
+486,532,1765 Cambridge Dr,,State College,PA,16803,Service
+487,533,256 Woodland Dr,,,,,Service
+488,534,129 Sophie Court,,Boalsburg,PA,16827,Service
+489,535,400 E. Springwood Place,,Port Matilda,PA,16870,Service
+490,536,108 Arbor Bluff Dr,,Bellefonte,PA,16823,Service
+491,537,334 Kimport Ave,,Boalsburg,PA,,Service
+492,538,2102 N. Oak Ln,,State College,PA,16803,Service
+493,539,275 Jay Ln,,State College,PA,16801,Service
+494,540,1150 Bush Hollow Rd,,Julian,PA,,Service
+495,541,126 Larkspur Way,,Spring Mills,PA,16875,Service
+496,542,94 Green Meadow Ln,,Port Matilda,PA,16870,Service
+497,543,263 Madison St,,State College,PA,16801,Service
+498,544,,,State College,PA,16803,Service
