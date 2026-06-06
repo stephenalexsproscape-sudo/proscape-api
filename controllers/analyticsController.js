@@ -1,9 +1,19 @@
 const prisma = require('../prisma/client');
+const { z } = require('zod');
+
+const performanceStatsQuerySchema = z.object({
+  startDate: z.string().optional().refine((val) => !val || !isNaN(Date.parse(val)), {
+    message: "Invalid startDate format",
+  }),
+  endDate: z.string().optional().refine((val) => !val || !isNaN(Date.parse(val)), {
+    message: "Invalid endDate format",
+  }),
+});
 
 exports.getPerformanceStats = async (req, res, next) => {
-  const { startDate, endDate } = req.query;
-  
   try {
+    const { startDate, endDate } = performanceStatsQuerySchema.parse(req.query);
+    
     const start = startDate ? new Date(startDate) : new Date();
     if (!startDate) start.setDate(start.getDate() - 30);
     
@@ -49,6 +59,7 @@ exports.getPerformanceStats = async (req, res, next) => {
       period: { start, end }
     });
   } catch (e) {
+    if (e instanceof z.ZodError) return res.status(400).json({ error: 'Validation Error', details: e.errors });
     next(e);
   }
 };

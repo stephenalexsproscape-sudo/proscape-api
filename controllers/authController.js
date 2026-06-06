@@ -1,14 +1,45 @@
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 const crypto = require('crypto');
+const { z } = require('zod');
 const prisma = require('../prisma/client');
 const { JWT_SECRET } = require('../middleware/auth');
 const logAudit = require('../middleware/audit');
 const { sendResetEmail } = require('../utils/mailer');
 
+const loginSchema = z.object({
+  username: z.string().min(1, 'Username is required'),
+  password: z.string().min(1, 'Password is required'),
+});
+
+const provisionAccountSchema = z.object({
+  username: z.string().min(3, 'Username must be at least 3 characters'),
+  password: z.string().min(6, 'Password must be at least 6 characters'),
+  role: z.enum(['ADMIN', 'MANAGER', 'WORKER']).optional(),
+});
+
+const resetPasswordSchema = z.object({
+  newPassword: z.string().min(6, 'New password must be at least 6 characters'),
+});
+
+const forgotPasswordSchema = z.object({
+  email: z.string().email('Invalid email address'),
+});
+
+const resetPasswordWithTokenSchema = z.object({
+  token: z.string().min(1, 'Token is required'),
+  newPassword: z.string().min(6, 'New password must be at least 6 characters'),
+});
+
+const updateMeSchema = z.object({
+  email: z.string().email('Invalid email address').optional().or(z.literal('')),
+  phone: z.string().optional().nullable(),
+  password: z.string().min(6, 'New password must be at least 6 characters').optional(),
+});
+
 exports.login = async (req, res, next) => {
-  const { username, password } = req.body;
   try {
+    const { username, password } = loginSchema.parse(req.body);
     const user = await prisma.user.findUnique({ where: { username } });
     if (user && (await bcrypt.compare(password, user.passwordHash))) {
       const token = jwt.sign(
@@ -21,18 +52,12 @@ exports.login = async (req, res, next) => {
       res.status(401).json({ message: 'Invalid credentials' });
     }
   } catch (e) {
+    if (e instanceof z.ZodError) return res.status(400).json({ error: 'Validation Error', details: e.errors });
     next(e);
   }
 };
 
 exports.getAllUsers = async (req, res, next) => {
-  if (
-    req.user.role !== 'ADMIN' &&
-    req.user.username !== 'proscapeadmin' &&
-    req.user.username !== 'admin'
-  ) {
-    return res.status(403).json({ error: 'Admin privileges required.' });
-  }
   try {
     const users = await prisma.user.findMany({
       select: { id: true, username: true, role: true, createdAt: true },
@@ -45,24 +70,15 @@ exports.getAllUsers = async (req, res, next) => {
 };
 
 exports.provisionAccount = async (req, res, next) => {
-  if (
-    req.user.role !== 'ADMIN' &&
-    req.user.username !== 'proscapeadmin' &&
-    req.user.username !== 'admin'
-  ) {
-    return res.status(403).json({ error: 'Admin privileges required.' });
-  }
-
-  const { username, password, role } = req.body;
-
   try {
+    const { username, password, role } = provisionAccountSchema.parse(req.body);
     const hashedPassword = await bcrypt.hash(password, 10);
 
     const newUser = await prisma.user.create({
       data: {
         username,
         passwordHash: hashedPassword,
-        role: role || 'USER',
+        role: role || 'WORKER',
       },
       select: { id: true, username: true, role: true },
     });
@@ -75,24 +91,16 @@ exports.provisionAccount = async (req, res, next) => {
     );
     res.json(newUser);
   } catch (e) {
+    if (e instanceof z.ZodError) return res.status(400).json({ error: 'Validation Error', details: e.errors });
     if (e.code === 'P2002') return res.status(400).json({ error: 'Username already exists.' });
     next(e);
   }
 };
 
 exports.resetPassword = async (req, res, next) => {
-  if (
-    req.user.role !== 'ADMIN' &&
-    req.user.username !== 'proscapeadmin' &&
-    req.user.username !== 'admin'
-  ) {
-    return res.status(403).json({ error: 'Admin privileges required.' });
-  }
-
   const { id } = req.params;
-  const { newPassword } = req.body;
-
   try {
+    const { newPassword } = resetPasswordSchema.parse(req.body);
     const hashedPassword = await bcrypt.hash(newPassword, 10);
     const updatedUser = await prisma.user.update({
       where: { id: parseInt(id) },
@@ -107,15 +115,14 @@ exports.resetPassword = async (req, res, next) => {
     );
     res.json({ success: true, message: 'Password reset successful.' });
   } catch (e) {
+    if (e instanceof z.ZodError) return res.status(400).json({ error: 'Validation Error', details: e.errors });
     next(e);
   }
 };
 
 exports.forgotPassword = async (req, res, next) => {
-  const { email } = req.body;
-  if (!email) return res.status(400).json({ error: 'Email is required.' });
-
   try {
+    const { email } = forgotPasswordSchema.parse(req.body);
     const user = await prisma.user.findUnique({ where: { email } });
     if (!user) {
       // Return success even if user not found to prevent email enumeration
@@ -147,15 +154,14 @@ exports.forgotPassword = async (req, res, next) => {
     
     res.json({ success: true, message: 'If that email exists, a reset link has been sent.' });
   } catch (e) {
+    if (e instanceof z.ZodError) return res.status(400).json({ error: 'Validation Error', details: e.errors });
     next(e);
   }
 };
 
 exports.resetPasswordWithToken = async (req, res, next) => {
-  const { token, newPassword } = req.body;
-  if (!token || !newPassword) return res.status(400).json({ error: 'Token and new password are required.' });
-
   try {
+    const { token, newPassword } = resetPasswordWithTokenSchema.parse(req.body);
     const hashedToken = crypto.createHash('sha256').update(token).digest('hex');
     
     const user = await prisma.user.findFirst({
@@ -183,6 +189,45 @@ exports.resetPasswordWithToken = async (req, res, next) => {
     await logAudit('USER', user.id, 'PASSWORD_RESET_COMPLETED', `User successfully reset their password via token.`);
     res.json({ success: true, message: 'Password has been reset successfully.' });
   } catch (e) {
+    if (e instanceof z.ZodError) return res.status(400).json({ error: 'Validation Error', details: e.errors });
+    next(e);
+  }
+};
+
+exports.getMe = async (req, res, next) => {
+  try {
+    const userId = parseInt(req.user.userId);
+    const user = await prisma.user.findUnique({
+      where: { id: userId },
+      select: { id: true, username: true, email: true, phone: true, role: true }
+    });
+    if (!user) return res.status(404).json({ error: 'User not found' });
+    res.json(user);
+  } catch (e) {
+    next(e);
+  }
+};
+
+exports.updateMe = async (req, res, next) => {
+  const userId = parseInt(req.user.userId);
+  try {
+    const { email, phone, password } = updateMeSchema.parse(req.body);
+    const data = { email, phone };
+    if (password) {
+      data.passwordHash = await bcrypt.hash(password, 10);
+    }
+
+    const updatedUser = await prisma.user.update({
+      where: { id: userId },
+      data,
+      select: { id: true, username: true, email: true, phone: true, role: true }
+    });
+
+    await logAudit('USER', userId, 'PROFILE_UPDATED', `User updated their own profile.`);
+    res.json(updatedUser);
+  } catch (e) {
+    if (e instanceof z.ZodError) return res.status(400).json({ error: 'Validation Error', details: e.errors });
+    if (e.code === 'P2002') return res.status(400).json({ error: 'Email already in use.' });
     next(e);
   }
 };

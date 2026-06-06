@@ -1,4 +1,17 @@
 const prisma = require('../prisma/client');
+const { z } = require('zod');
+
+const crewSchema = z.object({
+  name: z.string().min(1, 'Crew name is required'),
+  color: z.string().optional().nullable(),
+  isActive: z.boolean().optional(),
+});
+
+const jobCategorySchema = z.object({
+  name: z.string().min(1, 'Category name is required'),
+  icon: z.string().optional().nullable(),
+  isActive: z.boolean().optional(),
+});
 
 // --- CREWS ---
 exports.getCrews = async (req, res, next) => {
@@ -13,13 +26,14 @@ exports.getCrews = async (req, res, next) => {
 };
 
 exports.createCrew = async (req, res, next) => {
-  const { name, color, isActive } = req.body;
   try {
+    const { name, color, isActive } = crewSchema.parse(req.body);
     const crew = await prisma.crew.create({
       data: { name, color, isActive: isActive !== undefined ? isActive : true },
     });
     res.json(crew);
   } catch (e) {
+    if (e instanceof z.ZodError) return res.status(400).json({ error: 'Validation Error', details: e.errors });
     if (e.code === 'P2002') return res.status(400).json({ error: 'Crew name already exists.' });
     next(e);
   }
@@ -27,14 +41,15 @@ exports.createCrew = async (req, res, next) => {
 
 exports.updateCrew = async (req, res, next) => {
   const { id } = req.params;
-  const { name, color, isActive } = req.body;
   try {
+    const { name, color, isActive } = crewSchema.parse(req.body);
     const crew = await prisma.crew.update({
       where: { id: parseInt(id) },
       data: { name, color, isActive },
     });
     res.json(crew);
   } catch (e) {
+    if (e instanceof z.ZodError) return res.status(400).json({ error: 'Validation Error', details: e.errors });
     next(e);
   }
 };
@@ -62,13 +77,14 @@ exports.getJobCategories = async (req, res, next) => {
 };
 
 exports.createJobCategory = async (req, res, next) => {
-  const { name, icon, isActive } = req.body;
   try {
+    const { name, icon, isActive } = jobCategorySchema.parse(req.body);
     const category = await prisma.jobCategory.create({
       data: { name, icon, isActive: isActive !== undefined ? isActive : true },
     });
     res.json(category);
   } catch (e) {
+    if (e instanceof z.ZodError) return res.status(400).json({ error: 'Validation Error', details: e.errors });
     if (e.code === 'P2002') return res.status(400).json({ error: 'Category name already exists.' });
     next(e);
   }
@@ -76,14 +92,15 @@ exports.createJobCategory = async (req, res, next) => {
 
 exports.updateJobCategory = async (req, res, next) => {
   const { id } = req.params;
-  const { name, icon, isActive } = req.body;
   try {
+    const { name, icon, isActive } = jobCategorySchema.parse(req.body);
     const category = await prisma.jobCategory.update({
       where: { id: parseInt(id) },
       data: { name, icon, isActive },
     });
     res.json(category);
   } catch (e) {
+    if (e instanceof z.ZodError) return res.status(400).json({ error: 'Validation Error', details: e.errors });
     next(e);
   }
 };
@@ -103,7 +120,6 @@ exports.getStaff = async (req, res, next) => {
   try {
     const staff = await prisma.user.findMany({
       select: { id: true, username: true, email: true, phone: true },
-      where: { email: { not: null } },
       orderBy: { username: 'asc' },
     });
     res.json(staff);

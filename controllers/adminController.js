@@ -1,5 +1,10 @@
 const prisma = require('../prisma/client');
 const logAudit = require('../middleware/audit');
+const { z } = require('zod');
+
+const missingInfoQuerySchema = z.object({
+  type: z.enum(['email', 'phone']).optional(),
+});
 
 exports.archiveOldTickets = async (req, res, next) => {
   const thirtyDaysAgo = new Date();
@@ -55,19 +60,37 @@ exports.getDataQualityStats = async (req, res, next) => {
     
     // Customers missing emails (checked via contacts)
     const missingEmailCount = await prisma.customer.count({
-      where: { contacts: { none: { email: { not: null, not: '' } } } }
+      where: {
+        contacts: {
+          none: {
+            AND: [
+              { email: { not: null } },
+              { email: { not: '' } }
+            ]
+          }
+        }
+      }
     });
 
     // Customers missing phones
     const missingPhoneCount = await prisma.customer.count({
-      where: { contacts: { none: { phone: { not: null, not: '' } } } }
+      where: {
+        contacts: {
+          none: {
+            AND: [
+              { phone: { not: null } },
+              { phone: { not: '' } }
+            ]
+          }
+        }
+      }
     });
 
     res.json({
       totalCustomers: total,
       missingEmail: missingEmailCount,
       missingPhone: missingPhoneCount,
-      overallHealth: Math.round(((total - missingEmailCount) / total) * 100)
+      overallHealth: total > 0 ? Math.round(((total - missingEmailCount) / total) * 100) : 0
     });
   } catch (e) {
     next(e);
@@ -75,13 +98,27 @@ exports.getDataQualityStats = async (req, res, next) => {
 };
 
 exports.getMissingInfoCustomers = async (req, res, next) => {
-  const { type } = req.query; // 'email' or 'phone'
   try {
+    const { type } = missingInfoQuerySchema.parse(req.query);
     const where = {};
     if (type === 'email') {
-      where.contacts = { none: { email: { not: null, not: '' } } };
+      where.contacts = {
+        none: {
+          AND: [
+            { email: { not: null } },
+            { email: { not: '' } }
+          ]
+        }
+      };
     } else if (type === 'phone') {
-      where.contacts = { none: { phone: { not: null, not: '' } } };
+      where.contacts = {
+        none: {
+          AND: [
+            { phone: { not: null } },
+            { phone: { not: '' } }
+          ]
+        }
+      };
     }
 
     const customers = await prisma.customer.findMany({
@@ -92,6 +129,7 @@ exports.getMissingInfoCustomers = async (req, res, next) => {
     });
     res.json(customers);
   } catch (e) {
+    if (e instanceof z.ZodError) return res.status(400).json({ error: 'Validation Error', details: e.errors });
     next(e);
   }
 };

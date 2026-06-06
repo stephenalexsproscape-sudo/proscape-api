@@ -155,8 +155,8 @@ model InternalMessage {
   sentViaEmail Boolean  @default(false)
   sentViaSms   Boolean  @default(false)
   
-  sender       User     @relation("SentMessages", fields: [senderId], references: [id])
-  receiver     User     @relation("ReceivedMessages", fields: [receiverId], references: [id])
+  sender       User     @relation("SentMessages", fields: [senderId], references: [id], onDelete: Cascade)
+  receiver     User     @relation("ReceivedMessages", fields: [receiverId], references: [id], onDelete: Cascade)
 
   @@index([senderId])
   @@index([receiverId])

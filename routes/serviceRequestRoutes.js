@@ -23,6 +23,7 @@ router.get('/service-requests', authenticateToken, serviceRequestController.getO
 // Data Utilities
 router.post('/import-jobs', authenticateToken, authorizeRoles('ADMIN'), upload.single('file'), serviceRequestController.importJobs);
 router.post('/export-jobs', authenticateToken, authorizeRoles('ADMIN'), serviceRequestController.exportJobs);
+router.post('/service-requests/bulk-manual', authenticateToken, authorizeRoles('ADMIN', 'MANAGER'), serviceRequestController.bulkManualEntry);
 
 // Specific routes MUST come before parameterized ones
 router.put('/service-requests/bulk-shift', authenticateToken, authorizeRoles('ADMIN', 'MANAGER'), serviceRequestController.bulkShiftTickets);

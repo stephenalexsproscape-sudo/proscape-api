@@ -12,6 +12,8 @@ const sendMessageSchema = z.object({
 exports.getInbox = async (req, res, next) => {
   try {
     const userId = parseInt(req.user.userId);
+    console.log(`[MSG] Loading inbox for user #${userId}`);
+    
     const messages = await prisma.internalMessage.findMany({
       where: { receiverId: userId },
       include: {
@@ -21,6 +23,7 @@ exports.getInbox = async (req, res, next) => {
     });
     res.json(messages);
   } catch (e) {
+    console.error('[MSG INBOX ERROR]', e);
     next(e);
   }
 };
@@ -42,9 +45,14 @@ exports.sendMessage = async (req, res, next) => {
     const validatedData = sendMessageSchema.parse(req.body);
     const { receiverId, content, sendEmail, sendSms } = validatedData;
     const senderId = parseInt(req.user.userId);
+    
+    console.log(`[MSG] Sending message from #${senderId} to #${receiverId}`);
 
     const receiver = await prisma.user.findUnique({ where: { id: receiverId } });
-    if (!receiver) return res.status(404).json({ error: 'Recipient not found' });
+    if (!receiver) {
+        console.warn(`[MSG] Recipient #${receiverId} not found`);
+        return res.status(404).json({ error: 'Recipient not found' });
+    }
 
     const message = await prisma.internalMessage.create({
       data: {
@@ -59,12 +67,16 @@ exports.sendMessage = async (req, res, next) => {
       }
     });
 
+    console.log(`[MSG] Message #${message.id} saved to DB`);
+
     if (sendEmail && receiver.email) {
+      console.log(`[MSG] Triggering email notification to ${receiver.email}`);
       await sendStaffMessageEmail(receiver.email, message.sender.username, content);
     }
 
     res.json(message);
   } catch (e) {
+    console.error('[MSG SEND ERROR]', e);
     next(e);
   }
 };

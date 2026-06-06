@@ -1,6 +1,10 @@
 const prisma = require('../prisma/client');
 const logAudit = require('../middleware/audit');
 const { z } = require('zod');
+const fs = require('fs');
+const csv = require('csv-parser');
+const { Parser } = require('json2csv');
+const { sendExportEmail } = require('../utils/mailer');
 
 const createTicketSchema = z.object({
   customerId: z.number().optional().nullable(),
@@ -42,6 +46,20 @@ const addNoteSchema = z.object({
   content: z.string().min(1, 'Note content is required'),
   customerId: z.coerce.number(),
 });
+
+function addBusinessDays(date, days) {
+  const result = new Date(date);
+  let added = 0;
+  const direction = days > 0 ? 1 : -1;
+  const absDays = Math.abs(days);
+  while (added < absDays) {
+    result.setDate(result.getDate() + direction);
+    if (result.getDay() !== 0 && result.getDay() !== 6) {
+      added++;
+    }
+  }
+  return result;
+}
 
 exports.addNote = async (req, res, next) => {
   try {
@@ -204,6 +222,7 @@ exports.createServiceRequest = async (req, res, next) => {
     );
     res.json(createdTickets.length === 1 ? createdTickets[0] : createdTickets);
   } catch (e) {
+    if (e instanceof z.ZodError) return res.status(400).json({ error: 'Validation Error', details: e.errors });
     next(e);
   }
 };
@@ -260,7 +279,6 @@ exports.updateTicket = async (req, res, next) => {
       description,
     } = validatedData;
 
-    // findFirst is less strict than findUnique regarding unique filter presence
     const oldTicket = await prisma.serviceRequest.findFirst({ 
       where: { id: ticketId } 
     });
@@ -313,6 +331,7 @@ exports.updateTicket = async (req, res, next) => {
     );
     res.json(updatedTicket);
   } catch (e) {
+    if (e instanceof z.ZodError) return res.status(400).json({ error: 'Validation Error', details: e.errors });
     next(e);
   }
 };
@@ -374,22 +393,22 @@ exports.getCalendarEvents = async (req, res, next) => {
       const baseProps = {
         ticketId: ticket.id,
         customerId: ticket.customerId,
-        customerName: ticket.customer.displayName,
+        customerName: ticket.customer?.displayName || 'Unknown',
         requestType: ticket.requestType || 'Standard Request',
         assignedTo: ticket.assignedTo || 'Unassigned',
         description: ticket.description,
-        siteSpec: ticket.customer.siteSpec,
+        siteSpec: ticket.customer?.siteSpec,
         status: ticket.status,
         deadline: ticket.deadline,
         isPremium: ticket.isPremium,
         isOverdue: isOverdue,
         attachments: ticket.attachments,
-        addresses: ticket.customer.addresses,
+        addresses: ticket.customer?.addresses,
       };
 
       if (ticket.followUpDate) {
         events.push({
-          title: `${premiumPrefix}📞 Follow Up: ${ticket.customer.displayName}`,
+          title: `${premiumPrefix}📞 Follow Up: ${ticket.customer?.displayName}`,
           start: ticket.followUpDate.toISOString().split('T')[0],
           backgroundColor: '#d97706',
           borderColor: '#b45309',
@@ -409,7 +428,7 @@ exports.getCalendarEvents = async (req, res, next) => {
           const jobInfo = ticket.description
             ? ticket.description.substring(0, 50) + '...'
             : 'No details';
-          displayTitle = `${premiumPrefix}${icon} ${ticket.customer.displayName}\n📍 ${addr}\n📝 ${jobInfo}`;
+          displayTitle = `${premiumPrefix}${icon} ${ticket.customer?.displayName}\n📍 ${addr}\n📝 ${jobInfo}`;
         }
 
         events.push({
@@ -427,7 +446,7 @@ exports.getCalendarEvents = async (req, res, next) => {
 
       if (ticket.proposalSentDate) {
         events.push({
-          title: `${premiumPrefix}📄 Prop: ${ticket.customer.displayName}`,
+          title: `${premiumPrefix}📄 Prop: ${ticket.customer?.displayName}`,
           start: ticket.proposalSentDate.toISOString().split('T')[0],
           backgroundColor: '#2563eb',
           borderColor: '#1d4ed8',
@@ -453,20 +472,6 @@ exports.getRecentActivity = async (req, res, next) => {
     next(e);
   }
 };
-
-function addBusinessDays(date, days) {
-  const result = new Date(date);
-  let added = 0;
-  const direction = days > 0 ? 1 : -1;
-  const absDays = Math.abs(days);
-  while (added < absDays) {
-    result.setDate(result.getDate() + direction);
-    if (result.getDay() !== 0 && result.getDay() !== 6) {
-      added++;
-    }
-  }
-  return result;
-}
 
 exports.bulkShiftTickets = async (req, res, next) => {
   const { crew, days } = req.body;
@@ -495,27 +500,25 @@ exports.bulkShiftTickets = async (req, res, next) => {
       return res.json({ success: true, count: 0, message: 'No jobs found to shift.' });
     }
 
-    const updates = tickets
-      .filter(t => t.id)
-      .map((t) => {
-        const newStart = addBusinessDays(t.scheduledWorkDate, shiftAmount);
-        let newEnd = null;
+    const updates = tickets.map((t) => {
+      const newStart = addBusinessDays(t.scheduledWorkDate, shiftAmount);
+      let newEnd = null;
 
-        if (t.scheduledEndDate && !isNaN(new Date(t.scheduledEndDate).getTime())) {
-          const start = new Date(t.scheduledWorkDate);
-          const end = new Date(t.scheduledEndDate);
-          const durationMs = end.getTime() - start.getTime();
-          newEnd = new Date(newStart.getTime() + durationMs);
-        }
+      if (t.scheduledEndDate && !isNaN(new Date(t.scheduledEndDate).getTime())) {
+        const start = new Date(t.scheduledWorkDate);
+        const end = new Date(t.scheduledEndDate);
+        const durationMs = end.getTime() - start.getTime();
+        newEnd = new Date(newStart.getTime() + durationMs);
+      }
 
-        return prisma.serviceRequest.update({
-          where: { id: t.id },
-          data: {
-            scheduledWorkDate: newStart,
-            scheduledEndDate: newEnd,
-          },
-        });
+      return prisma.serviceRequest.update({
+        where: { id: t.id },
+        data: {
+          scheduledWorkDate: newStart,
+          scheduledEndDate: newEnd,
+        },
       });
+    });
 
     await Promise.all(updates);
 
@@ -527,8 +530,7 @@ exports.bulkShiftTickets = async (req, res, next) => {
     );
     res.json({ success: true, count: tickets.length });
   } catch (e) {
-    console.error('[BULK SHIFT ERROR]', e);
-    res.status(500).json({ error: e.message || 'Failed to shift schedule.' });
+    next(e);
   }
 };
 
@@ -579,10 +581,24 @@ exports.exportJobs = async (req, res, next) => {
       orderBy: { dateReceived: 'desc' },
     });
 
+    const flattened = tickets.map(t => ({
+      id: t.id,
+      dateReceived: t.dateReceived,
+      customerName: t.customer?.displayName || 'Unknown',
+      requestType: t.requestType,
+      description: t.description,
+      assignedTo: t.assignedTo,
+      status: t.status,
+      deadline: t.deadline,
+      isPremium: t.isPremium,
+      scheduledWorkDate: t.scheduledWorkDate,
+      scheduledEndDate: t.scheduledEndDate,
+    }));
+
     const fields = [
       'id',
       'dateReceived',
-      'customer.displayName',
+      'customerName',
       'requestType',
       'description',
       'assignedTo',
@@ -594,7 +610,7 @@ exports.exportJobs = async (req, res, next) => {
     ];
     const opts = { fields };
     const parser = new Parser(opts);
-    const csvData = parser.parse(tickets);
+    const csvData = parser.parse(flattened);
 
     await sendExportEmail(csvData);
 
@@ -633,7 +649,6 @@ exports.importJobs = async (req, res, next) => {
           createdCount++;
         }
 
-        // Clean up uploaded file
         if (fs.existsSync(req.file.path)) {
             fs.unlinkSync(req.file.path);
         }
@@ -647,4 +662,31 @@ exports.importJobs = async (req, res, next) => {
     .on('error', (err) => {
       next(err);
     });
+};
+
+exports.bulkManualEntry = async (req, res, next) => {
+  const payload = req.body; // Array of items
+  if (!Array.isArray(payload)) return res.status(400).json({ error: 'Payload must be an array' });
+
+  try {
+    let createdCount = 0;
+    for (const item of payload) {
+      if (!item.customerId || !item.description) continue;
+      await prisma.serviceRequest.create({
+        data: {
+          customerId: parseInt(item.customerId),
+          description: item.description,
+          requestType: item.requestType || 'Standard Service',
+          assignedTo: item.assignedTo || 'Unassigned',
+          status: 'OPEN'
+        }
+      });
+      createdCount++;
+    }
+
+    await logAudit('BATCH', 0, 'MANUAL_BULK_ENTRY', `Manually created ${createdCount} tickets in bulk.`);
+    res.json({ success: true, count: createdCount });
+  } catch (e) {
+    next(e);
+  }
 };
