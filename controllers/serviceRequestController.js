@@ -579,6 +579,10 @@ exports.getCalendarEvents = async (req, res, next) => {
     const today = new Date();
     today.setHours(0, 0, 0, 0);
 
+    // Modern backend for command center UI: rich attachments for modals/calendar.
+    // Future optimization: project attachmentCount for list views at scale.
+    // Structured responses help reduce client-side JS.
+
     tickets.forEach((ticket) => {
       const icon = requestTypeIcons[ticket.requestType] || '';
       const premiumPrefix = ticket.isPremium ? '⭐ ' : '';

@@ -33,6 +33,7 @@ const adminRoutes = require('./routes/adminRoutes');
 const settingsRoutes = require('./routes/settingsRoutes');
 const messageRoutes = require('./routes/messageRoutes');
 const calendarNoteRoutes = require('./routes/calendarNoteRoutes');
+const aiRoutes = require('./routes/aiRoutes');
 
 const app = express();
 
@@ -90,6 +91,13 @@ app.use('/service-requests', apiLimiter);
 app.use('/customers', apiLimiter);
 app.use('/analytics', apiLimiter);
 
+const aiLimiter = rateLimit({
+  windowMs: 60 * 1000, // 1 minute
+  max: 5, // Limit each IP to 5 AI voice commands per minute
+  standardHeaders: true,
+  legacyHeaders: false,
+  message: 'Too many AI voice commands. Please wait a minute before trying again.',
+});
 const fs = require('fs');
 
 // For full previous appearance on main page (index.html) and others:
@@ -120,6 +128,9 @@ app.use('/admin', adminRoutes);
 app.use('/settings', settingsRoutes);
 app.use('/messages', messageRoutes);
 app.use('/', calendarNoteRoutes);
+
+// AI / Voice command routes (protected inside the router)
+app.use('/ai', aiLimiter, aiRoutes);
 
 // Health Check (Optional, since root serves frontend)
 app.get('/health', (req, res) => {
