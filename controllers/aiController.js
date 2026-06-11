@@ -58,6 +58,7 @@ exports.processVoiceCommand = async (req, res, next) => {
       prisma.jobCategory.findMany({ where: { isActive: true }, select: { name: true } }),
     ]);
 
+    const today = new Date().toISOString().split('T')[0];
     const crewNames = crews.map((c) => c.name).join(', ');
     const categoryNames = categories.map((c) => c.name).join(', ');
 
