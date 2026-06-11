@@ -13,11 +13,15 @@ const jobCategorySchema = z.object({
   isActive: z.boolean().optional(),
 });
 
+const reorderSchema = z.object({
+  ids: z.array(z.number()),
+});
+
 // --- CREWS ---
 exports.getCrews = async (req, res, next) => {
   try {
     const crews = await prisma.crew.findMany({
-      orderBy: { name: 'asc' },
+      orderBy: [ { sortOrder: 'asc' }, { name: 'asc' } ],
     });
     res.json(crews);
   } catch (e) {
@@ -64,11 +68,29 @@ exports.deleteCrew = async (req, res, next) => {
   }
 };
 
+exports.reorderCrews = async (req, res, next) => {
+  try {
+    const { ids } = reorderSchema.parse(req.body);
+    await prisma.$transaction(
+      ids.map((id, index) =>
+        prisma.crew.update({
+          where: { id },
+          data: { sortOrder: index },
+        })
+      )
+    );
+    res.json({ success: true });
+  } catch (e) {
+    if (e instanceof z.ZodError) return res.status(400).json({ error: 'Validation Error', details: e.errors });
+    next(e);
+  }
+};
+
 // --- JOB CATEGORIES ---
 exports.getJobCategories = async (req, res, next) => {
   try {
     const categories = await prisma.jobCategory.findMany({
-      orderBy: { name: 'asc' },
+      orderBy: [ { sortOrder: 'asc' }, { name: 'asc' } ],
     });
     res.json(categories);
   } catch (e) {
@@ -111,6 +133,24 @@ exports.deleteJobCategory = async (req, res, next) => {
     await prisma.jobCategory.delete({ where: { id: parseInt(id) } });
     res.json({ success: true });
   } catch (e) {
+    next(e);
+  }
+};
+
+exports.reorderJobCategories = async (req, res, next) => {
+  try {
+    const { ids } = reorderSchema.parse(req.body);
+    await prisma.$transaction(
+      ids.map((id, index) =>
+        prisma.jobCategory.update({
+          where: { id },
+          data: { sortOrder: index },
+        })
+      )
+    );
+    res.json({ success: true });
+  } catch (e) {
+    if (e instanceof z.ZodError) return res.status(400).json({ error: 'Validation Error', details: e.errors });
     next(e);
   }
 };

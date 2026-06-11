@@ -1,4 +1,6 @@
 const nodemailer = require('nodemailer');
+const fs = require('fs');
+const path = require('path');
 
 /**
  * Proscape Mailer Utility
@@ -52,7 +54,8 @@ const sendResetEmail = async (to, resetLink) => {
   }
 };
 
-const sendStaffMessageEmail = async (to, senderName, content) => {
+const sendStaffMessageEmail = async (to, senderName, content, origin) => {
+  const portalUrl = origin || process.env.FRONTEND_URL || 'http://localhost:5173'; // Override via FRONTEND_URL env for prod/Tailscale deployments
   try {
     const transporter = await getTransporter();
     const info = await transporter.sendMail({
@@ -60,7 +63,7 @@ const sendStaffMessageEmail = async (to, senderName, content) => {
       to,
       subject: `New Message from ${senderName}`,
       text: `${senderName} sent you a message in Proscape:\n\n${content}`,
-      html: `<p><strong>${senderName}</strong> sent you a message:</p><blockquote>${content}</blockquote><p><a href="http://192.168.10.104:3000">Log in to view</a></p>`
+      html: `<p><strong>${senderName}</strong> sent you a message:</p><blockquote>${content}</blockquote><p><a href="${portalUrl}">Log in to view</a></p>`
     });
 
     const previewUrl = nodemailer.getTestMessageUrl(info);
@@ -73,7 +76,7 @@ const sendStaffMessageEmail = async (to, senderName, content) => {
 };
 
 const sendExportEmail = async (csvContent) => {
-  const adminEmail = 'stephen@alexsproscape.com';
+  const adminEmail = process.env.ADMIN_EMAIL || 'admin@example.invalid'; // Set ADMIN_EMAIL in .env for production alerts
   try {
     const transporter = await getTransporter();
     const info = await transporter.sendMail({
@@ -98,4 +101,77 @@ const sendExportEmail = async (csvContent) => {
   }
 };
 
-module.exports = { sendResetEmail, sendStaffMessageEmail, sendExportEmail };
+const sendJobCompletionEmail = async (to, clientName, ticketId, description, notes, attachments = []) => {
+  try {
+    const transporter = await getTransporter();
+    const mailAttachments = attachments.map(att => ({
+      filename: att.fileName,
+      path: path.join(__dirname, '..', att.fileUrl)
+    })).filter(att => fs.existsSync(att.path));
+
+    const info = await transporter.sendMail({
+      from: '"Proscape Notifications" <notifications@proscape.com>',
+      to,
+      subject: `✅ Job Done: Ticket #${ticketId} - ${clientName}`,
+      text: `Hello ${clientName},\n\nWe have completed your service request.\n\nDescription: ${description}\nField Notes: ${notes || 'None'}\n\nThank you for choosing Proscape!`,
+      html: `<h3>Hello ${clientName},</h3><p>We are pleased to inform you that we have completed your service request:</p><div style="background:#f8fafc; padding: 1rem; border-radius: 8px; border: 1px solid #cbd5e1; margin-bottom: 1rem;"><strong>Ticket #${ticketId}</strong><br><strong>Description:</strong> ${description}<br><strong>Field Notes:</strong> ${notes || 'None'}</div><p>Thank you for choosing Proscape!</p>`,
+      attachments: mailAttachments
+    });
+
+    const previewUrl = nodemailer.getTestMessageUrl(info);
+    console.log(`✉️ Job Completion Email Preview: ${previewUrl}`);
+    return previewUrl || true;
+  } catch (error) {
+    console.error('Job Completion Email error:', error);
+    return false;
+  }
+};
+
+const sendNewClientEmail = async (customer) => {
+  const adminEmail = process.env.ADMIN_EMAIL || 'admin@example.invalid'; // Set ADMIN_EMAIL in .env for production alerts
+  try {
+    const transporter = await getTransporter();
+    
+    // Extract contact details if they exist
+    const contact = customer.contacts?.[0] || {};
+    const firstName = contact.firstName || '';
+    const lastName = contact.lastName || '';
+    const phone = contact.phone || 'N/A';
+    const email = contact.email || 'N/A';
+    
+    const info = await transporter.sendMail({
+      from: '"Proscape System" <system@proscape.com>',
+      to: adminEmail,
+      subject: `🆕 New Client Added: ${customer.displayName}`,
+      text: `A new client has been added to the database.\n\n` +
+            `Display Name: ${customer.displayName}\n` +
+            `Contact Name: ${firstName} ${lastName}\n` +
+            `Phone: ${phone}\n` +
+            `Email: ${email}\n`,
+      html: `<h3>🆕 New Client Added</h3>` +
+            `<p>A new client has been added to the database:</p>` +
+            `<div style="background:#f8fafc; padding: 1rem; border-radius: 8px; border: 1px solid #cbd5e1; margin-bottom: 1rem;">` +
+            `<strong>Display Name:</strong> ${customer.displayName}<br>` +
+            `<strong>Contact Name:</strong> ${firstName} ${lastName}<br>` +
+            `<strong>Phone:</strong> ${phone}<br>` +
+            `<strong>Email:</strong> ${email}` +
+            `</div>`
+    });
+
+    const previewUrl = nodemailer.getTestMessageUrl(info);
+    console.log(`✉️ New Client Email Preview: ${previewUrl}`);
+    return previewUrl || true;
+  } catch (error) {
+    console.error('New Client Email error:', error);
+    return false;
+  }
+};
+
+module.exports = { 
+  sendResetEmail, 
+  sendStaffMessageEmail, 
+  sendExportEmail, 
+  sendJobCompletionEmail,
+  sendNewClientEmail
+};
+

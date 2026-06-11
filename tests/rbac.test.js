@@ -3,6 +3,8 @@ const app = require('../index');
 const { PrismaClient } = require('@prisma/client');
 const prisma = new PrismaClient();
 const jwt = require('jsonwebtoken');
+// Test safety: provide a test secret so we don't rely on (now-removed) insecure default in auth.js
+process.env.JWT_SECRET = process.env.JWT_SECRET || 'test-secret-do-not-use-in-prod';
 const { JWT_SECRET } = require('../middleware/auth');
 const bcrypt = require('bcryptjs');
 
@@ -43,6 +45,7 @@ describe('RBAC Matrix Enforcement', () => {
     await prisma.serviceRequest.deleteMany({ where: { customerId: testCustomer.id } });
     await prisma.customer.delete({ where: { id: testCustomer.id } });
     await prisma.user.deleteMany({ where: { username: { in: ['matrix_admin', 'matrix_manager', 'matrix_worker'] } } });
+    await prisma.crew.deleteMany({ where: { name: { startsWith: 'Matrix Crew' } } });
     await prisma.$disconnect();
   });
 

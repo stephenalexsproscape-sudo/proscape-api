@@ -3,6 +3,20 @@
 // ==========================================
 
 require('dotenv').config();
+
+// Critical env checks (skipped in test to allow test files / jest to inject vars before app require triggers exit)
+const isTest = process.env.NODE_ENV === 'test';
+if (!process.env.JWT_SECRET && !isTest) {
+  console.error('CRITICAL ERROR: JWT_SECRET environment variable is not defined.');
+  process.exit(1);
+}
+
+// Additional required env validation for production safety
+if (!process.env.DATABASE_URL && !isTest) {
+  console.error('CRITICAL ERROR: DATABASE_URL environment variable is not defined (required by Prisma).');
+  process.exit(1);
+}
+
 const express = require('express');
 const helmet = require('helmet');
 const rateLimit = require('express-rate-limit');
@@ -18,32 +32,83 @@ const analyticsRoutes = require('./routes/analyticsRoutes');
 const adminRoutes = require('./routes/adminRoutes');
 const settingsRoutes = require('./routes/settingsRoutes');
 const messageRoutes = require('./routes/messageRoutes');
+const calendarNoteRoutes = require('./routes/calendarNoteRoutes');
 
 const app = express();
 
 // Global Security Middleware
+const isProd = process.env.NODE_ENV === 'production';
 app.use(helmet({
-  contentSecurityPolicy: false, // Disabled for local dev/Vite integration simplicity
+  contentSecurityPolicy: isProd, // Enable strict CSP in production; disabled for local dev/Vite
 }));
 
-const limiter = rateLimit({
+// CORS Whitelist config
+const allowedOrigins = [
+  'http://localhost:3000',
+  'http://localhost:5173',
+  'http://127.0.0.1:3000',
+  'http://127.0.0.1:5173',
+];
+if (process.env.CORS_ORIGIN) {
+  allowedOrigins.push(...process.env.CORS_ORIGIN.split(',').map(o => o.trim()));
+}
+const corsOptions = {
+  origin: function (origin, callback) {
+    if (!origin) return callback(null, true); // Allow non-browser requests
+    if (allowedOrigins.indexOf(origin) !== -1 || 
+        origin.startsWith('http://localhost') || 
+        origin.startsWith('http://127.0.0.1') ||
+        origin.startsWith('http://100.')) {  // Tailscale / CGNAT IPs (common for this setup)
+      return callback(null, true);
+    }
+    console.warn(`[CORS REJECTED] Origin: ${origin}`);
+    callback(new Error('Not allowed by CORS'));
+  },
+  credentials: true,
+};
+app.use(cors(corsOptions));
+app.use(express.json());
+
+// Rate Limiting Config
+const loginLimiter = rateLimit({
   windowMs: 15 * 60 * 1000, // 15 minutes
-  max: 100, // Limit each IP to 100 requests per windowMs
+  max: 100, // Limit each IP to 100 login attempts per 15 minutes
   standardHeaders: true,
   legacyHeaders: false,
   message: 'Too many requests from this IP, please try again after 15 minutes',
 });
-app.use('/login', limiter); // Apply rate limiting to login only for now to avoid disrupting general use
+app.use('/login', loginLimiter);
 
-// Global Middleware
-app.use(cors());
-app.use(express.json());
+const apiLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  max: 1000, // 1000 requests per 15 minutes for other API endpoints
+  standardHeaders: true,
+  legacyHeaders: false,
+  message: 'Too many API requests from this IP, please try again after 15 minutes',
+});
+app.use('/service-requests', apiLimiter);
+app.use('/customers', apiLimiter);
+app.use('/analytics', apiLimiter);
 
-// Serve the frontend HTML securely using an absolute path
+const fs = require('fs');
+
+// For full previous appearance on main page (index.html) and others:
+// Always serve the raw source tree (proscape-frontend) so the original
+// <link href="/src/style.css"> (full unprocessed design system with all
+// .kpi-grid, .module-grid, .card, header, banner, buttons, dark/field modes etc.)
+// and scripts /utils/* and /public/* resolve correctly.
+// This matches the "previously" good state from the backup.
+// (dist/ is for mobile builds only.)
 const frontendPath = path.join(__dirname, '../proscape-frontend');
+const publicPath = path.join(frontendPath, 'public');
+
+// Mount public contents at root first (so /utils/theme.js, /sw.js, /logo.png, /manifest.webmanifest work)
+app.use(express.static(publicPath));
+
+// Then the project root for .html files and /src/style.css etc.
 app.use(express.static(frontendPath));
 
-// Serve file uploads publicly
+// Serve uploaded job attachments publicly for the UI
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 // API Routes
@@ -54,6 +119,7 @@ app.use('/analytics', analyticsRoutes);
 app.use('/admin', adminRoutes);
 app.use('/settings', settingsRoutes);
 app.use('/messages', messageRoutes);
+app.use('/', calendarNoteRoutes);
 
 // Health Check (Optional, since root serves frontend)
 app.get('/health', (req, res) => {
@@ -69,10 +135,31 @@ app.use(errorHandler);
 /// START THE ENGINE ///
 ////////////////////////
 if (require.main === module) {
+  const http = require('http');
+  const https = require('https');
+  const fs = require('fs');
   const PORT = process.env.PORT || 3000;
-  app.listen(PORT, '0.0.0.0', () => {
-    console.log(`TAILSCALE BINDING IS ACTIVE - Listening on port ${PORT}`);
-  });
+
+  if (process.env.SSL_KEY_PATH && process.env.SSL_CERT_PATH) {
+    try {
+      const options = {
+        key: fs.readFileSync(process.env.SSL_KEY_PATH),
+        cert: fs.readFileSync(process.env.SSL_CERT_PATH),
+      };
+      https.createServer(options, app).listen(PORT, '0.0.0.0', () => {
+        console.log(`TAILSCALE BINDING IS ACTIVE - Secure HTTPS server listening on port ${PORT}`);
+      });
+    } catch (e) {
+      console.error('Failed to start HTTPS server, falling back to HTTP:', e.message);
+      http.createServer(app).listen(PORT, '0.0.0.0', () => {
+        console.log(`TAILSCALE BINDING IS ACTIVE - HTTP fallback server listening on port ${PORT}`);
+      });
+    }
+  } else {
+    http.createServer(app).listen(PORT, '0.0.0.0', () => {
+      console.log(`TAILSCALE BINDING IS ACTIVE - Listening on port ${PORT}`);
+    });
+  }
 }
 
 module.exports = app;

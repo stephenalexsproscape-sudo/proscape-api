@@ -4,7 +4,12 @@ const { z } = require('zod');
 const fs = require('fs');
 const csv = require('csv-parser');
 const { Parser } = require('json2csv');
-const { sendExportEmail } = require('../utils/mailer');
+const { sendExportEmail, sendNewClientEmail } = require('../utils/mailer');
+const {
+  TicketStatus,
+  normalizeTicketStatus,
+  optionalTicketStatusSchema,
+} = require('../utils/ticketStatus');
 
 const createTicketSchema = z.object({
   customerId: z.number().optional().nullable(),
@@ -13,6 +18,7 @@ const createTicketSchema = z.object({
   requestType: z.string().optional().nullable(),
   description: z.string().min(1, 'Description is required'),
   assignedTo: z.string().optional().nullable(),
+  assignedCrewId: z.coerce.number().optional().nullable(),
   isNewClient: z.boolean().optional(),
   firstName: z.string().optional().nullable(),
   lastName: z.string().optional().nullable(),
@@ -28,7 +34,7 @@ const createTicketSchema = z.object({
 });
 
 const updateTicketSchema = z.object({
-  status: z.string().optional(),
+  status: optionalTicketStatusSchema,
   proposalSentDate: z.string().datetime().optional().nullable().or(z.string().regex(/^\d{4}-\d{2}-\d{2}$/).optional()),
   scheduledWorkDate: z.string().datetime().optional().nullable().or(z.string().regex(/^\d{4}-\d{2}-\d{2}$/).optional()),
   scheduledEndDate: z.string().datetime().optional().nullable().or(z.string().regex(/^\d{4}-\d{2}-\d{2}$/).optional()),
@@ -38,6 +44,7 @@ const updateTicketSchema = z.object({
   note: z.string().optional().nullable(),
   customerId: z.coerce.number().optional(),
   assignedTo: z.string().optional().nullable(),
+  assignedCrewId: z.coerce.number().optional().nullable(),
   requestType: z.string().optional().nullable(),
   description: z.string().optional(),
 });
@@ -95,6 +102,7 @@ exports.createServiceRequest = async (req, res, next) => {
       requestType,
       description,
       assignedTo,
+      assignedCrewId,
       isNewClient,
       firstName,
       lastName,
@@ -128,6 +136,13 @@ exports.createServiceRequest = async (req, res, next) => {
         'CREATED_FROM_INTAKE',
         `Created new record: ${finalDisplayName}`
       );
+
+      // Send email alert to admin
+      const fullCust = await prisma.customer.findUnique({
+        where: { id: newCust.id },
+        include: { contacts: true }
+      });
+      sendNewClientEmail(fullCust).catch(e => console.error('Error sending new client email:', e));
     } else if (updateMaster && targetCustomerId) {
       const primaryContact = await prisma.contact.findFirst({
         where: { customerId: parseInt(targetCustomerId), isPrimary: true },
@@ -196,19 +211,37 @@ exports.createServiceRequest = async (req, res, next) => {
         }
       }
 
+      let finalAssignedTo = assignedTo;
+      let finalAssignedCrewId = assignedCrewId;
+      if (assignedCrewId !== undefined && assignedCrewId !== null) {
+        const parsedCrewId = parseInt(assignedCrewId);
+        const crew = await prisma.crew.findUnique({ where: { id: parsedCrewId } });
+        if (crew) {
+          finalAssignedTo = crew.name;
+          finalAssignedCrewId = crew.id;
+        }
+      } else if (assignedTo !== undefined && assignedTo !== null && assignedTo !== 'Unassigned') {
+        const crew = await prisma.crew.findUnique({ where: { name: assignedTo } });
+        if (crew) {
+          finalAssignedCrewId = crew.id;
+          finalAssignedTo = crew.name;
+        }
+      }
+
       const request = await prisma.serviceRequest.create({
         data: {
           howReceived,
           clientConnection,
           requestType,
           description,
-          assignedTo,
+          assignedTo: finalAssignedTo,
+          assignedCrewId: finalAssignedCrewId,
           customerId: parseInt(targetCustomerId),
           deadline: currentDeadline,
           isPremium: !!isPremium,
           scheduledWorkDate: currentStart,
           scheduledEndDate: currentEnd,
-          status: currentStart ? 'CLOSED' : 'OPEN', // Auto-close if scheduled
+          status: currentStart ? TicketStatus.SCHEDULED : TicketStatus.UNSCHEDULED,
         },
       });
       createdTickets.push(request);
@@ -229,8 +262,26 @@ exports.createServiceRequest = async (req, res, next) => {
 
 exports.getOpenTickets = async (req, res, next) => {
   try {
+    const { status, customerId } = req.query;
+    const where = {};
+    
+    if (status) {
+      if (status === 'ALL') {
+        // do not restrict status
+      } else {
+        where.status = status;
+      }
+    } else {
+      // Default to returning all active (non-archived) tickets
+      where.status = { not: TicketStatus.ARCHIVED };
+    }
+
+    if (customerId) {
+      where.customerId = parseInt(customerId);
+    }
+
     const tickets = await prisma.serviceRequest.findMany({
-      where: { status: 'OPEN' },
+      where,
       include: { customer: true },
       orderBy: { dateReceived: 'desc' },
     });
@@ -239,6 +290,37 @@ exports.getOpenTickets = async (req, res, next) => {
     next(e);
   }
 };
+
+exports.getTicketById = async (req, res, next) => {
+  const ticketId = parseInt(req.params.id);
+  if (isNaN(ticketId)) {
+    return res.status(400).json({ error: 'Invalid Ticket ID provided.' });
+  }
+
+  try {
+    const ticket = await prisma.serviceRequest.findUnique({
+      where: { id: ticketId },
+      include: { 
+        customer: {
+          include: {
+            addresses: true,
+            siteSpec: true,
+          }
+        },
+        attachments: true
+      }
+    });
+
+    if (!ticket) {
+      return res.status(404).json({ error: 'Ticket not found.' });
+    }
+
+    res.json(ticket);
+  } catch (e) {
+    next(e);
+  }
+};
+
 
 exports.getTicketAuditLogs = async (req, res, next) => {
   const ticketId = parseInt(req.params.id);
@@ -275,6 +357,7 @@ exports.updateTicket = async (req, res, next) => {
       note,
       customerId,
       assignedTo,
+      assignedCrewId,
       requestType,
       description,
     } = validatedData;
@@ -287,20 +370,73 @@ exports.updateTicket = async (req, res, next) => {
       return res.status(404).json({ error: 'Ticket not found.' });
     }
 
-    const dataToUpdate = {
-      status: status || 'OPEN',
-      proposalSentDate: proposalSentDate ? new Date(proposalSentDate) : null,
-      scheduledWorkDate: scheduledWorkDate ? new Date(scheduledWorkDate) : null,
-      scheduledEndDate: scheduledEndDate ? new Date(scheduledEndDate) : null,
-      followUpDate: followUpDate ? new Date(followUpDate) : null,
-      deadline: deadline ? new Date(deadline) : null,
-      isPremium: isPremium !== undefined ? !!isPremium : undefined,
-    };
-    
-    if (customerId) dataToUpdate.customerId = customerId;
-    if (assignedTo !== undefined) dataToUpdate.assignedTo = assignedTo;
+    if (req.user && req.user.role === 'WORKER') {
+      const forbiddenChanges = [];
+      if (customerId !== undefined && customerId !== oldTicket.customerId) forbiddenChanges.push('customerId');
+      if (assignedTo !== undefined && assignedTo !== oldTicket.assignedTo) forbiddenChanges.push('assignedTo');
+      if (assignedCrewId !== undefined && assignedCrewId !== oldTicket.assignedCrewId) forbiddenChanges.push('assignedCrewId');
+      if (requestType !== undefined && requestType !== oldTicket.requestType) forbiddenChanges.push('requestType');
+      if (description !== undefined && description !== oldTicket.description) forbiddenChanges.push('description');
+      if (isPremium !== undefined && isPremium !== oldTicket.isPremium) forbiddenChanges.push('isPremium');
+      
+      const oldSchedDate = oldTicket.scheduledWorkDate ? new Date(oldTicket.scheduledWorkDate).getTime() : null;
+      const newSchedDate = scheduledWorkDate ? new Date(scheduledWorkDate).getTime() : null;
+      if (scheduledWorkDate !== undefined && oldSchedDate !== newSchedDate) forbiddenChanges.push('scheduledWorkDate');
+
+      const oldSchedEndDate = oldTicket.scheduledEndDate ? new Date(oldTicket.scheduledEndDate).getTime() : null;
+      const newSchedEndDate = scheduledEndDate ? new Date(scheduledEndDate).getTime() : null;
+      if (scheduledEndDate !== undefined && oldSchedEndDate !== newSchedEndDate) forbiddenChanges.push('scheduledEndDate');
+
+      const oldDeadline = oldTicket.deadline ? new Date(oldTicket.deadline).getTime() : null;
+      const newDeadline = deadline ? new Date(deadline).getTime() : null;
+      if (deadline !== undefined && oldDeadline !== newDeadline) forbiddenChanges.push('deadline');
+
+      const oldProposalDate = oldTicket.proposalSentDate ? new Date(oldTicket.proposalSentDate).getTime() : null;
+      const newProposalDate = proposalSentDate ? new Date(proposalSentDate).getTime() : null;
+      if (proposalSentDate !== undefined && oldProposalDate !== newProposalDate) forbiddenChanges.push('proposalSentDate');
+
+      const oldFollowUpDate = oldTicket.followUpDate ? new Date(oldTicket.followUpDate).getTime() : null;
+      const newFollowUpDate = followUpDate ? new Date(followUpDate).getTime() : null;
+      if (followUpDate !== undefined && oldFollowUpDate !== newFollowUpDate) forbiddenChanges.push('followUpDate');
+
+      if (forbiddenChanges.length > 0) {
+        return res.status(403).json({ error: `Forbidden: Workers cannot modify fields: ${forbiddenChanges.join(', ')}` });
+      }
+    }
+
+    const dataToUpdate = {};
+    if (status !== undefined) dataToUpdate.status = status;
+    if (proposalSentDate !== undefined) dataToUpdate.proposalSentDate = proposalSentDate ? new Date(proposalSentDate) : null;
+    if (scheduledWorkDate !== undefined) dataToUpdate.scheduledWorkDate = scheduledWorkDate ? new Date(scheduledWorkDate) : null;
+    if (scheduledEndDate !== undefined) dataToUpdate.scheduledEndDate = scheduledEndDate ? new Date(scheduledEndDate) : null;
+    if (followUpDate !== undefined) dataToUpdate.followUpDate = followUpDate ? new Date(followUpDate) : null;
+    if (deadline !== undefined) dataToUpdate.deadline = deadline ? new Date(deadline) : null;
+    if (isPremium !== undefined) dataToUpdate.isPremium = !!isPremium;
+    if (customerId !== undefined) dataToUpdate.customerId = customerId;
     if (requestType !== undefined) dataToUpdate.requestType = requestType;
     if (description !== undefined) dataToUpdate.description = description;
+
+    if (assignedCrewId !== undefined) {
+      dataToUpdate.assignedCrewId = assignedCrewId;
+      if (assignedCrewId === null) {
+        dataToUpdate.assignedTo = null;
+      } else {
+        const crew = await prisma.crew.findUnique({ where: { id: assignedCrewId } });
+        if (crew) {
+          dataToUpdate.assignedTo = crew.name;
+        }
+      }
+    } else if (assignedTo !== undefined) {
+      dataToUpdate.assignedTo = assignedTo;
+      if (assignedTo === null || assignedTo === 'Unassigned') {
+        dataToUpdate.assignedCrewId = null;
+      } else {
+        const crew = await prisma.crew.findUnique({ where: { name: assignedTo } });
+        if (crew) {
+          dataToUpdate.assignedCrewId = crew.id;
+        }
+      }
+    }
 
     const updatedTicket = await prisma.serviceRequest.update({
       where: { id: ticketId },
@@ -316,10 +452,36 @@ exports.updateTicket = async (req, res, next) => {
       });
     }
 
-    let auditDetails = `Status changed to ${status}. `;
-    if (proposalSentDate) auditDetails += `Proposal set for ${proposalSentDate}. `;
-    if (scheduledWorkDate) auditDetails += `Work scheduled for ${scheduledWorkDate}. `;
+    if (status === TicketStatus.DONE && oldTicket.status !== TicketStatus.DONE) {
+      try {
+        const customer = await prisma.customer.findFirst({
+          where: { id: oldTicket.customerId },
+          include: { contacts: true }
+        });
+        if (customer && customer.contacts.length > 0) {
+          const primaryContact = customer.contacts.find(c => c.isPrimary) || customer.contacts[0];
+          if (primaryContact.email) {
+            const reqAttachments = await prisma.attachment.findMany({
+              where: { serviceRequestId: ticketId }
+            });
+            const { sendJobCompletionEmail } = require('../utils/mailer');
+            await sendJobCompletionEmail(primaryContact.email, customer.displayName, ticketId, oldTicket.description, note, reqAttachments);
+          }
+          if (primaryContact.phone) {
+            console.log(`[SMS SENT] to ${primaryContact.phone} (${customer.displayName}): Proscape Job #${ticketId} has been marked DONE. Details: ${note || 'None'}`);
+          }
+        }
+      } catch (err) {
+        console.error('Failed to send auto completion alerts:', err);
+      }
+    }
+
+    let auditDetails = '';
+    if (status !== undefined && status !== oldTicket.status) auditDetails += `Status changed to ${status}. `;
+    if (proposalSentDate !== undefined && proposalSentDate !== oldTicket.proposalSentDate) auditDetails += `Proposal set for ${proposalSentDate}. `;
+    if (scheduledWorkDate !== undefined && scheduledWorkDate !== oldTicket.scheduledWorkDate) auditDetails += `Work scheduled for ${scheduledWorkDate}. `;
     if (note) auditDetails += `Added field log note.`;
+    if (!auditDetails) auditDetails = `Updated ticket details.`;
 
     await logAudit(
       'TICKET',
@@ -327,7 +489,9 @@ exports.updateTicket = async (req, res, next) => {
       'MILESTONE_UPDATE',
       auditDetails,
       oldTicket,
-      updatedTicket
+      updatedTicket,
+      req.user ? req.user.userId || req.user.id : null,
+      req.user ? req.user.role : null
     );
     res.json(updatedTicket);
   } catch (e) {
@@ -365,7 +529,41 @@ const requestTypeIcons = {
 
 exports.getCalendarEvents = async (req, res, next) => {
   try {
+    const { start, end } = req.query;
+    const where = {};
+    if (start && end) {
+      const startDate = new Date(start);
+      const endDate = new Date(end);
+      where.OR = [
+        {
+          scheduledWorkDate: {
+            gte: startDate,
+            lte: endDate,
+          },
+        },
+        {
+          AND: [
+            { scheduledWorkDate: { lte: endDate } },
+            { scheduledEndDate: { gte: startDate } },
+          ],
+        },
+        {
+          proposalSentDate: {
+            gte: startDate,
+            lte: endDate,
+          },
+        },
+        {
+          followUpDate: {
+            gte: startDate,
+            lte: endDate,
+          },
+        },
+      ];
+    }
+
     const tickets = await prisma.serviceRequest.findMany({
+      where,
       include: {
         customer: {
           include: {
@@ -385,8 +583,8 @@ exports.getCalendarEvents = async (req, res, next) => {
       const icon = requestTypeIcons[ticket.requestType] || '';
       const premiumPrefix = ticket.isPremium ? '⭐ ' : '';
       const isOverdue =
-        ticket.status !== 'COMPLETED' &&
-        ticket.status !== 'CLOSED' &&
+        ticket.status !== TicketStatus.DONE &&
+        ticket.status !== TicketStatus.SCHEDULED &&
         ticket.deadline &&
         new Date(ticket.deadline) < today;
 
@@ -423,20 +621,23 @@ exports.getCalendarEvents = async (req, res, next) => {
         if (isNote) {
           displayTitle = `${premiumPrefix}${icon} ${ticket.description || 'Note'}`;
         } else {
-          const addr =
-            ticket.customer?.addresses?.find((a) => a.type === 'SERVICE')?.street1 || 'No Address';
           const jobInfo = ticket.description
             ? ticket.description.substring(0, 50) + '...'
             : 'No details';
-          displayTitle = `${premiumPrefix}${icon} ${ticket.customer?.displayName}\n📍 ${addr}\n📝 ${jobInfo}`;
+          displayTitle = `${premiumPrefix}${icon} ${ticket.customer?.displayName}\n📝 ${jobInfo}`;
+        }
+
+        let endVal = undefined;
+        if (ticket.scheduledEndDate) {
+          const endDate = new Date(ticket.scheduledEndDate);
+          endDate.setDate(endDate.getDate() + 1);
+          endVal = endDate.toISOString().split('T')[0];
         }
 
         events.push({
           title: displayTitle,
           start: ticket.scheduledWorkDate.toISOString().split('T')[0],
-          end: ticket.scheduledEndDate
-            ? ticket.scheduledEndDate.toISOString().split('T')[0]
-            : undefined,
+          end: endVal,
           backgroundColor: isNote ? '#64748b' : '#166534',
           borderColor: isOverdue ? '#dc2626' : isNote ? '#475569' : '#14532d',
           classNames: isOverdue ? ['overdue-pulse'] : [],
@@ -453,6 +654,69 @@ exports.getCalendarEvents = async (req, res, next) => {
           extendedProps: { ...baseProps, eventType: 'Proposal Sent' },
         });
       }
+    });
+
+    // Fetch and include Calendar Notes
+    const noteWhere = {};
+    if (start && end) {
+      const startDate = new Date(start);
+      const endDate = new Date(end);
+      noteWhere.OR = [
+        {
+          startDate: {
+            gte: startDate,
+            lte: endDate,
+          },
+        },
+        {
+          AND: [
+            { startDate: { lte: endDate } },
+            { endDate: { gte: startDate } },
+          ],
+        },
+      ];
+    }
+    const calendarNotes = await prisma.calendarNote.findMany({ where: noteWhere });
+    calendarNotes.forEach((note) => {
+      const noteTypeEmojis = {
+        DELIVERY: '🚚',
+        VACATION: '🌴',
+        EVENT: '🎉',
+        OTHER: '📌',
+      };
+      const icon = noteTypeEmojis[note.noteType] || '📌';
+
+      let endVal = undefined;
+      if (note.endDate) {
+        const endDate = new Date(note.endDate);
+        endDate.setDate(endDate.getDate() + 1);
+        endVal = endDate.toISOString().split('T')[0];
+      }
+
+      const noteColors = {
+        DELIVERY: { bg: '#f59e0b', border: '#d97706' },
+        VACATION: { bg: '#06b6d4', border: '#0891b2' },
+        EVENT: { bg: '#8b5cf6', border: '#7c3aed' },
+        OTHER: { bg: '#64748b', border: '#475569' },
+      };
+      const colors = noteColors[note.noteType] || noteColors.OTHER;
+
+      events.push({
+        id: `note-${note.id}`,
+        title: `${icon} ${note.title}`,
+        start: note.startDate.toISOString().split('T')[0],
+        end: endVal,
+        backgroundColor: colors.bg,
+        borderColor: colors.border,
+        textColor: '#ffffff',
+        extendedProps: {
+          noteId: note.id,
+          title: note.title,
+          description: note.description,
+          noteType: note.noteType,
+          eventType: 'Calendar Note',
+        },
+      });
     });
 
     res.json(events);
@@ -482,7 +746,7 @@ exports.bulkShiftTickets = async (req, res, next) => {
 
   try {
     const whereClause = {
-      status: { in: ['OPEN', 'CLOSED'] },
+      status: { in: [TicketStatus.UNSCHEDULED, TicketStatus.SCHEDULED] },
       scheduledWorkDate: { not: null },
     };
 
@@ -640,7 +904,7 @@ exports.importJobs = async (req, res, next) => {
               description: job.description || 'Imported Job',
               requestType: job.requestType || 'Standard Service',
               assignedTo: job.assignedTo || 'Unassigned',
-              status: job.status || 'OPEN',
+              status: normalizeTicketStatus(job.status),
               isPremium: job.isPremium === 'true' || job.isPremium === '1',
               scheduledWorkDate: job.scheduledWorkDate ? new Date(job.scheduledWorkDate) : null,
               deadline: job.deadline ? new Date(job.deadline) : null,
@@ -678,7 +942,7 @@ exports.bulkManualEntry = async (req, res, next) => {
           description: item.description,
           requestType: item.requestType || 'Standard Service',
           assignedTo: item.assignedTo || 'Unassigned',
-          status: 'OPEN'
+          status: TicketStatus.UNSCHEDULED
         }
       });
       createdCount++;

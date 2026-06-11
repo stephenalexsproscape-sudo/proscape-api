@@ -48,6 +48,29 @@ describe('API Endpoints', () => {
       expect(res.statusCode).toEqual(400);
       expect(res.body.error).toEqual('Validation Error');
     });
+
+    it('GET /customers/:id should return 404 if customer does not exist', async () => {
+      const res = await request(app)
+        .get('/customers/9999999')
+        .set('Authorization', `Bearer ${authToken}`);
+      expect(res.statusCode).toEqual(404);
+    });
+
+    it('PUT /customers/:id/specs should return 404 if customer does not exist', async () => {
+      const res = await request(app)
+        .put('/customers/9999999/specs')
+        .set('Authorization', `Bearer ${authToken}`)
+        .send({ snowTrigger: '2 inches' });
+      expect(res.statusCode).toEqual(404);
+    });
+
+    it('PUT /customers/:id should return 404 if customer does not exist', async () => {
+      const res = await request(app)
+        .put('/customers/9999999')
+        .set('Authorization', `Bearer ${authToken}`)
+        .send({ displayName: 'New Display Name' });
+      expect(res.statusCode).toEqual(404);
+    });
   });
 
   describe('Protected Admin Endpoints', () => {

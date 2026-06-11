@@ -1,6 +1,7 @@
 const prisma = require('../prisma/client');
 const logAudit = require('../middleware/audit');
 const { z } = require('zod');
+const { sendNewClientEmail } = require('../utils/mailer');
 
 const createCustomerSchema = z.object({
   firstName: z.string().optional().nullable(),
@@ -72,18 +73,34 @@ exports.searchCustomers = async (req, res, next) => {
 };
 
 exports.getAllCustomers = async (req, res, next) => {
-  const { companyId } = req.query;
+  const { companyId, brief } = req.query;
   try {
     const whereClause = companyId ? { companyId: parseInt(companyId) } : {};
-    const customers = await prisma.customer.findMany({
+    
+    let queryOptions = {
       where: whereClause,
-      include: {
+      orderBy: { displayName: 'asc' },
+    };
+
+    if (brief === 'true') {
+      queryOptions.select = {
+        id: true,
+        displayName: true,
+        company: {
+          select: {
+            name: true
+          }
+        }
+      };
+    } else {
+      queryOptions.include = {
         company: true,
         contacts: { where: { isPrimary: true } },
         addresses: { where: { type: 'SERVICE' } },
-      },
-      orderBy: { displayName: 'asc' },
-    });
+      };
+    }
+
+    const customers = await prisma.customer.findMany(queryOptions);
     res.json(customers);
   } catch (e) {
     next(e);
@@ -108,6 +125,11 @@ exports.getCustomerById = async (req, res, next) => {
         siteSpec: true,
       },
     });
+
+    if (!customer) {
+      return res.status(404).json({ error: 'Customer not found' });
+    }
+
     res.json(customer);
   } catch (e) {
     next(e);
@@ -135,6 +157,14 @@ exports.createCustomer = async (req, res, next) => {
       'CREATED',
       `Created new record: ${finalDisplayName}`
     );
+
+    // Send email alert to admin
+    const fullCust = await prisma.customer.findUnique({
+      where: { id: newCustomer.id },
+      include: { contacts: true }
+    });
+    sendNewClientEmail(fullCust).catch(e => console.error('Error sending new client email:', e));
+
     res.json(newCustomer);
   } catch (e) {
     next(e);
@@ -155,6 +185,10 @@ exports.updateCustomerProfile = async (req, res, next) => {
       where: { id: customerId },
       include: { contacts: { where: { isPrimary: true } }, addresses: { where: { type: 'SERVICE' } } },
     });
+
+    if (!oldCustomer) {
+      return res.status(404).json({ error: 'Customer not found' });
+    }
 
     const updatedCustomer = await prisma.customer.update({
       where: { id: customerId },
@@ -216,6 +250,11 @@ exports.updateSiteSpecs = async (req, res, next) => {
   try {
     const validatedData = updateSiteSpecsSchema.parse(req.body);
     const { snowTrigger, gateCode, mulchYardage, propertyNotes } = validatedData;
+
+    const customerExists = await prisma.customer.findUnique({ where: { id: customerId } });
+    if (!customerExists) {
+      return res.status(404).json({ error: 'Customer not found' });
+    }
 
     const spec = await prisma.siteSpec.upsert({
       where: { customerId },

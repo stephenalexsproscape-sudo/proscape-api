@@ -5,10 +5,15 @@ const prisma = new PrismaClient();
 
 async function resetPassword() {
   // ==========================================
-  // 🔐 OVERRIDE CREDENTIALS
+  // 🔐 OVERRIDE CREDENTIALS - EMERGENCY USE ONLY
   // ==========================================
-  const targetUsername = 'admin'; // Change this if your username isn't 'admin'
-  const newPassword = 'Juv5@lsd';
+  // SECURITY: Do not commit passwords. Provide via RESET_PASSWORD env var.
+  const targetUsername = process.env.RESET_USERNAME || 'admin';
+  const newPassword = process.env.RESET_PASSWORD;
+  if (!newPassword || newPassword.length < 8) {
+    console.error('Usage: RESET_PASSWORD=your-new-secure-pass node emergency-reset.js [RESET_USERNAME=admin]');
+    process.exit(1);
+  }
 
   try {
     console.log(`Hashing new password for '${targetUsername}'...`);

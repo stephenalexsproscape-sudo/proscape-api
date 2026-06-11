@@ -1,5 +1,6 @@
 const prisma = require('../prisma/client');
 const { z } = require('zod');
+const { TicketStatus } = require('../utils/ticketStatus');
 
 const performanceStatsQuerySchema = z.object({
   startDate: z.string().optional().refine((val) => !val || !isNaN(Date.parse(val)), {
@@ -30,7 +31,7 @@ exports.getPerformanceStats = async (req, res, next) => {
     // 2. Recent Job Completions (Filtered by Date)
     const recentCompletions = await prisma.serviceRequest.count({
       where: {
-        status: 'COMPLETED',
+        status: TicketStatus.DONE,
         updatedAt: { gte: start, lte: end },
       },
     });
@@ -47,7 +48,7 @@ exports.getPerformanceStats = async (req, res, next) => {
     // 4. Crew Workload (Current Open Tickets)
     const crewWorkload = await prisma.serviceRequest.groupBy({
       by: ['assignedTo'],
-      where: { status: 'OPEN' },
+      where: { status: TicketStatus.UNSCHEDULED },
       _count: { id: true },
     });
 

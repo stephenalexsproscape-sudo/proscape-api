@@ -38,6 +38,14 @@ const errorHandler = (err, req, res, _next) => {
     }
   }
 
+  // Handle Multer/Upload Errors
+  if (err.name === 'MulterError' || err.message === 'Only CSV files are allowed' || err.message === 'File extension is not allowed') {
+    return res.status(400).json({
+      error: 'Upload Error',
+      message: err.message,
+    });
+  }
+
   const statusCode = err.statusCode || 500;
   const message = err.message || 'Internal Server Error';
 

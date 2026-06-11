@@ -71,7 +71,8 @@ exports.sendMessage = async (req, res, next) => {
 
     if (sendEmail && receiver.email) {
       console.log(`[MSG] Triggering email notification to ${receiver.email}`);
-      await sendStaffMessageEmail(receiver.email, message.sender.username, content);
+      const origin = req.headers.origin && !req.headers.origin.includes('localhost') ? req.headers.origin : null;
+      await sendStaffMessageEmail(receiver.email, message.sender.username, content, origin);
     }
 
     res.json(message);

@@ -80,7 +80,8 @@ model ServiceRequest {
   requestType       String?
   description       String
   assignedTo        String?
-  status            String    @default("OPEN")
+  assignedCrewId    Int?
+  status            TicketStatus @default(UNSCHEDULED)
   proposalSentDate  DateTime?
   scheduledWorkDate DateTime?
   scheduledEndDate  DateTime?
@@ -89,9 +90,14 @@ model ServiceRequest {
   deadline          DateTime?
   isPremium         Boolean      @default(false)
   customer          Customer     @relation(fields: [customerId], references: [id], onDelete: Cascade)
+  assignedCrew      Crew?        @relation(fields: [assignedCrewId], references: [id], onDelete: SetNull)
   attachments       Attachment[]
 
   @@index([customerId])
+  @@index([status])
+  @@index([scheduledWorkDate])
+  @@index([assignedTo])
+  @@index([assignedCrewId])
   }
 
   model Attachment {
@@ -112,15 +118,19 @@ model AuditLog {
   createdAt  DateTime @default(now())
   newValues  Json?
   oldValues  Json?
+  userId     Int?
+  userRole   String?
 
   @@index([entityType, entityId])
 }
 
 model Crew {
-  id        Int      @id @default(autoincrement())
-  name      String   @unique
-  color     String   @default("#64748b")
-  isActive  Boolean  @default(true)
+  id              Int              @id @default(autoincrement())
+  name            String           @unique
+  color           String           @default("#64748b")
+  isActive        Boolean          @default(true)
+  sortOrder       Int              @default(0)
+  serviceRequests ServiceRequest[]
 }
 
 model JobCategory {
@@ -128,6 +138,7 @@ model JobCategory {
   name      String   @unique
   icon      String   @default("📌")
   isActive  Boolean  @default(true)
+  sortOrder Int      @default(0)
 }
 
 model User {
@@ -176,4 +187,25 @@ model SiteSpec {
 enum AddressType {
   BILLING
   SERVICE
+}
+
+enum TicketStatus {
+  UNSCHEDULED
+  PROPOSAL_SENT
+  SCHEDULED
+  DONE
+  ARCHIVED
+}
+
+model CalendarNote {
+  id          Int      @id @default(autoincrement())
+  title       String
+  description String?
+  noteType    String   @default("OTHER") // e.g. DELIVERY, VACATION, EVENT, OTHER
+  startDate   DateTime
+  endDate     DateTime
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([startDate])
 }

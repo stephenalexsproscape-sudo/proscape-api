@@ -29,6 +29,8 @@ describe('Proscape Total System Audit', () => {
     // 2. Generate Tokens (Simulate login by directly signing or using the /login endpoint if it allows 'hash')
     // We'll use a hacky way since /login expects real passwords, but for testing RBAC we just need valid signed tokens.
     const jwt = require('jsonwebtoken');
+    // Test safety: provide a test secret so we don't rely on (now-removed) insecure default in auth.js
+    process.env.JWT_SECRET = process.env.JWT_SECRET || 'test-secret-do-not-use-in-prod';
     const { JWT_SECRET } = require('../middleware/auth');
     adminToken = jwt.sign({ userId: testAdmin.id, role: 'ADMIN' }, JWT_SECRET);
     managerToken = jwt.sign({ userId: testManager.id, role: 'MANAGER' }, JWT_SECRET);

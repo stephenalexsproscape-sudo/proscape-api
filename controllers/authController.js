@@ -15,7 +15,7 @@ const loginSchema = z.object({
 const provisionAccountSchema = z.object({
   username: z.string().min(3, 'Username must be at least 3 characters'),
   password: z.string().min(6, 'Password must be at least 6 characters'),
-  role: z.enum(['ADMIN', 'MANAGER', 'WORKER']).optional(),
+  role: z.enum(['ADMIN', 'MANAGER', 'WORKER', 'USER']).optional(),
 });
 
 const resetPasswordSchema = z.object({
@@ -47,6 +47,14 @@ exports.login = async (req, res, next) => {
         JWT_SECRET,
         { expiresIn: '7d' }
       );
+      
+      const secureFlag = req.secure || req.headers['x-forwarded-proto'] === 'https' ? '; Secure' : '';
+      // Loosened SameSite for functionality/appearance in local/http setups (images, fetches, etc. must work reliably).
+      // Can tighten later.
+      res.setHeader('Set-Cookie', [
+        `proscape_token=${token}; HttpOnly${secureFlag}; SameSite=Lax; Path=/; Max-Age=${7 * 24 * 60 * 60}`
+      ]);
+
       res.json({ token });
     } else {
       res.status(401).json({ message: 'Invalid credentials' });
@@ -71,7 +79,10 @@ exports.getAllUsers = async (req, res, next) => {
 
 exports.provisionAccount = async (req, res, next) => {
   try {
-    const { username, password, role } = provisionAccountSchema.parse(req.body);
+    let { username, password, role } = provisionAccountSchema.parse(req.body);
+    if (role === 'USER') {
+      role = 'WORKER';
+    }
     const hashedPassword = await bcrypt.hash(password, 10);
 
     const newUser = await prisma.user.create({
@@ -212,7 +223,7 @@ exports.updateMe = async (req, res, next) => {
   const userId = parseInt(req.user.userId);
   try {
     const { email, phone, password } = updateMeSchema.parse(req.body);
-    const data = { email, phone };
+    const data = { email: email === '' ? null : email, phone };
     if (password) {
       data.passwordHash = await bcrypt.hash(password, 10);
     }
