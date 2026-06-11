@@ -280,11 +280,28 @@ exports.getOpenTickets = async (req, res, next) => {
       where.customerId = parseInt(customerId);
     }
 
-    const tickets = await prisma.serviceRequest.findMany({
-      where,
-      include: { customer: true },
-      orderBy: { dateReceived: 'desc' },
-    });
+    // Phase 1: pagination support + headers (defaults generous for MPA client-side filtering)
+    const page = parseInt(req.query.page) || 1;
+    const limit = Math.min(parseInt(req.query.limit) || 200, 500);
+    const skip = (page - 1) * limit;
+
+    const [tickets, total] = await Promise.all([
+      prisma.serviceRequest.findMany({
+        where,
+        include: { customer: true },
+        orderBy: { dateReceived: 'desc' },
+        skip,
+        take: limit,
+      }),
+      prisma.serviceRequest.count({ where }),
+    ]);
+
+    res.setHeader('X-Total-Count', total);
+    res.setHeader('X-Page', page);
+    res.setHeader('X-Limit', limit);
+    res.setHeader('X-Total-Pages', Math.ceil(total / limit));
+    res.setHeader('Access-Control-Expose-Headers', 'X-Total-Count, X-Page, X-Limit, X-Total-Pages');
+
     res.json(tickets);
   } catch (e) {
     next(e);
@@ -562,25 +579,41 @@ exports.getCalendarEvents = async (req, res, next) => {
       ];
     }
 
-    const tickets = await prisma.serviceRequest.findMany({
-      where,
-      include: {
-        customer: {
-          include: {
-            addresses: true,
-            siteSpec: true,
+    // Phase 1 pagination (optional; calendar date-range already scopes heavily)
+    const page = parseInt(req.query.page) || 1;
+    const limit = Math.min(parseInt(req.query.limit) || 1000, 2000);
+    const skip = (page - 1) * limit;
+
+    const [tickets, total] = await Promise.all([
+      prisma.serviceRequest.findMany({
+        where,
+        include: {
+          customer: {
+            include: {
+              addresses: true,
+              siteSpec: true,
+            },
           },
+          attachments: true,
         },
-        attachments: true,
-      },
-    });
+        skip,
+        take: limit,
+      }),
+      prisma.serviceRequest.count({ where }),
+    ]);
+
+    // Expose pagination headers for clients that want them
+    res.setHeader('X-Total-Count', total);
+    res.setHeader('X-Page', page);
+    res.setHeader('X-Limit', limit);
+    res.setHeader('X-Total-Pages', Math.ceil(total / limit) || 1);
+    res.setHeader('Access-Control-Expose-Headers', 'X-Total-Count, X-Page, X-Limit, X-Total-Pages');
 
     const events = [];
     const today = new Date();
     today.setHours(0, 0, 0, 0);
 
-    // Modern backend for command center UI: rich attachments for modals/calendar.
-    // Future optimization: project attachmentCount for list views at scale.
+    // Phase 1: always project attachmentCount for leaner list views + keep attachments for modals/details.
     // Structured responses help reduce client-side JS.
 
     tickets.forEach((ticket) => {
@@ -592,6 +625,7 @@ exports.getCalendarEvents = async (req, res, next) => {
         ticket.deadline &&
         new Date(ticket.deadline) < today;
 
+      const attachmentCount = Array.isArray(ticket.attachments) ? ticket.attachments.length : 0;
       const baseProps = {
         ticketId: ticket.id,
         customerId: ticket.customerId,
@@ -605,6 +639,7 @@ exports.getCalendarEvents = async (req, res, next) => {
         isPremium: ticket.isPremium,
         isOverdue: isOverdue,
         attachments: ticket.attachments,
+        attachmentCount,
         addresses: ticket.customer?.addresses,
       };
 
