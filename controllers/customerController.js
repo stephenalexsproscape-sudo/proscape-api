@@ -1,7 +1,7 @@
 const prisma = require('../prisma/client');
 const logAudit = require('../middleware/audit');
 const { z } = require('zod');
-const { sendNewClientEmail } = require('../utils/mailer');
+const { enqueue } = require('../utils/queue');
 
 const createCustomerSchema = z.object({
   firstName: z.string().optional().nullable(),
@@ -158,12 +158,12 @@ exports.createCustomer = async (req, res, next) => {
       `Created new record: ${finalDisplayName}`
     );
 
-    // Send email alert to admin
+    // Send email alert to admin via background queue (Phase 2)
     const fullCust = await prisma.customer.findUnique({
       where: { id: newCustomer.id },
       include: { contacts: true }
     });
-    sendNewClientEmail(fullCust).catch(e => console.error('Error sending new client email:', e));
+    enqueue({ type: 'new-client-email', data: { customer: fullCust } });
 
     res.json(newCustomer);
   } catch (e) {

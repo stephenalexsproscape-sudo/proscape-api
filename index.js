@@ -132,11 +132,43 @@ app.use('/', calendarNoteRoutes);
 // AI / Voice command routes (protected inside the router)
 app.use('/ai', aiLimiter, aiRoutes);
 
+// Phase 2 Architecture: Background job queue for emails/SMS/recurring side-effects.
+// This unblocks the main request handlers (better responsiveness for field users).
+// Handlers are registered here so they run asynchronously via the simple in-process queue.
+console.log('QUEUE SETUP LOADED - top level code executing');
+const { enqueue, registerHandler } = require('./utils/queue');
+const mailer = require('./utils/mailer');
+
+registerHandler('completion-email', async (data) => {
+  await mailer.sendJobCompletionEmail(
+    data.to,
+    data.clientName,
+    data.ticketId,
+    data.description,
+    data.notes,
+    data.attachments || []
+  );
+});
+
+registerHandler('new-client-email', async (data) => {
+  await mailer.sendNewClientEmail(data.customer);
+});
+
+registerHandler('export-email', async (data) => {
+  await mailer.sendExportEmail(data.csvContent);
+});
+
 // Health Check (Optional, since root serves frontend)
 app.get('/health', (req, res) => {
   res.send(
     '<h1 style="color:#166534; text-align:center; font-family:sans-serif;">🍃 Proscape Relational API Online</h1>'
   );
+});
+
+// Debug: queue status (for testing simulated workflows)
+app.get('/debug/queue', (req, res) => {
+  const { getQueueStatus } = require('./utils/queue');
+  res.json(getQueueStatus ? getQueueStatus() : { error: 'no status' });
 });
 
 // Error Handling Middleware (MUST be last)

@@ -4,7 +4,7 @@ const { z } = require('zod');
 const fs = require('fs');
 const csv = require('csv-parser');
 const { Parser } = require('json2csv');
-const { sendExportEmail, sendNewClientEmail } = require('../utils/mailer');
+const { enqueue } = require('../utils/queue');
 const {
   TicketStatus,
   normalizeTicketStatus,
@@ -137,12 +137,12 @@ exports.createServiceRequest = async (req, res, next) => {
         `Created new record: ${finalDisplayName}`
       );
 
-      // Send email alert to admin
+      // Send email alert to admin via background queue (Phase 2)
       const fullCust = await prisma.customer.findUnique({
         where: { id: newCust.id },
         include: { contacts: true }
       });
-      sendNewClientEmail(fullCust).catch(e => console.error('Error sending new client email:', e));
+      enqueue({ type: 'new-client-email', data: { customer: fullCust } });
     } else if (updateMaster && targetCustomerId) {
       const primaryContact = await prisma.contact.findFirst({
         where: { customerId: parseInt(targetCustomerId), isPrimary: true },
@@ -481,8 +481,18 @@ exports.updateTicket = async (req, res, next) => {
             const reqAttachments = await prisma.attachment.findMany({
               where: { serviceRequestId: ticketId }
             });
-            const { sendJobCompletionEmail } = require('../utils/mailer');
-            await sendJobCompletionEmail(primaryContact.email, customer.displayName, ticketId, oldTicket.description, note, reqAttachments);
+            // Phase 2: enqueue via background queue (unblocks the HTTP response immediately)
+            enqueue({
+              type: 'completion-email',
+              data: {
+                to: primaryContact.email,
+                clientName: customer.displayName,
+                ticketId,
+                description: oldTicket.description,
+                notes: note,
+                attachments: reqAttachments
+              }
+            });
           }
           if (primaryContact.phone) {
             console.log(`[SMS SENT] to ${primaryContact.phone} (${customer.displayName}): Proscape Job #${ticketId} has been marked DONE. Details: ${note || 'None'}`);
@@ -587,6 +597,8 @@ exports.getCalendarEvents = async (req, res, next) => {
     const [tickets, total] = await Promise.all([
       prisma.serviceRequest.findMany({
         where,
+        // Phase 2 Perf TODO: Lean this query further (use select on main + minimal for addresses/attachments to reduce payload for high-volume calendar views).
+        // Current full include for customer (addresses + siteSpec) + attachments is for extendedProps in FC events and modals. Profile with EXPLAIN if slow.
         include: {
           customer: {
             include: {
@@ -760,16 +772,34 @@ exports.getCalendarEvents = async (req, res, next) => {
 
     res.json(events);
   } catch (e) {
+    console.error('[getCalendarEvents ERROR]', e.message, e.stack?.split('\n')[0]);
     next(e);
   }
 };
 
 exports.getRecentActivity = async (req, res, next) => {
   try {
-    const logs = await prisma.auditLog.findMany({
-      orderBy: { createdAt: 'desc' },
-      take: 8,
-    });
+    // Phase 2 perf: support pagination for feeds virtual/infinite scroll (see getOpenTickets for pattern).
+    // Defaults preserve original behavior (8 items). Uses headers for total/pages.
+    const page = parseInt(req.query.page) || 1;
+    const limit = Math.min(parseInt(req.query.limit) || 8, 50);
+    const skip = (page - 1) * limit;
+
+    const [logs, total] = await Promise.all([
+      prisma.auditLog.findMany({
+        orderBy: { createdAt: 'desc' },
+        skip,
+        take: limit,
+      }),
+      prisma.auditLog.count(),
+    ]);
+
+    res.setHeader('X-Total-Count', total);
+    res.setHeader('X-Page', page);
+    res.setHeader('X-Limit', limit);
+    res.setHeader('X-Total-Pages', Math.ceil(total / limit) || 1);
+    res.setHeader('Access-Control-Expose-Headers', 'X-Total-Count, X-Page, X-Limit, X-Total-Pages');
+
     res.json(logs);
   } catch (e) {
     next(e);
@@ -915,7 +945,8 @@ exports.exportJobs = async (req, res, next) => {
     const parser = new Parser(opts);
     const csvData = parser.parse(flattened);
 
-    await sendExportEmail(csvData);
+    // Phase 2: enqueue export email so admin action returns immediately
+    enqueue({ type: 'export-email', data: { csvContent: csvData } });
 
     res.json({ success: true, message: 'Export sent to admin email.' });
   } catch (e) {
