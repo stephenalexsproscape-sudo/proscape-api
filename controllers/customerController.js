@@ -24,6 +24,7 @@ const updateSiteSpecsSchema = z.object({
   gateCode: z.string().optional().nullable(),
   mulchYardage: z.coerce.number().optional().nullable(),
   propertyNotes: z.string().optional().nullable(),
+  customSpecs: z.record(z.any()).optional().nullable(),
 });
 
 exports.getStats = async (req, res, next) => {
@@ -249,7 +250,7 @@ exports.updateSiteSpecs = async (req, res, next) => {
 
   try {
     const validatedData = updateSiteSpecsSchema.parse(req.body);
-    const { snowTrigger, gateCode, mulchYardage, propertyNotes } = validatedData;
+    const { snowTrigger, gateCode, mulchYardage, propertyNotes, customSpecs } = validatedData;
 
     const customerExists = await prisma.customer.findUnique({ where: { id: customerId } });
     if (!customerExists) {
@@ -263,6 +264,7 @@ exports.updateSiteSpecs = async (req, res, next) => {
         gateCode,
         mulchYardage: mulchYardage,
         propertyNotes,
+        customSpecs: customSpecs || undefined,
       },
       create: {
         customerId,
@@ -270,6 +272,7 @@ exports.updateSiteSpecs = async (req, res, next) => {
         gateCode,
         mulchYardage: mulchYardage,
         propertyNotes,
+        customSpecs: customSpecs || undefined,
       },
     });
 
@@ -284,6 +287,61 @@ exports.getAllCompanies = async (req, res, next) => {
   try {
     const companies = await prisma.company.findMany({ orderBy: { name: 'asc' } });
     res.json(companies);
+  } catch (e) {
+    next(e);
+  }
+};
+
+exports.proposeSiteSpecs = async (req, res, next) => {
+  const customerId = parseInt(req.params.id);
+  if (isNaN(customerId)) {
+    return res.status(400).json({ error: 'Invalid Customer ID' });
+  }
+
+  try {
+    const validatedData = updateSiteSpecsSchema.parse(req.body);
+    const { snowTrigger, gateCode, mulchYardage, propertyNotes, customSpecs } = validatedData;
+
+    const customerExists = await prisma.customer.findUnique({ where: { id: customerId } });
+    if (!customerExists) {
+      return res.status(404).json({ error: 'Customer not found' });
+    }
+
+    const content = `Worker "${req.user.username}" proposed a site spec update for client "${customerExists.displayName}" (ID: ${customerId}):\n` +
+      `- Snow Trigger: ${snowTrigger || '--'}\n` +
+      `- Gate Code: ${gateCode || '--'}\n` +
+      `- Mulch Yardage: ${mulchYardage || '--'}\n` +
+      `- Property Notes: ${propertyNotes || '--'}\n` +
+      `- Custom Specs: ${customSpecs ? JSON.stringify(customSpecs) : '--'}`;
+
+    const adminsAndManagers = await prisma.user.findMany({
+      where: {
+        role: { in: ['ADMIN', 'MANAGER'] }
+      }
+    });
+
+    for (const mgr of adminsAndManagers) {
+      await prisma.internalMessage.create({
+        data: {
+          senderId: parseInt(req.user.userId),
+          receiverId: mgr.id,
+          content,
+        }
+      });
+    }
+
+    await logAudit(
+      'CUSTOMER',
+      customerId,
+      'SPEC_PROPOSAL',
+      `Worker ${req.user.username} proposed specs update.`,
+      null,
+      null,
+      req.user.userId,
+      req.user.role
+    );
+
+    res.json({ success: true, message: 'Proposal submitted successfully' });
   } catch (e) {
     next(e);
   }

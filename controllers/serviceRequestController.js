@@ -5,6 +5,7 @@ const fs = require('fs');
 const csv = require('csv-parser');
 const { Parser } = require('json2csv');
 const { enqueue } = require('../utils/queue');
+const { getSettings } = require('../utils/settings');
 const {
   TicketStatus,
   normalizeTicketStatus,
@@ -47,6 +48,9 @@ const updateTicketSchema = z.object({
   assignedCrewId: z.coerce.number().optional().nullable(),
   requestType: z.string().optional().nullable(),
   description: z.string().optional(),
+  equipmentLog: z.any().optional().nullable(),
+  materialsLog: z.any().optional().nullable(),
+  completionReport: z.any().optional().nullable(),
 });
 
 const addNoteSchema = z.object({
@@ -377,6 +381,9 @@ exports.updateTicket = async (req, res, next) => {
       assignedCrewId,
       requestType,
       description,
+      equipmentLog,
+      materialsLog,
+      completionReport,
     } = validatedData;
 
     const oldTicket = await prisma.serviceRequest.findFirst({ 
@@ -432,6 +439,9 @@ exports.updateTicket = async (req, res, next) => {
     if (customerId !== undefined) dataToUpdate.customerId = customerId;
     if (requestType !== undefined) dataToUpdate.requestType = requestType;
     if (description !== undefined) dataToUpdate.description = description;
+    if (equipmentLog !== undefined) dataToUpdate.equipmentLog = equipmentLog;
+    if (materialsLog !== undefined) dataToUpdate.materialsLog = materialsLog;
+    if (completionReport !== undefined) dataToUpdate.completionReport = completionReport;
 
     if (assignedCrewId !== undefined) {
       dataToUpdate.assignedCrewId = assignedCrewId;
@@ -558,6 +568,16 @@ exports.getCalendarEvents = async (req, res, next) => {
   try {
     const { start, end } = req.query;
     const where = {};
+
+    if (req.user.role === 'WORKER') {
+      const dbUser = await prisma.user.findUnique({
+        where: { id: parseInt(req.user.userId) },
+        select: { crewId: true }
+      });
+      if (dbUser && dbUser.crewId) {
+        where.assignedCrewId = dbUser.crewId;
+      }
+    }
     if (start && end) {
       const startDate = new Date(start);
       const endDate = new Date(end);
@@ -744,12 +764,7 @@ exports.getCalendarEvents = async (req, res, next) => {
         endVal = endDate.toISOString().split('T')[0];
       }
 
-      const noteColors = {
-        DELIVERY: { bg: '#f59e0b', border: '#d97706' },
-        VACATION: { bg: '#06b6d4', border: '#0891b2' },
-        EVENT: { bg: '#8b5cf6', border: '#7c3aed' },
-        OTHER: { bg: '#64748b', border: '#475569' },
-      };
+      const noteColors = getSettings().noteColors;
       const colors = noteColors[note.noteType] || noteColors.OTHER;
 
       events.push({
@@ -874,15 +889,32 @@ exports.uploadAttachment = async (req, res, next) => {
   if (!req.file) return res.status(400).json({ error: 'No file uploaded.' });
 
   try {
+    const userRole = req.user?.role || 'WORKER';
+    const uploadType = req.body.type || 'GENERAL';
+    if (userRole === 'WORKER' && uploadType !== 'BEFORE_PHOTO' && uploadType !== 'AFTER_PHOTO') {
+      return res.status(403).json({ error: 'Workers are only permitted to upload before/after photos.' });
+    }
+
     const attachment = await prisma.attachment.create({
       data: {
         serviceRequestId: ticketId,
         fileName: req.file.originalname,
         fileUrl: `/uploads/${req.file.filename}`,
+        type: req.body.type || 'GENERAL',
+        caption: req.body.caption || null,
       },
     });
 
-    await logAudit('TICKET', ticketId, 'ATTACHMENT_UPLOADED', `Uploaded file: ${req.file.originalname}`);
+    await logAudit(
+      'TICKET', 
+      ticketId, 
+      'ATTACHMENT_UPLOADED', 
+      `Uploaded file: ${req.file.originalname} (${req.body.type || 'GENERAL'})`,
+      null,
+      null,
+      req.user.userId,
+      req.user.role
+    );
     res.json(attachment);
   } catch (e) {
     next(e);
@@ -900,7 +932,16 @@ exports.deleteAttachment = async (req, res, next) => {
 
     await prisma.attachment.delete({ where: { id: attachmentId } });
 
-    await logAudit('TICKET', attachment.serviceRequestId, 'ATTACHMENT_DELETED', `Deleted file: ${attachment.fileName}`);
+    await logAudit(
+      'TICKET', 
+      attachment.serviceRequestId, 
+      'ATTACHMENT_DELETED', 
+      `Deleted file: ${attachment.fileName}`,
+      null,
+      null,
+      req.user.userId,
+      req.user.role
+    );
     res.json({ success: true });
   } catch (e) {
     next(e);
@@ -1020,6 +1061,160 @@ exports.bulkManualEntry = async (req, res, next) => {
 
     await logAudit('BATCH', 0, 'MANUAL_BULK_ENTRY', `Manually created ${createdCount} tickets in bulk.`);
     res.json({ success: true, count: createdCount });
+  } catch (e) {
+    next(e);
+  }
+};
+
+async function triggerDoneSideEffects(ticketId, oldTicket, note = '') {
+  try {
+    const customer = await prisma.customer.findFirst({
+      where: { id: oldTicket.customerId },
+      include: { contacts: true }
+    });
+    if (customer && customer.contacts.length > 0) {
+      const primaryContact = customer.contacts.find(c => c.isPrimary) || customer.contacts[0];
+      if (primaryContact.email) {
+        const reqAttachments = await prisma.attachment.findMany({
+          where: { serviceRequestId: ticketId }
+        });
+        enqueue({
+          type: 'completion-email',
+          data: {
+            to: primaryContact.email,
+            clientName: customer.displayName,
+            ticketId,
+            description: oldTicket.description,
+            notes: note,
+            attachments: reqAttachments
+          }
+        });
+      }
+      if (primaryContact.phone) {
+        console.log(`[SMS SENT] to ${primaryContact.phone} (${customer.displayName}): Proscape Job #${ticketId} has been marked DONE. Details: ${note || 'None'}`);
+      }
+    }
+  } catch (err) {
+    console.error('Failed to send auto completion alerts:', err);
+  }
+}
+
+exports.updateLaborStatus = async (req, res, next) => {
+  const ticketId = parseInt(req.params.id);
+  if (isNaN(ticketId)) {
+    return res.status(400).json({ error: 'Invalid Ticket ID' });
+  }
+
+  const { laborState: newLaborState, note } = req.body;
+  if (!['IDLE', 'EN_ROUTE', 'IN_PROGRESS', 'COMPLETED'].includes(newLaborState)) {
+    return res.status(400).json({ error: 'Invalid laborState value' });
+  }
+
+  try {
+    const ticket = await prisma.serviceRequest.findUnique({
+      where: { id: ticketId }
+    });
+    if (!ticket) {
+      return res.status(404).json({ error: 'Service request not found' });
+    }
+
+    const workerUser = await prisma.user.findUnique({
+      where: { id: parseInt(req.user.userId) },
+      select: { id: true, crewId: true }
+    });
+
+    if (req.user.role === 'WORKER') {
+      if (!workerUser.crewId || workerUser.crewId !== ticket.assignedCrewId) {
+        return res.status(403).json({ error: "Forbidden: You are not assigned to this job's crew." });
+      }
+    }
+
+    const currentLaborState = ticket.laborState || 'IDLE';
+    const allowedTransitions = {
+      'IDLE': ['EN_ROUTE', 'IN_PROGRESS'],
+      'EN_ROUTE': ['IN_PROGRESS', 'IDLE'],
+      'IN_PROGRESS': ['IDLE', 'COMPLETED'],
+    };
+
+    const allowed = allowedTransitions[currentLaborState] || [];
+    if (!allowed.includes(newLaborState)) {
+      return res.status(400).json({ error: `Invalid transition from ${currentLaborState} to ${newLaborState}` });
+    }
+
+    const timestamp = req.body.clientTimestamp ? new Date(req.body.clientTimestamp) : new Date();
+
+    // 1. Close any prior open segment for this worker and this ticket
+    const openLog = await prisma.laborLog.findFirst({
+      where: {
+        serviceRequestId: ticket.id,
+        workerId: workerUser.id,
+        endedAt: null,
+      }
+    });
+    if (openLog) {
+      const endedAt = timestamp;
+      const durationMs = endedAt.getTime() - openLog.startedAt.getTime();
+      const durationMinutes = Math.max(1, Math.round(durationMs / 60000));
+      await prisma.laborLog.update({
+        where: { id: openLog.id },
+        data: { endedAt, durationMinutes }
+      });
+    }
+
+    // 2. Open new segment if advancing
+    if (newLaborState === 'EN_ROUTE' || newLaborState === 'IN_PROGRESS') {
+      await prisma.laborLog.create({
+        data: {
+          serviceRequestId: ticket.id,
+          workerId: workerUser.id,
+          status: newLaborState,
+          startedAt: timestamp,
+        }
+      });
+    }
+
+    // 3. Update the ServiceRequest
+    let updatedTicket;
+    if (newLaborState === 'COMPLETED') {
+      updatedTicket = await prisma.serviceRequest.update({
+        where: { id: ticket.id },
+        data: {
+          laborState: 'IDLE',
+          status: TicketStatus.DONE,
+        }
+      });
+
+      // Done side effects (message log, email alerts, SMS log)
+      const completionNote = note || 'Labor completed.';
+      await prisma.message.create({
+        data: {
+          content: `[TICKET #${ticket.id} LABOR COMPLETE] ${completionNote}`,
+          customerId: ticket.customerId,
+        },
+      });
+
+      await triggerDoneSideEffects(ticket.id, ticket, completionNote);
+    } else {
+      updatedTicket = await prisma.serviceRequest.update({
+        where: { id: ticket.id },
+        data: {
+          laborState: newLaborState
+        }
+      });
+    }
+
+    await logAudit(
+      'TICKET',
+      ticket.id,
+      'LABOR_STATUS_CHANGED',
+      `Labor status changed from ${currentLaborState} to ${newLaborState}.`,
+      null,
+      null,
+      req.user.userId,
+      req.user.role
+    );
+
+    res.json(updatedTicket);
   } catch (e) {
     next(e);
   }

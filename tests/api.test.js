@@ -98,5 +98,56 @@ describe('API Endpoints', () => {
       expect(res.statusCode).toEqual(200);
       expect(Array.isArray(res.body)).toBe(true);
     });
+
+    it('GET /settings/note-colors should require authentication', async () => {
+      const res = await request(app).get('/settings/note-colors');
+      expect(res.statusCode).toEqual(401);
+    });
+
+    it('GET /settings/note-colors should return colors dictionary when authenticated', async () => {
+      if (!authToken) return;
+      const res = await request(app)
+        .get('/settings/note-colors')
+        .set('Authorization', `Bearer ${authToken}`);
+      
+      expect(res.statusCode).toEqual(200);
+      expect(res.body).toHaveProperty('DELIVERY');
+      expect(res.body).toHaveProperty('VACATION');
+      expect(res.body).toHaveProperty('EVENT');
+      expect(res.body).toHaveProperty('OTHER');
+    });
+
+    it('PUT /settings/note-colors should update note colors and validation checks', async () => {
+      if (!authToken) return;
+      const payload = {
+        DELIVERY: { bg: '#ff0000' },
+        VACATION: { bg: '#00ff00', border: '#00aa00' },
+        EVENT: { bg: '#0000ff' },
+        OTHER: { bg: '#ffff00' },
+      };
+
+      const res = await request(app)
+        .put('/settings/note-colors')
+        .set('Authorization', `Bearer ${authToken}`)
+        .send(payload);
+
+      expect(res.statusCode).toEqual(200);
+      expect(res.body.success).toBe(true);
+      expect(res.body.noteColors.DELIVERY.bg).toEqual('#ff0000');
+      expect(res.body.noteColors.DELIVERY.border).toEqual('#ff0000'); // derived border
+      expect(res.body.noteColors.VACATION.bg).toEqual('#00ff00');
+      expect(res.body.noteColors.VACATION.border).toEqual('#00aa00'); // explicit border
+    });
+
+    it('PUT /settings/note-colors should fail if data is invalid (400)', async () => {
+      if (!authToken) return;
+      const res = await request(app)
+        .put('/settings/note-colors')
+        .set('Authorization', `Bearer ${authToken}`)
+        .send({ DELIVERY: { bg: 123 } }); // invalid bg and missing fields
+      
+      expect(res.statusCode).toEqual(400);
+      expect(res.body.error).toEqual('Validation Error');
+    });
   });
 });

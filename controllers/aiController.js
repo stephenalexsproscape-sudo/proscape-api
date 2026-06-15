@@ -13,7 +13,7 @@ async function callGemini(prompt) {
   }
 
   const response = await fetch(
-    `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${GEMINI_API_KEY}`,
+    `https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent?key=${GEMINI_API_KEY}`,
     {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -62,7 +62,80 @@ exports.processVoiceCommand = async (req, res, next) => {
     const crewNames = crews.map((c) => c.name).join(', ');
     const categoryNames = categories.map((c) => c.name).join(', ');
 
-    const systemPrompt = `You are Gemini, an AI assistant embedded in the Proscape CRM app (a landscaping and hardscape service management tool).
+    let systemPrompt;
+    if (context.mode === 'modal_fill') {
+      const activeTab = context.activeTab || 'details';
+      let fieldsPrompt = '';
+
+      if (activeTab === 'details') {
+        fieldsPrompt = `You are parsing voice commands for the 'Job Details' tab in the Job Management popup.
+Your task is to identify and extract values for the following fields based on the user's speech:
+- "modalAssigned" (select): Assigned Crew. Expected value: one of the available crews [${crewNames}] or "Unassigned". If the user says a crew name, map it to the exact crew from the list.
+- "modalCategory" (select): Job Category. Expected value: one of the available categories [${categoryNames}]. If the user says a category name, map it to the exact category.
+- "modalStatus" (select): Job Status. Expected value must be one of: "UNSCHEDULED", "SCHEDULED", or "DONE".
+- "modalPremium" (checkbox): Premium status. Expected value: boolean (true/false).
+- "modalStartDateInput" (date): Start date. Expected format: "YYYY-MM-DD" using ${today} for relative date calculation.
+- "modalEndDateInput" (date): End date. Expected format: "YYYY-MM-DD" using ${today} for relative date calculation.
+- "modalDeadlineInput" (date): Deadline date. Expected format: "YYYY-MM-DD" using ${today} for relative date calculation.
+- "modalDescription" (textarea): Scope of work (text).`;
+      } else if (activeTab === 'proof') {
+        fieldsPrompt = `You are parsing voice commands for the 'Notes & Specs' tab in the Job Management popup.
+Your task is to identify and extract values for the following fields based on the user's speech:
+- "modalSpecSnow" (text): Snow Trigger (e.g., "2 inches").
+- "modalSpecGate" (text): Gate Code (e.g., "#1234").
+- "modalSpecMulch" (number): Mulch Yardage.
+- "modalSpecNotes" (textarea): Property Notes.
+- "modalNewNote" (textarea): Add Field Note (text).`;
+      } else if (activeTab === 'worksheet') {
+        fieldsPrompt = `You are parsing voice commands for the 'Worksheet' tab in the Job Management popup.
+Your task is to identify and extract values for the following fields based on the user's speech:
+- "modalWorksheetTrucks" (textarea): Trucks / Trailers Used (text).
+- "modalWorksheetTools" (textarea): Powered Tools Used (text).
+- "modalWorksheetMulchColor" (text): Mulch Color (text).
+- "modalWorksheetMulchQty" (number): Mulch (yd³).
+- "modalWorksheetCompost" (number): Compost (yd³).
+- "modalWorksheetSoil" (number): Soil (yd³).
+- "modalWorksheetRiverstoneSize" (text): Riverstone Size (text).
+- "modalWorksheetRiverstoneQty" (number): Riverstone (tons).
+- "modalWorksheetAgg" (number): 2A/2B (tons).
+- "modalWorksheetSnapshot" (number): Snapshot (lbs).
+- "modalWorksheetDebris" (number): Debris (loads).
+- "modalWorksheetOtherMaterials" (textarea): Other Materials / Details (text).
+- "modalWorksheetJobDetails" (textarea): Job Details (text).`;
+      } else {
+        fieldsPrompt = `Unknown active tab "${activeTab}".`;
+      }
+
+      systemPrompt = `You are Gemini, an AI assistant embedded in the Proscape CRM app.
+User's voice command: "${transcript}"
+
+Current context:
+- Mode: modal_fill
+- Active Tab: ${activeTab}
+- Today's date: ${today} (use this for any relative dates)
+
+${fieldsPrompt}
+
+Analyze the user's command. If you can identify any fields being mentioned and can extract values for them, respond with a JSON object containing the parsed fields and a descriptive confirmation message.
+Only include the fields in the "data" object that you were able to identify and parse from the speech.
+
+Output MUST be a valid minified JSON object (no markdown formatting, no explanations, no backticks) in the following format:
+{
+  "action": "fill_fields",
+  "data": {
+    // fieldId: parsedValue pairs
+  },
+  "message": "Friendly confirmation text listing which fields were recognized and set."
+}
+
+If no fields could be identified or parsed, return:
+{
+  "action": "respond",
+  "data": {},
+  "message": "I couldn't recognize any fields for the ${activeTab} tab. Please try again."
+}`;
+    } else {
+      systemPrompt = `You are Gemini, an AI assistant embedded in the Proscape CRM app (a landscaping and hardscape service management tool).
 
 User's voice command: "${transcript}"
 
@@ -127,6 +200,7 @@ Important:
 - For customer, capture the spoken name in customerName — the backend will try to match it.
 - If you cannot confidently map to an action, use "respond".
 - Output must be pure valid JSON only.`;
+    }
 
     let parsed;
     try {
@@ -174,8 +248,17 @@ Important:
         parsed.action = 'respond';
         delete parsed.data;
       } else {
-        // No match - let the create endpoint handle "new client" or error
-        parsed.message = `Couldn't find an exact match for customer "${name}". I'll try to create it as a new lead if you proceed.`;
+        // No match - set isNewClient and split the name into firstName/lastName for the creation endpoint
+        parsed.data.isNewClient = true;
+        const nameParts = name.split(/\s+/);
+        if (nameParts.length > 1) {
+          parsed.data.firstName = nameParts[0];
+          parsed.data.lastName = nameParts.slice(1).join(' ');
+        } else {
+          parsed.data.firstName = '';
+          parsed.data.lastName = name;
+        }
+        parsed.message = `Couldn't find an exact match for customer "${name}". I'll create them as a new lead if you proceed.`;
       }
     }
 

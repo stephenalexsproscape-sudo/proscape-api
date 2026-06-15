@@ -22,6 +22,15 @@ const authenticateToken = (req, res, next) => {
   jwt.verify(token, JWT_SECRET, (err, user) => {
     if (err) return res.status(403).json({ error: 'Invalid or expired token' });
     req.user = user;
+    
+    // Support Admin simulating other roles for frontend view matching on the backend
+    if (req.user.role === 'ADMIN') {
+      const simulatedRole = req.headers['x-simulated-role'];
+      if (simulatedRole && ['ADMIN', 'MANAGER', 'WORKER'].includes(simulatedRole)) {
+        req.user.role = simulatedRole;
+      }
+    }
+    
     next();
   });
 };

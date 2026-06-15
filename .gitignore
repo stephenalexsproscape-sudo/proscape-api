@@ -8,3 +8,5 @@ uploads/
 *.sql
 *.txt
 *.log
+/ssl/
+settings.json

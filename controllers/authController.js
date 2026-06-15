@@ -16,6 +16,7 @@ const provisionAccountSchema = z.object({
   username: z.string().min(3, 'Username must be at least 3 characters'),
   password: z.string().min(6, 'Password must be at least 6 characters'),
   role: z.enum(['ADMIN', 'MANAGER', 'WORKER', 'USER']).optional(),
+  crewId: z.coerce.number().optional().nullable(),
 });
 
 const resetPasswordSchema = z.object({
@@ -68,7 +69,7 @@ exports.login = async (req, res, next) => {
 exports.getAllUsers = async (req, res, next) => {
   try {
     const users = await prisma.user.findMany({
-      select: { id: true, username: true, role: true, createdAt: true },
+      select: { id: true, username: true, role: true, createdAt: true, crewId: true },
       orderBy: { username: 'asc' },
     });
     res.json(users);
@@ -79,7 +80,7 @@ exports.getAllUsers = async (req, res, next) => {
 
 exports.provisionAccount = async (req, res, next) => {
   try {
-    let { username, password, role } = provisionAccountSchema.parse(req.body);
+    let { username, password, role, crewId } = provisionAccountSchema.parse(req.body);
     if (role === 'USER') {
       role = 'WORKER';
     }
@@ -90,8 +91,9 @@ exports.provisionAccount = async (req, res, next) => {
         username,
         passwordHash: hashedPassword,
         role: role || 'WORKER',
+        crewId: crewId || null,
       },
-      select: { id: true, username: true, role: true },
+      select: { id: true, username: true, role: true, crewId: true },
     });
 
     await logAudit(
@@ -210,7 +212,7 @@ exports.getMe = async (req, res, next) => {
     const userId = parseInt(req.user.userId);
     const user = await prisma.user.findUnique({
       where: { id: userId },
-      select: { id: true, username: true, email: true, phone: true, role: true }
+      select: { id: true, username: true, email: true, phone: true, role: true, crewId: true }
     });
     if (!user) return res.status(404).json({ error: 'User not found' });
     res.json(user);

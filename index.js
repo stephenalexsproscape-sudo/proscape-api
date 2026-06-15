@@ -41,6 +41,8 @@ const app = express();
 const isProd = process.env.NODE_ENV === 'production';
 app.use(helmet({
   contentSecurityPolicy: isProd, // Enable strict CSP in production; disabled for local dev/Vite
+  crossOriginOpenerPolicy: isProd ? { policy: 'same-origin' } : false, // Avoid console warnings on Tailscale HTTP / local non-secure origins
+  originAgentCluster: isProd ? true : false, // Avoid console warnings on Tailscale HTTP / local non-secure origins
 }));
 
 // CORS Whitelist config
@@ -56,11 +58,23 @@ if (process.env.CORS_ORIGIN) {
 const corsOptions = {
   origin: function (origin, callback) {
     if (!origin) return callback(null, true); // Allow non-browser requests
-    if (allowedOrigins.indexOf(origin) !== -1 || 
-        origin.startsWith('http://localhost') || 
-        origin.startsWith('http://127.0.0.1') ||
-        origin.startsWith('http://100.')) {  // Tailscale / CGNAT IPs (common for this setup)
+    if (allowedOrigins.indexOf(origin) !== -1) {
       return callback(null, true);
+    }
+    try {
+      const url = new URL(origin);
+      const hostname = url.hostname;
+      const isLocalhost = hostname === 'localhost' || hostname === '127.0.0.1';
+      const isPrivateIP = 
+        hostname.startsWith('192.168.') || 
+        hostname.startsWith('10.') || 
+        hostname.startsWith('100.') || // Tailscale
+        (/^172\.(1[6-9]|2\d|3[01])\./.test(hostname)); // 172.16.x.x - 172.31.x.x
+      if (isLocalhost || isPrivateIP) {
+        return callback(null, true);
+      }
+    } catch (e) {
+      // Invalid URL format, fall through to rejection
     }
     console.warn(`[CORS REJECTED] Origin: ${origin}`);
     callback(new Error('Not allowed by CORS'));

@@ -92,6 +92,11 @@ model ServiceRequest {
   customer          Customer     @relation(fields: [customerId], references: [id], onDelete: Cascade)
   assignedCrew      Crew?        @relation(fields: [assignedCrewId], references: [id], onDelete: SetNull)
   attachments       Attachment[]
+  laborState        String       @default("IDLE") // IDLE, EN_ROUTE, IN_PROGRESS
+  laborLogs         LaborLog[]
+  equipmentLog      Json?
+  materialsLog      Json?
+  completionReport  Json?
 
   @@index([customerId])
   @@index([status])
@@ -106,6 +111,8 @@ model ServiceRequest {
   fileName         String
   fileUrl          String
   uploadedAt       DateTime       @default(now())
+  type             String         @default("GENERAL") // BEFORE_PHOTO, AFTER_PHOTO, CONTRACT, GENERAL
+  caption          String?
   serviceRequest   ServiceRequest @relation(fields: [serviceRequestId], references: [id], onDelete: Cascade)
   }
 
@@ -131,6 +138,7 @@ model Crew {
   isActive        Boolean          @default(true)
   sortOrder       Int              @default(0)
   serviceRequests ServiceRequest[]
+  users           User[]
 }
 
 model JobCategory {
@@ -154,6 +162,9 @@ model User {
 
   sentMessages     InternalMessage[] @relation("SentMessages")
   receivedMessages InternalMessage[] @relation("ReceivedMessages")
+  crewId           Int?
+  crew             Crew?             @relation(fields: [crewId], references: [id], onDelete: SetNull)
+  laborLogs        LaborLog[]
 }
 
 model InternalMessage {
@@ -180,6 +191,7 @@ model SiteSpec {
   gateCode      String?
   mulchYardage  Float?
   propertyNotes String?
+  customSpecs   Json?
   updatedAt     DateTime @updatedAt
   customer      Customer @relation(fields: [customerId], references: [id], onDelete: Cascade)
 }
@@ -208,4 +220,20 @@ model CalendarNote {
   updatedAt   DateTime @updatedAt
 
   @@index([startDate])
+}
+
+model LaborLog {
+  id               Int            @id @default(autoincrement())
+  serviceRequestId Int
+  serviceRequest   ServiceRequest @relation(fields: [serviceRequestId], references: [id], onDelete: Cascade)
+  workerId         Int?
+  worker           User?          @relation(fields: [workerId], references: [id], onDelete: SetNull)
+  status           String         // EN_ROUTE, IN_PROGRESS, COMPLETED, PAUSED
+  startedAt        DateTime       @default(now())
+  endedAt          DateTime?
+  durationMinutes  Int?
+
+  @@index([serviceRequestId])
+  @@index([workerId])
+  @@index([startedAt])
 }

@@ -6,7 +6,7 @@ const prisma = new PrismaClient();
 describe('Proscape Total System Audit', () => {
   let adminToken, managerToken, workerToken;
   let testAdmin, testManager, testWorker;
-  let testCustomer;
+  let testCustomer, testTicket;
 
   beforeAll(async () => {
     // 1. Setup Test Users
@@ -40,6 +40,13 @@ describe('Proscape Total System Audit', () => {
     testCustomer = await prisma.customer.create({
         data: { displayName: 'AUDIT TEST CUSTOMER' }
     });
+    testTicket = await prisma.serviceRequest.create({
+        data: {
+          customerId: testCustomer.id,
+          description: 'Audit test ticket',
+          status: 'UNSCHEDULED'
+        }
+    });
   });
 
   afterAll(async () => {
@@ -71,6 +78,57 @@ describe('Proscape Total System Audit', () => {
         .set('Authorization', `Bearer ${adminToken}`);
       expect(res.statusCode).toEqual(200);
       expect(Array.isArray(res.body)).toBe(true);
+    });
+
+    it('WORKER should be blocked from uploading GENERAL attachments (403)', async () => {
+      const fs = require('fs');
+      fs.writeFileSync('test-worker-upload.txt', 'worker file content');
+      
+      const res = await request(app)
+        .post(`/service-requests/${testTicket.id}/attachments`)
+        .set('Authorization', `Bearer ${workerToken}`)
+        .attach('file', 'test-worker-upload.txt')
+        .field('type', 'GENERAL')
+        .field('caption', 'Worker tried general upload');
+        
+      if (fs.existsSync('test-worker-upload.txt')) fs.unlinkSync('test-worker-upload.txt');
+      
+      expect(res.statusCode).toEqual(403);
+      expect(res.body.error).toContain('before/after photos');
+    });
+
+    it('WORKER should be allowed to upload BEFORE_PHOTO or AFTER_PHOTO attachments (200)', async () => {
+      const fs = require('fs');
+      fs.writeFileSync('test-worker-photo.png', 'worker photo content');
+      
+      const res = await request(app)
+        .post(`/service-requests/${testTicket.id}/attachments`)
+        .set('Authorization', `Bearer ${workerToken}`)
+        .attach('file', 'test-worker-photo.png')
+        .field('type', 'BEFORE_PHOTO')
+        .field('caption', 'Before photo upload');
+        
+      if (fs.existsSync('test-worker-photo.png')) fs.unlinkSync('test-worker-photo.png');
+      
+      expect(res.statusCode).toEqual(200);
+      expect(res.body.type).toEqual('BEFORE_PHOTO');
+    });
+
+    it('ADMIN/MANAGER should be allowed to upload GENERAL attachments (200)', async () => {
+      const fs = require('fs');
+      fs.writeFileSync('test-admin-doc.pdf', 'admin doc content');
+      
+      const res = await request(app)
+        .post(`/service-requests/${testTicket.id}/attachments`)
+        .set('Authorization', `Bearer ${adminToken}`)
+        .attach('file', 'test-admin-doc.pdf')
+        .field('type', 'GENERAL')
+        .field('caption', 'Admin doc upload');
+        
+      if (fs.existsSync('test-admin-doc.pdf')) fs.unlinkSync('test-admin-doc.pdf');
+      
+      expect(res.statusCode).toEqual(200);
+      expect(res.body.type).toEqual('GENERAL');
     });
   });
 

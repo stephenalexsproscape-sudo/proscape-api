@@ -52,8 +52,9 @@ router.post('/service-requests/bulk-manual', authenticateToken, authorizeRoles('
 // Specific routes MUST come before parameterized ones
 router.put('/service-requests/bulk-shift', authenticateToken, authorizeRoles('ADMIN', 'MANAGER'), serviceRequestController.bulkShiftTickets);
 router.put('/service-requests/:id', authenticateToken, authorizeRoles('ADMIN', 'MANAGER', 'WORKER'), serviceRequestController.updateTicket);
+router.patch('/service-requests/:id/labor-status', authenticateToken, serviceRequestController.updateLaborStatus);
 router.get('/service-requests/:id', authenticateToken, serviceRequestController.getTicketById);
-router.delete('/service-requests/:id', authenticateToken, authorizeRoles('ADMIN'), serviceRequestController.deleteServiceRequest);
+router.delete('/service-requests/:id', authenticateToken, authorizeRoles('ADMIN', 'MANAGER'), serviceRequestController.deleteServiceRequest);
 router.get('/calendar-events', authenticateToken, serviceRequestController.getCalendarEvents);
 router.get('/service-requests/:id/audit-logs', authenticateToken, serviceRequestController.getTicketAuditLogs);
 router.get('/recent-activity', authenticateToken, serviceRequestController.getRecentActivity);
